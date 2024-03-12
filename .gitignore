@@ -1,1 +1,5 @@
 .ipynb_checkpoints/
+
+Lesson-Plans/*.*
+!Lesson-Plans/*.tex
+!Lesson-Plans/*.pdf
