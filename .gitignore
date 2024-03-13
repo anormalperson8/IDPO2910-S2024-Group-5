@@ -3,3 +3,9 @@
 Lesson-Plans/*.*
 !Lesson-Plans/*.tex
 !Lesson-Plans/*.pdf
+
+Notes/*
+!Notes/*.tex
+!Notes/*.pdf
+!Notes/*.png
+!Notes/*.jpg
