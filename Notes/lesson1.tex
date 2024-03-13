@@ -1,0 +1,860 @@
+\documentclass[dvipsnames, svgnames, x11names]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{bold-extra}
+\usepackage{amsfonts, amsthm, amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{ulem}
+\usepackage{minted}
+\usemintedstyle{vs}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage{multirow, multicol}
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{arrows.meta, math, calc, quotes, intersections, angles, trees, shapes.geometric}
+\pgfplotsset{compat=1.18}
+\tikzstyle{block} = [rectangle, minimum width=4cm, minimum height=2cm, text centered, draw = black]
+\tikzmath{\x1 = 2.5; \y1 = 3;}
+
+\graphicspath{{./}}
+
+\title[Python Basics]{Coding in Python}
+\subtitle{Python Basics - Part 1}
+\date[April 2024]{April 2024}
+\author[IDPO 2910 Group 5]{IDPO 2910 Group 5}
+\titlegraphic{\includegraphics[height=1cm]{ust.png}}
+
+\begin{document}
+\frame{\titlepage}
+\begin{frame}{What is Python?}
+Did you know? Python was made by someone who was bored.\\
+It's a language designed to be almost as understandable as English.\\
+You will be using Python 3. Why? \pause Because Python 1 are 2 are dead.
+\onslide<1-2>
+\begin{center}
+\includegraphics[height=1.5cm]{python-logo.png}\\
+This is the logo of Python.
+\end{center}
+\end{frame}
+
+\begin{frame}{World of Game Coding}
+\tikzstyle{block} = [rectangle, minimum width=4cm, minimum height=2cm, text centered, draw = black]
+\tikzmath{\x1 = 2.5; \y1 = 3;}
+
+\hspace{0.2\textwidth}\scalebox{0.5}{
+\begin{tikzpicture}
+\node (root) [block, fill = Cornsilk2] {Game (Software)};
+\node (program) [block, fill = LightSteelBlue] at ($(root) + (-\x1, -\y1)$) {Program (Codes)};
+\node (mm) [block, fill = Cornsilk2] at ($(root) + (\x1, -\y1)$) {Multimedia};
+
+\node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+
+\node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+\node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+
+\node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+\node (var) [block, fill = LightSteelBlue] at ($(loop) + (0, -\y1)$) {Variables};
+
+\draw [->] (root.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (program.north);
+\draw [->] (root.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (mm.north);
+
+\draw [->] (program.south) -- (func.north);
+
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+
+\draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+\draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+\end{tikzpicture}}
+
+\end{frame}
+
+\begin{frame}{Contents}
+
+\begin{center}\scalebox{0.5}{
+\begin{tikzpicture}
+\node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+
+\node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+
+\node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+\node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+
+\node (io) [block, fill = DarkSeaGreen2] at ($(if) + (0, -\y1)$) {Input/Output};
+\node (var) [block, fill = LightSteelBlue] at ($(loop) + (0, -\y1)$) {Variables};
+
+\draw [->] (program.south) -- (func.north);
+
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+
+\draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+\draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+\end{tikzpicture}}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{The first thing in Python - \texttt{print()} function}
+% \begin{minted}[tabsize=4, xleftmargin=1em, linenos]{py}
+\begin{minted}[tabsize=4]{python} 
+print("This is the print function.")
+\end{minted}
+\end{frame}
+
+
+\begin{frame}[fragile]{The first thing in Python - \texttt{print()} function}
+% \begin{minted}[tabsize=4, xleftmargin=1em, linenos]{py}
+\texttt{print()} is a function that lets you print something,\\
+also known as text output.
+\begin{minted}[tabsize=4]{python}
+print("Word") # This prints the word "Word".
+\end{minted}
+\vspace{1em}
+Output:
+\begin{minted}[tabsize=4]{python} 
+>>> print("Word")
+Word
+>>> print("Haha hehe")
+Haha hehe
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{input()} function}
+We know how to output strings, what about input?
+\begin{minted}[tabsize=4]{python} 
+input("This is the input function.")
+\end{minted}
+\end{frame}
+
+
+\begin{frame}[fragile]{The first thing in Python - \texttt{print()} function}
+\texttt{input()} is a function that outputs a prompt and lets the user enter something.
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+>>> input("Enter a number: ")
+Enter a number: |{\color{ForestGreen}\textit{5}}|
+\end{minted}
+\vspace{1em}
+Simply inputting doesn't do anything, but we can print it.
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+>>> print(input("Enter a number: "))
+Enter a number: |{\color{ForestGreen}\textit{100}}|
+100
+\end{minted}
+\end{frame}
+
+
+\begin{frame}{Contents}
+
+\begin{center}\scalebox{0.5}{
+\begin{tikzpicture}
+\node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+
+\node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+
+\node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+\node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+
+\node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+\node (var) [block, fill = DarkSeaGreen2] at ($(loop) + (0, -\y1)$) {Variables};
+
+\draw [->] (program.south) -- (func.north);
+
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+
+\draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+\draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+\end{tikzpicture}}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variables}
+\begin{center}
+Imagine you borrow a box from the computer.
+
+\includegraphics[height=3cm]{box}
+
+\pause
+Give it a name and a value, you can now recall this value with the name!
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Variables}
+The code usually goes:\\
+\texttt{variable\char`\_name = data}\\
+This means whatever \texttt{data} is, it is now stored in a variable with name \texttt{variable\char`\_name}.
+\vspace{1em}\\
+Some basic variable types:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5       |\pause|# This is an integer (int) stored in a |\pause|
+b = True    |\pause|# This is a boolean (bool) stored in b |\pause|
+c = 3.2     |\pause|# This is a float (float)  stored in c |\pause|
+d = "abc"   |\pause|# This is a string (str)   stored in d |\pause|
+e = 'abc'   |\pause|# This is also a string    stored in e
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Integers}
+What are integers?\pause\\
+Integers are just like what you've learnt in Maths, numbers without decimal points.\pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5       |\pause|# Valid|\pause|
+b = 12      |\pause|# Valid|\pause|
+c = 69420   |\pause|# Valid|\pause|
+d = -1984   |\pause|# Valid|\pause|
+e = 32.5    |\pause|# This would become a float instead|\pause|
+f = '5'     |\pause|# This would become a string instead
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
+You can do normal operations on integers:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 1 + 2   |\pause|# a stores the integer 3|\pause|
+b = 80 - 52 |\pause|# b stores the integer 28|\pause|
+c = 69 * -2 |\pause|# c stores the integer -138|\pause|
+d = 6 / 4   |\pause|# d stores the float 1.5|\pause|
+e = 18 / 2  |\pause|# e stores the float 9.0|\pause|
+\end{minted}
+\begin{alertblock}{Division}
+Whether a number can be precisely divided or not, division returns a \texttt{float}.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
+Operations with variables:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 100
+b = 12 |\pause|
+c = a + b   |\pause|# c stores the integer 112|\pause|
+d = b - a   |\pause|# d stores the integer -88|\pause|
+e = a * -b  |\pause|# e stores the integer -1200|\pause|
+f = a / b   |\pause|# f stores the float 8.333333333333334
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
+Then how do we get an integer output?\pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 100
+b = 12 |\pause|
+c = a // b  |\pause|# c stores the integer 8|\pause|
+            # // operator takes the closest and smaller 
+            # integer from the division operation|\pause|
+d = a % b   |\pause|# d stores the integer 4|\pause|
+			# % operator takes the remainder of a 
+			# division operation
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
+Also, the power (exponent) operation:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 2
+b = 5       |\pause|
+c = a ** b  |\pause|# c stores the integer 32
+			# ** operator means power
+\end{minted}
+\end{frame}
+ 
+\begin{frame}[fragile]{Variables - Floats}
+What are floats?\pause\\
+Floats are numbers with decimal point(s).\pause\\
+Arithmetic operators we learnt can be applied as well.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 0.2     |\pause|# a stores the float 0.2|\pause|
+b = 3.0     |\pause|# b stores the float 3.0|\pause|
+c = a + b   |\pause|# c stores the float 3.2|\pause|
+d = b / a   |\pause|# d stores the float 15.0|\pause|
+e = a ** b  |\pause|# e stores the float 0.008000000000000002|\pause|
+\end{minted}
+\begin{alertblock}{Inaccuracies}
+Inaccuracies happen with decimal division. Be careful when dealing with floats.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Floats}
+What are floats?\\
+Floats are numbers with decimal point(s).\\
+We learnt about arithmetic operators: +, -, *, /, //, \%, **\\
+All of them, except // and \% can be applied to floats.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 0.2     # a stores the float 0.2
+b = 3       # b stores the integer 3|\pause|
+c = a + b   # c stores the float 3.2
+d = b / a   # d stores the float 15.0
+e = a ** b  # e stores the float 0.008000000000000002
+\end{minted}
+\pause
+\begin{block}{Arithmetic operations between \texttt{int} and \texttt{float}}
+Arithmetic operations between integers and floats converts the integer into a float first before operating.
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Variables - Boolean values}
+What are boolean values?\pause\\
+There are only 2 boolean values in existence: \texttt{True} and \texttt{False}.\pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = True
+b = False
+\end{minted}
+\vspace{2cm}
+\pause That's it.
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Strings}
+What are strings?\pause\\
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = "word"  |\pause|# a stores the string "word"|\pause|
+b = 'word2' |\pause|# b stores the string "word2"|\pause|
+c = '5.20'  |\pause|# c stores the string "5.20"|\pause|
+\end{minted}
+\vspace{-0.275em}
+\texttt{d = }{\color{BrickRed}\texttt{\textquotesingle abc"}}\pause \hspace{1.59em}{\color{Green}\texttt{\# error}} \pause
+\begin{block}{Quotes}
+In Python you must use corresponding quotation marks for strings.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Strings}
+How do I put the symbols \texttt{\textquotesingle} and \texttt{"} into a string?\pause\\
+For \texttt{"}:\pause
+	
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = "word\"" # a stores the string "word""|\pause|
+b = 'word"'  # b stores the same string as a|\pause|
+\end{minted}
+\vspace{1em}
+Same goes for single quotes \texttt{\textquotesingle}:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 'word\'' # a stores the string "word'"
+b = "word'"  # b stores the same string as a
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Strings}
+There are additional symbols in strings.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = "word\n" # \n represents the newline character
+b = "word\t" # \t represents the tab character
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Strings}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = "haha"
+b = "hehe"
+c = a + b    |\pause|# c stores the string "hahahehe"
+\end{minted}
+\pause
+\begin{block}{Concatenation of strings}
+You can concatenate (add) strings together with the addition symbol.
+\end{block}
+\end{frame}
+
+\begin{frame}{Type conversion}
+You can convert between types with their type names in Python.
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		Data Type & Command\\\hline
+		Integer & \texttt{int()}\\\hline
+		Float & \texttt{float()}\\\hline
+		String & \texttt{str()}\\\hline
+		Boolean & \texttt{bool()}\\\hline
+	\end{tabular}
+\end{center}
+
+\begin{block}{Focus}
+We will focus on \texttt{int()} today as it will be needed in your game.
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Conversion with \texttt{int()}}
+\texttt{int()} tries to convert a variable into an integer.
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+a = 10        # int
+print(int(a)) |\pause|# 10
+			  |\pause|# Nothing occurs |\pause|
+			  
+b = 3.7       # float
+print(int(b)) |\pause|# 3
+              |\pause|# Discards values to the right of 
+              # the decimal point |\pause|
+              
+c = True      # boolean
+print(int(c)) |\pause|# 1 |\pause|
+
+d = False     # boolean
+print(int(d)) |\pause|# 0 |\pause|
+              # For boolean: 0 if False, True otherwise
+              
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Conversion with \texttt{int()}}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = "123abc"  # string
+print(int(i)) |\pause|# Error |\pause|
+
+j = "123"     # string with ONLY numbers
+print(int(j)) |\pause|# 123 |\pause|
+              # Only integers in strings would be 
+              # successfully converted |\pause|
+
+k = "123.123" # string with ONLY numbers, but with 
+              # a number that represents a float
+print(int(k)) |\pause|# Error 
+\end{minted}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}{Contents}
+\begin{center}\scalebox{0.5}{
+\begin{tikzpicture}
+\node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+
+\node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+
+\node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+\node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+
+\node (io) [block, fill = DarkSeaGreen2] at ($(if) + (0, -\y1)$) {Input/Output};
+\node (var) [block, fill = DarkSeaGreen2] at ($(loop) + (0, -\y1)$) {Variables};
+
+\draw [->] (program.south) -- (func.north);
+
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+
+\draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+\draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+\end{tikzpicture}}
+\end{center}
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{Variables in output - Revisiting the \texttt{print()} function}
+How do we print variables?
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5
+print(a)       |\pause|# 5 |\pause|
+b = "haha"
+print(b)       |\pause|# haha |\pause|
+print(a + 2)   |\pause|# 7 |\pause|
+print(b + "a") |\pause|# hahaa |\pause|
+print(a, b)    |\pause|# 5 haha |\pause|
+print(b, b)    |\pause|# haha haha |\pause|
+\end{minted}
+\begin{block}{The comma}
+Using \texttt{,} in \texttt{print()} would add a space in between the 2 items.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables in output - Revisiting the \texttt{print()} function}
+How do we print variables?
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5
+print(a)       # 5
+b = "haha"
+print(b)       # haha|\pause|
+print(a + "5") |\pause|# error |\pause|
+print(b + 2)   |\pause|# error |\pause|
+print(a + b)   |\pause|# error |\pause|
+\end{minted}
+\begin{block}{Addition}
+You cannot use addition to print things of incompatible types.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables in output - Revisiting the \texttt{print()} function}
+How do we print variables?
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5
+b = 32
+c = 32.0
+print(a * b)    # 160
+print(a * c)    # 160.0
+\end{minted}
+\pause
+\begin{block}{Takeaway}
+\texttt{print()} function evaluates the expression inside the brackets first before actually printing.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{More on \texttt{print()} function}
+In Python, the \texttt{print()} function automatically adds a new line after execution. We, however, can stop that.\\
+The \texttt{end=} tag allows us to define the character added when \texttt{print()} is executed.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+print(5, end="")
+print(4)
+print("a", end="abc")
+print("d", end=" ")
+print("e")|\pause|
+# What is the output?|\pause|
+# Output: 54
+#         aabcd e
+\end{minted}
+\begin{block}{End of line}
+Remember to include a new line {\color{BrickRed}\texttt{\textbackslash n}} in the last line of a printed string.\\
+Else it may mess up the future outputs from other lines of the code or the computer terminal.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{More on \texttt{print()} function}
+We mentioned that whenever \texttt{,} is used in \texttt{print()}, the items would be separated by a space.\\
+This can actually be changed using the \texttt{sep=} tag.\pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+>>> print("100", 100, end="\n3\n")|\pause|
+>>> 100 100
+	3|\pause|
+>>> print("100", 100, sep="a", end="\n3\n")|\pause|
+>>> 100a100
+	3
+\end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]{More on \texttt{print()} function}
+Another example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+>>> a = 5
+>>> b = 10
+>>> print(a, b, a + b, end="20\n")|\pause|
+>>> 5 10 1520 |\pause|
+>>> print(a, b, a + b, sep="", end="20\n")|\pause|
+>>> 5101520	
+>>> print(a, b, a + b, end="20\n", sep="")|\pause|
+>>> 5101520	|\pause|
+\end{minted}
+\begin{block}{Command Parameters}
+As long as you mark \texttt{sep} and \texttt{end} clearly \textbf{and} after the things you want to print, the ordering doesn't matter!
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Converting the type of an input}
+How do we convert the data type of variables?
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+>>> number = input("Enter your number: ")
+Enter your number: |{\color{ForestGreen}\textit{50}}|
+>>> print(number) |\pause|
+50 |\pause|
+>>> print(number + 1000) |\pause|# Error occurs. Why?
+\end{minted}
+\pause
+\begin{block}{Explanation}
+\texttt{number} is a string type while 1000 is an integer.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Converting the type of an input}
+How do we convert the data type of variables?
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+>>> number = input("Enter your number: ")
+Enter your number: |{\color{ForestGreen}\textit{50}}|
+>>> print(number) |\pause|
+50 |\pause|
+>>> print(int(number) + 1000) |\pause|# 1050
+\end{minted}
+
+\end{frame}
+
+\begin{frame}{Contents}
+
+\begin{center}\scalebox{0.5}{
+\begin{tikzpicture}
+\node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+
+\node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+
+\node (if) [block, fill = DarkSeaGreen2] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+\node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+
+\node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+\node (var) [block, fill = LightSteelBlue] at ($(loop) + (0, -\y1)$) {Variables};
+
+\draw [->] (program.south) -- (func.north);
+
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+
+\draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+\draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+\end{tikzpicture}}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Decision Making}
+\begin{center}
+What is decision making? \pause 
+
+\
+
+We use condition(s) to decide whether some code should be run.
+
+\
+
+\tikzstyle{startstop} = [rectangle, rounded corners, 
+minimum width=3cm, 
+minimum height=1cm,
+text centered, 
+draw=black, 
+fill=red!30]
+
+\tikzstyle{io} = [trapezium, 
+trapezium stretches=true, % A later addition
+trapezium left angle=70, 
+trapezium right angle=110, 
+minimum width=3cm, 
+minimum height=1cm, text centered, 
+draw=black, fill=blue!30]
+
+\tikzstyle{process} = [rectangle, 
+minimum width=3cm, 
+minimum height=1cm, 
+text centered, 
+text width=3cm, 
+draw=black, 
+fill=orange!30]
+
+\tikzstyle{decision} = [diamond, 
+minimum width=3cm, 
+minimum height=1cm, 
+text centered, 
+draw=black, 
+fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\scalebox{0.4}{\begin{tikzpicture}[node distance=2cm]
+
+\node (start) [startstop] {Start};
+\node (in1) [io, right of=start, xshift=2cm] {Input};
+\node (pro1) [process, below of=in1] {Process 1};
+\node (dec1) [decision, below of=pro1, yshift=-0.5cm] {Decision 1};
+
+\node (pro2a) [process, left of=dec1, xshift=-2cm] {Process 2a};
+
+\node (pro2b) [process, right of=dec1, xshift=2cm] {Process 2b};
+\node (out1) [io, below of=pro2a] {Output};
+\node (stop) [startstop, right of=out1, xshift=2cm] {Stop};
+
+\draw [arrow] (start) -- (in1);
+\draw [arrow] (in1) -- (pro1);
+\draw [arrow] (pro1) -- (dec1);
+\draw [arrow] (dec1) -- node[anchor=south] {False} (pro2a);
+\draw [arrow] (dec1) -- node[anchor=south] {True} (pro2b);
+\draw [arrow] (pro2a) -- (out1);
+\draw [arrow] (out1) -- (stop);
+\draw [arrow] (pro2b) |- (stop);
+
+\end{tikzpicture}}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{if} clause}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5 # a stores the integer 5
+if (a == 5):
+	print("a stores 5.") # This line is activated
+	
+b = 10 # b stores the integer 10
+if (b == 5)
+	print("b stores 5.") # This line is not activated
+\end{minted}
+\begin{block}{The \texttt{if} clause}
+If the condition is true, then the code under it is run.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{==} operator}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5 # a stores the integer 5
+if (a == 5):
+	print("a stores 5.") # This line is activated
+	
+b = 10 # b stores the integer 10
+if (b == 5)
+	print("b stores 5.") # This line is not activated
+\end{minted}
+\begin{block}{The \texttt{==} operator}
+The operator \texttt{==} is used to compare 2 values. If the values on the both sides are the same, then it becomes {\color{blue}\texttt{True}}. It becomes {\color{blue}\texttt{False}} otherwise.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{if}-\texttt{else} clause}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5 # a stores the integer 5
+if (a == 5):
+	print("a stores 5.") # This line is activated
+else:
+	print("a does not store 5.") 
+	
+b = 10 # b stores the integer 10
+if (b == 5)
+	print("b stores 5.")
+else:
+	print("b does not store 5.") # This line is activated
+\end{minted}
+\begin{block}{The \texttt{else} statement}
+Code under the \texttt{else} statement is executed when the condition in \texttt{if} is not true.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{if}-\texttt{else} clause}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5 # a stores the integer 5
+if (a == 5):
+|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("a stores 5.") # This line is activated
+else:
+|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("a does not store 5.") 
+	
+b = 10 # b stores the integer 10
+if (b == 5)
+|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("b stores 5.")
+else:
+|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("b does not store 5.") # This line is activated
+\end{minted}
+\begin{block}{Indentation in Python}
+Indentation decides whether the code is under the \text{if}/\texttt{else} statements.\\
+It does not have to be 4 spaces, but they have to be \textbf{consistent}.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{if}-\texttt{elif}-\texttt{else} clause}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5 # a stores the integer 5
+if (a == 5):
+	print("a stores 5.") # This line is activated
+elif (a == 10):
+	print("a stores 10.")
+else:
+	print("a does not store 5 or 10.") 
+\end{minted}
+\begin{block}{The \texttt{elif} statement}
+The \texttt{elif} (stands for else-if) statement is a secondary \text{if} statement that is run if the previous \texttt{if}/\texttt{elif} condition(s) are not true.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{if}-\texttt{elif}-\texttt{else} clause}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 15 # a stores the integer 15
+if (a == 5):
+	print("a stores 5.") 
+elif (a == 10):
+	print("a stores 10.")
+elif (a == 15):
+	print("a stores 15") # This line is activated
+else:
+	print("a does not store 5, 10 or 15.") 
+\end{minted}
+\begin{block}{Stacking the \texttt{elif} statement}
+The \texttt{elif} statement can be stacked on top of one another.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Comparison Operators}
+We've learnt that \texttt{==} means ``equal to''. What are some other operators?
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+Operator & Meaning\\\hline
+\texttt{==} & equal to\\\hline
+\texttt{>} & larger than\\\hline
+\texttt{>=} & larger than or equal to\\\hline
+\texttt{<} & smaller than\\\hline
+\texttt{<=} & smaller than or equal to\\\hline
+\texttt{!=} & not equal to\\\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Decision Making and Comparison Operators}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if (a > 5)
+	print("a is larger than 5")
+
+if (a >= 10)
+	print("a is larger than or equal to 10")
+\end{minted}
+
+\vspace{1em}
+In this example, both \texttt{print()} statements are activated.
+\end{frame}
+
+\begin{frame}[fragile]{Decision Making and Comparison Operators}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if (a > 5)
+	print("a is larger than 5")
+elif (a >= 10)
+	print("a is larger than or equal to 10") # Not run
+\end{minted}
+
+\pause
+\vspace{1em}
+In this example, only the first \texttt{print()} statements are activated.
+
+\begin{block}{\texttt{if} vs \texttt{elif}}
+If a condition is fulfilled, any \texttt{elif} clauses afterwards will not be considered.
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Summary}
+There are 4 basic variable types: \texttt{int}, \texttt{bool}, \texttt{float} and \texttt{str}.\\
+Some basic and commonly-used operators: \texttt{+}, \texttt{-}, \texttt{*}, \texttt{/}, \texttt{//}, \texttt{\%}, \texttt{**}.\\
+
+\noindent To convert between types, you can simply surround the target with brackets, and call the type.
+
+
+\texttt{int -> int()}; \texttt{bool -> bool()}; \texttt{float -> float()}; \texttt{str -> str()}.
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+The \texttt{print()} statement:
+\mint{py}{print(*objects, sep=' ', end='\n', file=None, flush=False)}
+where\\
+\texttt{*objects} refer to the things you want to print,\\
+\texttt{sep} refers to the separation between each object,\\
+(i.e. when commas are used.)\\
+\texttt{end} refers to the string to end the print statement with.\\
+The other arguments can be ignored as they are rarely used.
+
+\vspace{1em}
+
+\noindent The \texttt{input()} statement:
+\mint{py}{input(prompt)}
+where \texttt{prompt} is quite literally what it means. It prints the output then returns the value inputted as a string.
+\end{frame}
+
+\begin{frame}{\text{}}
+	\begin{center}
+		The end\\
+		Written in \LaTeX\\
+		Last updated: 13 Mar 2024
+	\end{center}
+\end{frame}
+
+
+\end{document}
