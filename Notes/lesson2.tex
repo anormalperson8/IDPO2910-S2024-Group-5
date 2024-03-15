@@ -601,17 +601,18 @@ Do make sure that the \texttt{while} loop can be exited.
 \begin{frame}[fragile]{Summary}
 \begin{block}{\texttt{for} loops and \texttt{range}}
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-for i in range(5):
-    # Do code
+n = 5 # Example
+for i in range(n):
+    # Do code with each number from 0 to n - 1
 \end{minted}
 \texttt{range(n)} returns a range of integers that starts from 0 and ends at \texttt{n} - 1.
 \end{block}
 
 \begin{block}{\texttt{for} loops and lists}
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-l = [...]
+l = [...] # A list with items
 for i in l:
-    # Do code
+    # Do code with each item in the list
 \end{minted}
 \texttt{for} loops can be directly applied onto lists.
 \end{block}
