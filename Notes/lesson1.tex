@@ -889,9 +889,9 @@ We can use multiple logic operators together, but what about the rules?
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 a = 10 # a stores the integer 10
 if not a == 0 and a == 1 or a == 3 and a % 2 == 1:
-	print("what is going on in the conditions?")
+	print("What is going on in the conditions?")
 else:
-	print("else statement")
+	print("Else statement")
 \end{minted}
 \end{frame}
 
@@ -900,9 +900,9 @@ We add brackets () to make our conditions clear.
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 a = 10 # a stores the integer 10
 if (not a == 0 and a == 1) or (a == 3 and a % 2 == 1):
-	print("now the conditions are clearer")
+	print("Now the conditions are clearer")
 else:
-	print("else statement")
+	print("Else statement")
 \end{minted}
 \pause
 \begin{block}{Reminder}
@@ -910,6 +910,43 @@ If you ever use > 1 \texttt{and}/\texttt{or} operators, add brackets to keep tra
 \end{block}
 \end{frame}
 
+\begin{frame}[fragile]{Generating a random integer using \texttt{random} library}
+In Python, we can import libraries to help us with tasks. One of them is generating random numbers.
+The library/package \texttt{random} allows us to get a random number.
+
+The \texttt{randint} function provided allows us to generate a random integer given a range.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+import random
+num = random.randint(1, 10) # generates a random number
+							# We passed 1 and 10 into randint,
+							# so the number can only be 
+							# from 1 to 10
+print(num) # prints the number
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Generating a random intger using \texttt{random} library}
+Another example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+import random
+min = 15
+max = 30
+print(random.randint(min, max)) # prints a random number 
+								# from 15 to 30
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Generating a random nuintegermber using \texttt{random} library}
+Another example with decision making:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+import random
+num = random.randint(1, 10)
+if num < 5:
+	print("The number is smaller than 5")
+else:
+	print("The number is larger than or equal to 5")
+\end{minted}
+\end{frame}
 
 
 \begin{frame}[fragile]{Summary}
@@ -931,8 +968,8 @@ Some basic and commonly-used operators:\\
 To convert between types, you can simply surround the target with brackets, and call the type.\\
 \texttt{int -> int()}; \texttt{bool -> bool()}; \texttt{float -> float()}; \texttt{str -> str()}.
 \end{block}
-
 \end{frame}
+
 
 \begin{frame}[fragile]{Summary}
 \begin{block}{The \texttt{print()} statement}
@@ -985,6 +1022,15 @@ The \texttt{not} operator reverses the condition is it attached to.
 \begin{alertblock}{Multiple logic operators}
 One can chain multiple logic operators together, but to be safe add brackets () to make sure the condition works as intended.
 \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+\begin{block}{\texttt{random.randint()}}
+\mint{py}{random.randint(a, b)}
+\fbox{\texttt{a}} - the lower bound of your range\\[1pt]
+\fbox{\texttt{b}} - the upper bound of your range\\
+This generates an integer \texttt{n} where \texttt{a} $\leq$ \texttt{n} $\leq$ \texttt{b}.
+\end{block}
 \end{frame}
 
 \begin{frame}{\text{}}
