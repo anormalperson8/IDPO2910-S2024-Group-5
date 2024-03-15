@@ -134,6 +134,11 @@ input("This is the input function.")
 >>> input("Enter a number: ")
 Enter a number: |{\color{ForestGreen}\textit{5}}|
 \end{minted}
+% VSCode highlighting workaround
+\if 0
+}
+\end{minted}\fi
+
 \vspace{1em}
 Simply inputting doesn't do anything, but we can print it.
 \begin{minted}[tabsize=4, escapeinside=||]{python} 
@@ -141,6 +146,10 @@ Simply inputting doesn't do anything, but we can print it.
 Enter a number: |{\color{ForestGreen}\textit{100}}|
 100
 \end{minted}
+% VSCode highlighting workaround
+\if 0
+}
+\end{minted}\fi
 \end{frame}
 
 
@@ -560,6 +569,10 @@ Enter your number: |{\color{ForestGreen}\textit{50}}|
 50 |\pause|
 >>> print(number + 1000) |\pause|# Error occurs. Why?
 \end{minted}
+% VSCode highlighting workaround
+\if 0
+}
+\end{minted}\fi
 \pause
 \begin{block}{Explanation}
 \texttt{number} is a string type while 1000 is an integer.
@@ -575,6 +588,10 @@ Enter your number: |{\color{ForestGreen}\textit{50}}|
 50 |\pause|
 >>> print(int(number) + 1000) |\pause|# 1050
 \end{minted}
+% VSCode highlighting workaround
+\if 0
+}
+\end{minted}\fi
 
 \end{frame}
 
