@@ -8,10 +8,10 @@ All images used in Jupyter Notebooks files and workshop notes should be in this 
 All Jupyter Notebooks used in the workshops, whether follow-along `.ipynb` files or the game implementation ones, should be in this directory.
 
 ## Lesson-Plans
-This directory coontain the lesson plans for the 2 days.
+This directory contains the lesson plans for the 2 days.
 
 ## Notes
 All the workshop notes will be in this directory. Those marked with `-handout` are for distribution to students, and those without are for teaching use.
 
 ## Distribution
-All to-be-distributed files should be uploaded to [this link](https://bit.ly/ustidpo) for distribution. Contact me (the owner) if this hasn't been done so by the teaching day.
+All to-be-distributed files should be uploaded to [this link](https://bit.ly/ustidpo) for distribution. Contact me (the owner) if this hasn't been done by the teaching day.
