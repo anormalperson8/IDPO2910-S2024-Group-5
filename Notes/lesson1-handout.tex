@@ -674,11 +674,11 @@ fill=green!30]
 \begin{frame}[fragile]{The \texttt{if} clause}
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 a = 5 # a stores the integer 5
-if (a == 5):
+if a == 5:
 	print("a stores 5.") # This line is activated
 	
 b = 10 # b stores the integer 10
-if (b == 5)
+if b == 5:
 	print("b stores 5.") # This line is not activated
 \end{minted}
 \begin{block}{The \texttt{if} clause}
@@ -689,11 +689,11 @@ If the condition is true, then the code under it is run.
 \begin{frame}[fragile]{The \texttt{==} operator}
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 a = 5 # a stores the integer 5
-if (a == 5):
+if a == 5:
 	print("a stores 5.") # This line is activated
 	
 b = 10 # b stores the integer 10
-if (b == 5)
+if b == 5:
 	print("b stores 5.") # This line is not activated
 \end{minted}
 \begin{block}{The \texttt{==} operator}
@@ -704,13 +704,13 @@ The operator \texttt{==} is used to compare 2 values. If the values on the both 
 \begin{frame}[fragile]{The \texttt{if}-\texttt{else} clause}
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 a = 5 # a stores the integer 5
-if (a == 5):
+if a == 5:
 	print("a stores 5.") # This line is activated
 else:
 	print("a does not store 5.") 
 	
 b = 10 # b stores the integer 10
-if (b == 5)
+if b == 5:
 	print("b stores 5.")
 else:
 	print("b does not store 5.") # This line is activated
@@ -723,13 +723,13 @@ Code under the \texttt{else} statement is executed when the condition in \texttt
 \begin{frame}[fragile]{The \texttt{if}-\texttt{else} clause}
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 a = 5 # a stores the integer 5
-if (a == 5):
+if a == 5:
 |\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("a stores 5.") # This line is activated
 else:
 |\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("a does not store 5.") 
 	
 b = 10 # b stores the integer 10
-if (b == 5)
+if b == 5
 |\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("b stores 5.")
 else:
 |\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("b does not store 5.") # This line is activated
@@ -743,9 +743,9 @@ It does not have to be 4 spaces, but they have to be \textbf{consistent}.
 \begin{frame}[fragile]{The \texttt{if}-\texttt{elif}-\texttt{else} clause}
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 a = 5 # a stores the integer 5
-if (a == 5):
+if a == 5:
 	print("a stores 5.") # This line is activated
-elif (a == 10):
+elif a == 10:
 	print("a stores 10.")
 else:
 	print("a does not store 5 or 10.") 
@@ -758,11 +758,11 @@ The \texttt{elif} (stands for else-if) statement is a secondary \text{if} statem
 \begin{frame}[fragile]{The \texttt{if}-\texttt{elif}-\texttt{else} clause}
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 a = 15 # a stores the integer 15
-if (a == 5):
+if a == 5:
 	print("a stores 5.") 
-elif (a == 10):
+elif a == 10:
 	print("a stores 10.")
-elif (a == 15):
+elif a == 15:
 	print("a stores 15") # This line is activated
 else:
 	print("a does not store 5, 10 or 15.") 
@@ -790,10 +790,10 @@ Operator & Meaning\\\hline
 \begin{frame}[fragile]{Decision Making and Comparison Operators}
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 a = 10 # a stores the integer 10
-if (a > 5)
+if a > 5:
 	print("a is larger than 5")
 
-if (a >= 10)
+if a >= 10:
 	print("a is larger than or equal to 10")
 \end{minted}
 
@@ -804,9 +804,9 @@ In this example, both \texttt{print()} statements are activated.
 \begin{frame}[fragile]{Decision Making and Comparison Operators}
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 a = 10 # a stores the integer 10
-if (a > 5)
+if a > 5:
 	print("a is larger than 5")
-elif (a >= 10)
+elif a >= 10:
 	print("a is larger than or equal to 10") # Not run
 \end{minted}
 
@@ -819,40 +819,179 @@ If a condition is fulfilled, any \texttt{elif} clauses afterwards will not be co
 \end{block}
 \end{frame}
 
+\begin{frame}[fragile]{Logic Operators - \texttt{and}}
+The \texttt{and} operator denotes whether the 2 conditions are fulfilled \textbf{at the same time}.
+
+\
+
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if a > 5 and a < 9:
+	print("a is between 5 and 9")
+else:
+	print("a is not between 5 and 9") # This line is run
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Logic Operators - \texttt{or}}
+The \texttt{or} operator denotes whether \textbf{any} of the 2 conditions are fulfilled.
+
+\
+
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if a < 5 or a > 9:
+	print("a is not between 5 and 9") # This line is run
+else:
+	print("a is between 5 and 9")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Logic Operators - \texttt{not}}
+The \texttt{not} operator reverses the condition.
+
+\
+
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if not a == 5: # Same as a != 5
+	print("a is not 5") # This line is run
+else:
+	print("a is 5")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Multiple Logic Operators}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if not a % 2 != 0 or a == 1: # Same as a % 2 == 0 or a == 1
+	print("a is even or equal to 1")
+else:
+	print("a is odd and not equal to 1")
+\end{minted}
+
+\
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+b = 10 # b stores the integer 10
+if b == 5 and not b % 2 != 0: # Impossible condition
+	print("b is 5 and somehow even?")
+else:
+	print("else statement")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Multiple Logic Operator (out of control)}
+We can use multiple logic operators together, but what about the rules?
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if not a == 0 and a == 1 or a == 3 and a % 2 == 1:
+	print("what is going on in the conditions?")
+else:
+	print("else statement")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Multiple Logic Operator (out of control)}
+We add brackets () to make our conditions clear.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if (not a == 0 and a == 1) or (a == 3 and a % 2 == 1):
+	print("now the conditions are clearer")
+else:
+	print("else statement")
+\end{minted}
+\pause
+\begin{block}{Reminder}
+If you ever use > 1 \texttt{and}/\texttt{or} operators, add brackets to keep track of what your conditions are.
+\end{block}
+\end{frame}
+
 
 
 \begin{frame}[fragile]{Summary}
-There are 4 basic variable types: \texttt{int}, \texttt{bool}, \texttt{float} and \texttt{str}.\\
-Some basic and commonly-used operators: \texttt{+}, \texttt{-}, \texttt{*}, \texttt{/}, \texttt{//}, \texttt{\%}, \texttt{**}.\\
+\begin{block}{Variable types}
+There are 4 basic variable types: \texttt{int}, \texttt{bool}, \texttt{float} and \texttt{str}.
+\end{block}
+\begin{block}{Arithmetic Operators}
+Some basic and commonly-used operators:\\
+\centering
+\begin{tabular}{rlrl}
+\texttt{+}:& add & \texttt{-}:& minus,\\
+\texttt{*}:& multiply & \texttt{/}:& divide,\\
+\texttt{//}:& quotient & \texttt{\%}:& remainder,\\
+\texttt{**}:& power &&
+\end{tabular}
+\end{block}
 
-\noindent To convert between types, you can simply surround the target with brackets, and call the type.
-
-
+\begin{block}{Type Conversion}
+To convert between types, you can simply surround the target with brackets, and call the type.\\
 \texttt{int -> int()}; \texttt{bool -> bool()}; \texttt{float -> float()}; \texttt{str -> str()}.
+\end{block}
+
 \end{frame}
 
 \begin{frame}[fragile]{Summary}
-The \texttt{print()} statement:
+\begin{block}{The \texttt{print()} statement}
 \mint{py}{print(*objects, sep=' ', end='\n', file=None, flush=False)}
-where\\
-\texttt{*objects} refer to the things you want to print,\\
-\texttt{sep} refers to the separation between each object,\\
-(i.e. when commas are used.)\\
-\texttt{end} refers to the string to end the print statement with.\\
+
+\
+
+\fbox{\texttt{*objects}} - the things you want to print,\\
+\fbox{\texttt{sep}} - the string that separates \texttt{objects} (when using commas),\\
+\fbox{\texttt{end}} - the string to end the print statement with.\\
 The other arguments can be ignored as they are rarely used.
+\end{block}
 
-\vspace{1em}
-
-\noindent The \texttt{input()} statement:
+\begin{block}{The \texttt{input()} statement}
 \mint{py}{input(prompt)}
-where \texttt{prompt} is quite literally what it means. It prints the output then returns the value inputted as a string.
+where \fbox{\texttt{prompt}} is quite literally what it means. It prints the output, then returns the value inputted as a string.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+\begin{block}{\texttt{if}, \texttt{elif} and \texttt{else}}
+\texttt{if}, \texttt{elif} and \texttt{else} clauses are used to decide whether some code should be executed.
+Whenever one is fulfilled, all others are ignored.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+if condition1: # if condition1 is true
+	# Do something, ignore all elif and else below
+
+elif condition2: # if condition2 is true
+	# Do something, ignore all elif and else below
+
+elif condition3: # if condition3 is true
+	# Do something, ignore all elif and else below
+
+else: # if all the conditions above are false
+	# Do something
+\end{minted}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+\begin{block}{The \texttt{and} logic operator}
+The \texttt{and} operator makes it so that both conditions have to be fulfilled in order for the code it is under to execute.
+\end{block}
+\begin{block}{The \texttt{or} logic operator}
+The \texttt{or} operator makes it so that only 1 of the conditions have to be fulfilled in order for the code it is under to execute.
+\end{block}
+\begin{block}{The \texttt{not} logic operator}
+The \texttt{not} operator reverses the condition is it attached to.
+\end{block}
+\begin{alertblock}{Multiple logic operators}
+One can chain multiple logic operators together, but to be safe add brackets () to make sure the condition works as intended.
+\end{alertblock}
 \end{frame}
 
 \begin{frame}{\text{}}
 	\begin{center}
 		The end\\
 		Written in \LaTeX\\
-		Last updated: 13 Mar 2024
+		Last updated: 15 Mar 2024
 	\end{center}
 \end{frame}
 
