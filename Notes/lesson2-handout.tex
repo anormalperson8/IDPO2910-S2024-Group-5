@@ -71,6 +71,8 @@ names = ["Chris Wong", "Desmond Tsoi",
 print(names[0]) # Chris Wong
 \end{minted}
 
+\
+
 Lists are declared by surrounding the items with [ ], and separating each item with a comma.
 
 We can access the name from a list by getting the corresponding item.
@@ -125,7 +127,8 @@ To edit an element of a list, assign the new value to the correct index. \pause
 numbers = [0, 1, 1, 2, 3, 5]
 print(numbers) # [0, 1, 1, 2, 3, 5]
 numbers[1] = 100 # Edit the second element (index 1)
-print(numbers)  |\pause| # [0, 100, 1, 2, 3, 5]
+print(numbers)  
+# Output: |\pause| [0, 100, 1, 2, 3, 5]
 \end{minted}
 \end{frame}
 
@@ -136,8 +139,8 @@ numbers = [0, 1, 1, 2, 3, 5]
 print(numbers, "length:", len(numbers)) 
 # Output: [0, 1, 1, 2, 3, 5] length: 6
 numbers.append(100) # Add 100 to the end of the list
-print(numbers, "length:", len(numbers)) |\pause|
-# Output: [0, 1, 1, 2, 3, 5, 100] length: 7
+print(numbers, "length:", len(numbers))
+# Output:|\pause| [0, 1, 1, 2, 3, 5, 100] length: 7
 \end{minted}
 \end{frame}
 
@@ -150,11 +153,11 @@ numbers = [0, 1, 1, 2, 3, 5]
 print(numbers, "length:", len(numbers)) 
 # Output: [0, 1, 1, 2, 3, 5] length: 6
 numbers.insert(2, 100) # Add 100 to index 2 of the list
-print(numbers, "length:", len(numbers))  |\pause|
-# Output: [0, 1, 100, 1, 2, 3, 5] length: 7
+print(numbers, "length:", len(numbers))  
+# Output:|\pause| [0, 1, 100, 1, 2, 3, 5] length: 7
 numbers.insert(7, 200) # Same as numbers.append(200)
-print(numbers, "length:", len(numbers))  |\pause|
-# Output: [0, 1, 100, 1, 2, 3, 5, 200] length: 8
+print(numbers, "length:", len(numbers))  
+# Output:|\pause| [0, 1, 100, 1, 2, 3, 5, 200] length: 8
 \end{minted}
 \end{frame}
 
@@ -167,8 +170,8 @@ numbers = [0, 1, 1, 2, 3, 5]
 print(numbers, "length:", len(numbers)) 
 # Output: [0, 1, 1, 2, 3, 5] length: 6
 numbers.remove(1) # Remove the first occurence of number 1
-print(numbers, "length:", len(numbers)) |\pause|
-# Output: [0, 1, 2, 3, 5] length: 5
+print(numbers, "length:", len(numbers))
+# Output:|\pause| [0, 1, 2, 3, 5] length: 5
 \end{minted}
 \end{frame}
 
@@ -180,10 +183,10 @@ numbers = [0, 1, 1, 2, 3, 5]
 print(numbers, "length:", len(numbers)) 
 # Output: [0, 1, 1, 2, 3, 5] length: 6
 numbers.reverse() # Reverse the list
-print(numbers, "length:", len(numbers)) |\pause|
-# Output: [5, 3, 2, 1, 1, 0] length: 6
+print(numbers, "length:", len(numbers)) 
+# Output:|\pause| [5, 3, 2, 1, 1, 0] length: 6
 print(numbers[0])
-# Output: 5
+# Output:|\pause| 5
 \end{minted}
 \end{frame}
 
@@ -192,10 +195,10 @@ The \texttt{count(item)} list function counts the number of occurence of \texttt
 
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 numbers = [0, 1, 1, 2, 3, 5]
-print(numbers.count(1))
-# Output: 2
-print(numbers.count(100)) |\pause|
-# Output: 0
+print(numbers.count(1)) 
+# Output:|\pause| 2
+print(numbers.count(100)) 
+# Output:|\pause| 0
 \end{minted}
 \end{frame}
 
@@ -204,12 +207,12 @@ The \texttt{index(item)} list function finds the index of the first occurence of
 
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 numbers = [0, 1, 1, 2, 3, 5]
-print(numbers.index(1))
-# Output: 1
-print(numbers.index(5))
-# Output: 5
+print(numbers.index(1)) 
+# Output:|\pause| 1
+print(numbers.index(5)) 
+# Output:|\pause| 5
 print(numbers.index(100)) |\pause|
-# Error, 100 is not in the list
+# Output: No output, error, 100 is not in the list
 \end{minted}
 \end{frame}
 
@@ -222,11 +225,11 @@ print(numbers, "length:", len(numbers))
 # Output: [6, 5, 1, 2, 3] length: 5
 print(numbers[0])
 # Output: 6
-numbers.sort() # Reverse the list
-print(numbers, "length:", len(numbers)) |\pause|
-# Output: [1, 2, 3, 5, 6] length: 5
+numbers.sort() # Sort the list
+print(numbers, "length:", len(numbers)) 
+# Output:|\pause| [1, 2, 3, 5, 6] length: 5
 print(numbers[0])
-# Output: 1
+# Output:|\pause| 1
 \end{minted}
 \end{frame}
 
@@ -252,6 +255,316 @@ print(numbers[0])
         \draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
         \end{tikzpicture}}
     \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Loops}
+What do you do if you want to do something repeatedly in code? \pause 
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+print("Count:", 10)
+print("Count:", 9)
+print("Count:", 8)
+print("Count:", 7)
+print("Count:", 6)
+print("Count:", 5)
+print("Count:", 4)
+print("Count:", 3)
+print("Count:", 2)
+print("Count:", 1)
+print("Done.")
+\end{minted} 
+\pause 
+Let's turn this into a loop.
+\end{frame}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10 # Initialising i as 10
+while i > 0:
+    print("Count:", i)
+    i = i - 1
+print("Done.")
+\end{minted}
+Let's run through it together.
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: # i is 10, which is larger than 0
+    print("Count:", i)
+    i = i - 1
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: 
+    print("Count:", i) # Count: 10
+    i = i - 1
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: 
+    print("Count:", i)
+    i = i - 1 # i goes from 10 to 9, then we go back up
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: # i is 9, which is larger than 0
+    print("Count:", i)
+    i = i - 1
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: 
+    print("Count:", i) # Count: 9
+    i = i - 1
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: 
+    print("Count:", i)
+    i = i - 1 # i goes from 9 to 8, then we go back up
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: # i is 8, which is larger than 0
+    print("Count:", i)
+    i = i - 1
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: 
+    print("Count:", i) # Count: 8
+    i = i - 1
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: 
+    print("Count:", i)
+    i = i - 1 # i goes from 8 to 7, then we go back up
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: # i is 7, which is larger than 0
+    print("Count:", i)
+    i = i - 1
+print("Done.")
+\end{minted}
+
+This goes on and on\dots
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: # i is 1, which is larger than 0
+    print("Count:", i)
+    i = i - 1
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: 
+    print("Count:", i) # Count: 1
+    i = i - 1
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: 
+    print("Count:", i)
+    i = i - 1 # i goes from 1 to 0, then we go back up
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0: # i is 0, which is NOT larger than 0, so we exit
+    print("Count:", i)
+    i = i - 1
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 10
+while i > 0:
+    print("Count:", i)
+    i = i - 1
+print("Done.") # "Done." is printed
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Loops - \texttt{for}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+for i in range(10):
+    print("Count:", i)
+print("Done.")
+\end{minted}
+\begin{block}{Python \texttt{range}}
+Python \texttt{range} is a thing of mystery. When you do \texttt{range(n)}, where \texttt{n} is an integer, Python generates a \textit{range} of integers from 0 to \texttt{n} - 1.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Loops - \texttt{for}}
+Not getting the loop?
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+for i in range(10):
+    print("Count:", i)
+print("Done.")
+\end{minted}
+
+\
+
+is equivalent to
+
+\
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 0
+while i < 10:
+    print("Count:", i)
+    i = i + 1
+print("Done.")
+\end{minted}
+
+Both loops go from 0 to 10, and give identical output.
+\end{frame}
+
+\begin{frame}[fragile]{Loops - \texttt{for}}
+Another example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+for i in range(5):
+    print(i*i, end=" ") # Print the square, end with a space
+print() # Add new line at the end
+# Output:|\pause| 0 1 4 9 16
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Loops - \texttt{for}}
+Let's combine lists with a for loop.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+num = [1, 5, 9, 12, 4, 800]
+for i in range(len(num)):
+    print(num[i], end=" ") # Print num[i], end with a space
+print() # Add new line at the end
+# Output:|\pause| 1 5 9 12 4 800
+\end{minted}
+\pause This is how we go through a list.
+\end{frame}
+
+\begin{frame}[fragile]{Loops - \texttt{for}}
+Another way of going through a list:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+num = [1, 5, 9, 12, 4, 800]
+for i in num:
+    print(i, end=" ")
+print()
+# Output:|\pause| 1 5 9 12 4 800
+\end{minted}
+\pause The output is identical to the previous example.
+\end{frame}
+
+\begin{frame}[fragile]{Loops - \texttt{for}}
+It also works for lists of other types.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word = ["h", "k", "u", "s", "t"]
+for w in word:
+    print(w, end="")
+print()
+# Output:|\pause| hkust
+\end{minted}
 \end{frame}
 
 \begin{frame}{\text{}}
