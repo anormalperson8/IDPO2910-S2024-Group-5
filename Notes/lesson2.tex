@@ -1,0 +1,264 @@
+\documentclass[dvipsnames, svgnames, x11names]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{bold-extra}
+\usepackage{amsfonts, amsthm, amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{ulem}
+\usepackage{minted}
+\usemintedstyle{vs}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage{multirow, multicol}
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{arrows.meta, math, calc, quotes, intersections, angles, trees, shapes.geometric}
+\pgfplotsset{compat=1.18}
+\tikzstyle{block} = [rectangle, minimum width=4cm, minimum height=2cm, text centered, draw = black]
+\tikzmath{\x1 = 2.5; \y1 = 3;}
+
+\graphicspath{{../images}}
+
+\title[Python Basics]{Coding in Python}
+\subtitle{Python Basics - Part 2}
+\date[May 2024]{4 May 2024}
+\author[IDPO 2910 Group 5]{IDPO 2910 Group 5}
+\titlegraphic{\includegraphics[height=1cm]{ust.png}}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Contents}
+    \begin{center}\scalebox{0.5}{
+        \begin{tikzpicture}
+        \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+        
+        \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+        
+        \node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+        \node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+        
+        \node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+        \node (var) [block, fill = DarkSeaGreen2] at ($(loop) + (0, -\y1)$) {Variables};
+        
+        \draw [->] (program.south) -- (func.north);
+        
+        \draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+        \draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+        
+        \draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+        \draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+        \end{tikzpicture}}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+Imagine you have a bunch of variables you want to store.
+For example, if you have a bunch of people's names.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+name0 = "Chris Wong"
+name1 = "Desmond Tsoi"
+name2 = "Phoebe Mok"
+name3 = "Nancy Ip"
+\end{minted}
+That is annoying to store and access.
+
+\pause What if instead, we store it in the same thing, as a... \pause list?
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+names = ["Chris Wong", "Desmond Tsoi",
+         "Phoebe Mok", "Nancy Ip"]
+print(names[0]) # Chris Wong
+\end{minted}
+
+Lists are declared by surrounding the items with [ ], and separating each item with a comma.
+
+We can access the name from a list by getting the corresponding item.
+
+The first item in the list is the 0$^{\text{th}}$ item, second is 1$^{\text{st}}$ item, etc... 
+
+We call this zero-indexing.\\
+
+{\tiny Note: Some programming languages use one-indexing instead.\\[-1em]
+
+\hspace{2.5em} If you approach another programming language, be careful.}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+names = ["Chris Wong", "Desmond Tsoi",
+         "Phoebe Mok", "Nancy Ip"]
+print(names[0], names[1], names[2], names[3]) 
+# Output: Chris Wong Desmond Tsoi Phoebe Mok Nancy Ip
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+Another example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+# Indices: 0  1  2  3  4  5
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers[0], numbers[1], numbers[2],
+      numbers[3], numbers[4], numbers[5]) 
+# Output: 0 1 1 2 3 5
+
+print(numbers)
+# Output: [0, 1, 1, 2, 3, 5]
+\end{minted}
+
+\begin{block}{Printing the whole list}
+To print the whole list, simply put it in the \texttt{print()} function.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+To get the length of a list, we can use the \texttt{len()} function. \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(len(numbers)) # 6
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+To edit an element of a list, assign the new value to the correct index. \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers) # [0, 1, 1, 2, 3, 5]
+numbers[1] = 100 # Edit the second element (index 1)
+print(numbers)  |\pause| # [0, 100, 1, 2, 3, 5]
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+To add an element to the end to a list, we use the \texttt{append(value)} list function. \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers, "length:", len(numbers)) 
+# Output: [0, 1, 1, 2, 3, 5] length: 6
+numbers.append(100) # Add 100 to the end of the list
+print(numbers, "length:", len(numbers)) |\pause|
+# Output: [0, 1, 1, 2, 3, 5, 100] length: 7
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+To insert an element to a particular position in a list, we use the \texttt{insert()} list function.
+
+The \texttt{insert(i, value)} inserts the \texttt{value} at index \texttt{i}, and push everything after to the right. \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers, "length:", len(numbers)) 
+# Output: [0, 1, 1, 2, 3, 5] length: 6
+numbers.insert(2, 100) # Add 100 to index 2 of the list
+print(numbers, "length:", len(numbers))  |\pause|
+# Output: [0, 1, 100, 1, 2, 3, 5] length: 7
+numbers.insert(7, 200) # Same as numbers.append(200)
+print(numbers, "length:", len(numbers))  |\pause|
+# Output: [0, 1, 100, 1, 2, 3, 5, 200] length: 8
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+To remove an element from a list, we use the \texttt{remove()} list function.
+
+The \texttt{remove(value)} function removes the \textbf{first} occurence of \texttt{value}. \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers, "length:", len(numbers)) 
+# Output: [0, 1, 1, 2, 3, 5] length: 6
+numbers.remove(1) # Remove the first occurence of number 1
+print(numbers, "length:", len(numbers)) |\pause|
+# Output: [0, 1, 2, 3, 5] length: 5
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+The \texttt{reverse()} list function reverses a list's contents. \pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers, "length:", len(numbers)) 
+# Output: [0, 1, 1, 2, 3, 5] length: 6
+numbers.reverse() # Reverse the list
+print(numbers, "length:", len(numbers)) |\pause|
+# Output: [5, 3, 2, 1, 1, 0] length: 6
+print(numbers[0])
+# Output: 5
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+The \texttt{count(item)} list function counts the number of occurence of \texttt{item} in a list. \pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers.count(1))
+# Output: 2
+print(numbers.count(100)) |\pause|
+# Output: 0
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+The \texttt{index(item)} list function finds the index of the first occurence of \texttt{item} in a list. \pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers.index(1))
+# Output: 1
+print(numbers.index(5))
+# Output: 5
+print(numbers.index(100)) |\pause|
+# Error, 100 is not in the list
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+The \texttt{sort()} list function sorts a list's contents. \pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [6, 5, 1, 2, 3]
+print(numbers, "length:", len(numbers)) 
+# Output: [6, 5, 1, 2, 3] length: 5
+print(numbers[0])
+# Output: 6
+numbers.sort() # Reverse the list
+print(numbers, "length:", len(numbers)) |\pause|
+# Output: [1, 2, 3, 5, 6] length: 5
+print(numbers[0])
+# Output: 1
+\end{minted}
+\end{frame}
+
+\begin{frame}{Contents}
+    \begin{center}\scalebox{0.5}{
+        \begin{tikzpicture}
+        \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+        
+        \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+        
+        \node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+        \node (loop) [block, fill = DarkSeaGreen2] at ($(func) + (\x1, -\y1)$) {Loops};
+        
+        \node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+        \node (var) [block, fill = LightSteelBlue] at ($(loop) + (0, -\y1)$) {Variables};
+        
+        \draw [->] (program.south) -- (func.north);
+        
+        \draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+        \draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+        
+        \draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+        \draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+        \end{tikzpicture}}
+    \end{center}
+\end{frame}
+
+\begin{frame}{\text{}}
+	\begin{center}
+		The end\\
+		Written in \LaTeX\\
+		Last updated: 15 Mar 2024
+	\end{center}
+\end{frame}
+\end{document}
