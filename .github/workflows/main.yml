@@ -11,18 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    #- name: pwd
-    #  run: pwd
-    #- name: ls
-    #  run: ls
     - name: Setup
       run: sudo apt-get update && sudo apt-get install texlive-full
-    - name: Change dir
+    - name: Give bash script permission
       working-directory: ./Notes
       run: chmod +x ./compile.sh
-    - name: Check dir
-      working-directory: ./Notes
-      run: pwd
     - name: Compile lesson1.tex
       working-directory: ./Notes
       run: ./compile.sh ./lesson1.tex
@@ -35,4 +28,8 @@ jobs:
     - name: Compile lesson2-handout.tex
       working-directory: ./Notes
       run: ./compile.sh ./lesson2-handout.tex
+    - name: Commit files
+      run: git add * && git commit -am "[skip ci] PDF complied by GitHub docker"
+      
+      
       
