@@ -91,7 +91,7 @@ We call this zero-indexing.\\
 names = ["Chris Wong", "Desmond Tsoi",
          "Phoebe Mok", "Nancy Ip"]
 print(names[0], names[1], names[2], names[3]) 
-# Output: Chris Wong Desmond Tsoi Phoebe Mok Nancy Ip
+# Output:|\pause| Chris Wong Desmond Tsoi Phoebe Mok Nancy Ip
 \end{minted}
 \end{frame}
 
@@ -545,12 +545,12 @@ print() # Add new line at the end
 \end{frame}
 
 \begin{frame}[fragile]{Loops - \texttt{for}}
-Another way of going through a list:
+Instead of using the index, there is another way to go through a list:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 num = [1, 5, 9, 12, 4, 800]
 for i in num:
     print(i, end=" ")
-print()
+print() # Add new line at the end
 # Output:|\pause| 1 5 9 12 4 800
 \end{minted}
 \pause The output is identical to the previous example.
@@ -562,7 +562,7 @@ It also works for lists of other types.
 word = ["h", "k", "u", "s", "t"]
 for w in word:
     print(w, end="")
-print()
+print() # Add new line at the end
 # Output:|\pause| hkust
 \end{minted}
 \end{frame}
@@ -622,7 +622,7 @@ for i in l:
 	\begin{center}
 		The end\\
 		Written in \LaTeX\\
-		Last updated: 15 Mar 2024
+		Last updated: 18 Mar 2024
 	\end{center}
 \end{frame}
 \end{document}
