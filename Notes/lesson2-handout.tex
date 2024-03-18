@@ -75,7 +75,9 @@ print(names[0]) # Chris Wong
 
 Lists are declared by surrounding the items with [ ], and separating each item with a comma.
 
-We can access the name from a list by getting the corresponding item.
+We can get the name from a list by getting the corresponding item.
+
+How? With list[index].
 
 The first item in the list is the 0$^{\text{th}}$ item, second is 1$^{\text{st}}$ item, etc... 
 
@@ -155,7 +157,7 @@ print(numbers, "length:", len(numbers))
 numbers.insert(2, 100) # Add 100 to index 2 of the list
 print(numbers, "length:", len(numbers))  
 # Output:|\pause| [0, 1, 100, 1, 2, 3, 5] length: 7
-numbers.insert(7, 200) # Same as numbers.append(200)
+numbers.insert(7, 200)|\pause| # Same as numbers.append(200)
 print(numbers, "length:", len(numbers))  
 # Output:|\pause| [0, 1, 100, 1, 2, 3, 5, 200] length: 8
 \end{minted}
@@ -203,6 +205,22 @@ print(numbers.count(100))
 \end{frame}
 
 \begin{frame}[fragile]{Lists}
+We can check if an element is in a list with the \texttt{in} operator.\pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+if 0 in numbers:
+    print("0 is in numbers.") # This line is run
+else:
+    print("0 is not in numbers.")
+if 8 in numbers:
+    print("8 is in numbers.")
+else:
+    print("8 is not in numbers.") # This line is run
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
 The \texttt{index(item)} list function finds the index of the first occurence of \texttt{item} in a list. \pause
 
 \begin{minted}[tabsize=4, escapeinside=||]{python}
@@ -211,8 +229,19 @@ print(numbers.index(1))
 # Output:|\pause| 1
 print(numbers.index(5)) 
 # Output:|\pause| 5
-print(numbers.index(100)) |\pause|
-# Output: No output, error, 100 is not in the list
+print(numbers.index(100))
+# Output:|\pause| No output, error, 100 is not in the list
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+Combining \texttt{in} and \texttt{list.index()}: \pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+if 5 in numbers:
+    print("The index of 5 in the list is", numbers.index(5))
+# Output:|\pause| The index of 5 in the list is 5
 \end{minted}
 \end{frame}
 
@@ -485,6 +514,19 @@ print("Done.") # "Done." is printed
 \end{minted}
 \end{frame}
 
+\begin{frame}[fragile]{Loops - \texttt{while}}
+We can also apply boolean values to \texttt{while} loops.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+equal_to_5 = False
+count = 0
+while not equal_to_5:
+    if count == 5:
+        equal_to_5 = True
+    count = count + 1
+print("Done.") # "Done." is printed
+\end{minted}
+\end{frame}
+
 \begin{frame}[fragile]{Loops - \texttt{for}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
@@ -571,16 +613,28 @@ print() # Add new line at the end
 \vspace{-6pt}
 \begin{block}{Lists}
 Lists are represented with [ ] to hold multiple variables, where the $i^{\text{th}}$ item is at index $i - 1$.\\
+\end{block}
+\begin{block}{Lists with functions}
 If a list is called \texttt{l}, one can:
 \begin{itemize}
     \item print the list with \texttt{print(l)}.
     \item get the length of \texttt{l} with \texttt{len(l)}.
     \item get/edit the element at index \texttt{i} with \texttt{l[i]}.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+\begin{block}{Lists functions}
+If a list is called \texttt{l}, one can:
+\begin{itemize}
     \item append a value \texttt{v} to \texttt{l} with \texttt{l.append(v)}.
     \item insert a value \texttt{v} to \texttt{l} at index \texttt{i} with \texttt{l.insert(i, v)}.
     \item remove the first occurence of a value \texttt{v} with \texttt{l.remove(v)}.
     \item reverse the list with \texttt{l.reverse()}.
     \item count the occurence of value \texttt{v} with \texttt{l.count(v)}.
+    \item use the \texttt{in} operator to check if a value \texttt{v} is in \texttt{l}.
+    \item[] e.g.: \texttt{if v in l:}
     \item get the index of the first occurence of a value \texttt{v} with \texttt{l.index(v)}.
     \item sort the list with \texttt{l.sort()}.
 \end{itemize}
