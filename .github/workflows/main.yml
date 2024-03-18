@@ -29,7 +29,12 @@ jobs:
       working-directory: ./Notes
       run: ./compile.sh ./lesson2-handout.tex
     - name: Commit files
-      run: git add * && git commit -am "[skip ci] PDF complied by GitHub docker"
+      run: |
+        git config --global user.name 'anormalperson8'
+        git config --global user.email 'anormalperson8@users.noreply.github.com'
+        git add *
+        git commit -am "[skip ci] PDF complied by GitHub docker"
+        git push
       
       
       
