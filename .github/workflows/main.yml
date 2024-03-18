@@ -22,8 +22,7 @@ jobs:
           /Notes/lesson2.tex
           /Notes/lesson2-handout.tex
         # The working directory for the latex compiler to be invoked
-        working_directory: # optional
-          /Notes
+        # working_directory: # optional
         # LaTeX engine to be used
         compiler:
           pdflatex # optional, default is latexmk
@@ -43,8 +42,8 @@ jobs:
           /Notes/lesson2.tex
           /Notes/lesson2-handout.tex
         # The working directory for the latex compiler to be invoked
-        working_directory: # optional
-          /Notes
+        # working_directory: # optional
+          # /Notes
         # LaTeX engine to be used
         compiler:
           pdflatex # optional, default is latexmk
@@ -52,6 +51,9 @@ jobs:
         args: -synctex=1 -interaction=nonstopmode -shell-escape # optional, default is -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
         # Install extra packages by apt-get
         # extra_system_packages: # optional
+    #- name: Add Files
+      #run: |
+        #git 
           
           
       
