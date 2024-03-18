@@ -16,7 +16,7 @@ jobs:
     #- name: ls
     #  run: ls
     - name: Setup
-      run: sudo apt-get update && sudo apt-get install texlive-full && chmod ./compile.sh
+      run: sudo apt-get update && sudo apt-get install texlive-full && chmod +x ./compile.sh
     - name: Compile lesson1.tex
       run: ./compile.sh ./Notes/lesson1.tex
     - name: Compile lesson1-handout.tex
