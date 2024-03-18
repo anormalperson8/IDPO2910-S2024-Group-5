@@ -4,9 +4,7 @@ on:
     - main
 
 permissions:
-  contents: | 
-    read
-    write
+  contents: read-all
     
 jobs:
   build:
