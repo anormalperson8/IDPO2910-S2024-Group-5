@@ -4,7 +4,9 @@ on:
     - main
 
 permissions:
-  contents: read
+  contents: | 
+    read
+    write
     
 jobs:
   build:
@@ -28,6 +30,8 @@ jobs:
     - name: Compile lesson2-handout.tex
       working-directory: ./Notes
       run: ./compile.sh ./lesson2-handout.tex
+    - name: Create report file
+      run: date +%s > report.txt
     - name: Commit files
       run: |
         git config --global user.name 'anormalperson8'
