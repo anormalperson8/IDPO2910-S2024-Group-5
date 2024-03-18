@@ -17,10 +17,10 @@ jobs:
       with:
         # The root LaTeX file to be compiled
         root_file: |
-          /Notes/lesson1.tex
-          /Notes/lesson1-handout.tex
-          /Notes/lesson2.tex
-          /Notes/lesson2-handout.tex
+          ./Notes/lesson1.tex
+          ./Notes/lesson1-handout.tex
+          ./Notes/lesson2.tex
+          ./Notes/lesson2-handout.tex
         # The working directory for the latex compiler to be invoked
         # working_directory: # optional
         # LaTeX engine to be used
@@ -37,10 +37,10 @@ jobs:
       with:
         # The root LaTeX file to be compiled
         root_file: |
-          /Notes/lesson1.tex
-          /Notes/lesson1-handout.tex
-          /Notes/lesson2.tex
-          /Notes/lesson2-handout.tex
+          ./Notes/lesson1.tex
+          ./Notes/lesson1-handout.tex
+          ./Notes/lesson2.tex
+          ./Notes/lesson2-handout.tex
         # The working directory for the latex compiler to be invoked
         # working_directory: # optional
           # /Notes
