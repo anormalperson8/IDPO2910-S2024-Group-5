@@ -16,7 +16,9 @@ jobs:
     #- name: ls
     #  run: ls
     - name: Setup
-      run: sudo apt-get update && sudo apt-get install texlive-full && cd ./Notes && chmod +x ./compile.sh
+      run: sudo apt-get update && sudo apt-get install texlive-full
+    - name: Change dir
+      run: cd ./Notes && chmod +x ./compile.sh
     - name: Check dir
       run: pwd
     - name: Compile lesson1.tex
