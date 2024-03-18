@@ -18,15 +18,21 @@ jobs:
     - name: Setup
       run: sudo apt-get update && sudo apt-get install texlive-full
     - name: Change dir
-      run: cd ./Notes && chmod +x ./compile.sh
+      working-directory: ./Notes
+      run: chmod +x ./compile.sh
     - name: Check dir
+      working-directory: ./Notes
       run: pwd
     - name: Compile lesson1.tex
+      working-directory: ./Notes
       run: ./compile.sh ./lesson1.tex
     - name: Compile lesson1-handout.tex
+      working-directory: ./Notes
       run: ./compile.sh ./lesson1-handout.tex
     - name: Compile lesson2.tex
+      working-directory: ./Notes
       run: ./compile.sh ./lesson2.tex
     - name: Compile lesson2-handout.tex
+      working-directory: ./Notes
       run: ./compile.sh ./lesson2-handout.tex
       
