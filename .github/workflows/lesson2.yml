@@ -5,36 +5,36 @@ on:
       paths:
       - 'Notes/lesson2.tex'
   
-  permissions:
-    contents: write
-      
-  jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v3
-      - name: Setup
-        run: sudo apt-get update && sudo apt-get install texlive-full
-      - name: Commit files
-        run: |
-          git config --global user.name 'anormalperson8'
-          git config --global user.email 'anormalperson8@users.noreply.github.com'
-          git pull
-      - name: Give bash script permission
-        working-directory: ./Notes
-        run: chmod +x ./compile.sh
-      - name: Compile lesson2.tex
-        working-directory: ./Notes
-        run: ./compile.sh ./lesson2.tex
-      - name: Create report file
-        run: mkdir -p reports && date +%s > reports/report-lesson2.txt
-      - name: Commit files
-        run: |
-          git config --global user.name 'anormalperson8'
-          git config --global user.email 'anormalperson8@users.noreply.github.com'
-          git add *
-          git commit -am "[skip ci] lesson2 PDF complied by GitHub docker"
-          git push
+permissions:
+  contents: write
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup
+      run: sudo apt-get update && sudo apt-get install texlive-full
+    - name: Commit files
+      run: |
+        git config --global user.name 'anormalperson8'
+        git config --global user.email 'anormalperson8@users.noreply.github.com'
+        git pull
+    - name: Give bash script permission
+      working-directory: ./Notes
+      run: chmod +x ./compile.sh
+    - name: Compile lesson2.tex
+      working-directory: ./Notes
+      run: ./compile.sh ./lesson2.tex
+    - name: Create report file
+      run: mkdir -p reports && date +%s > reports/report-lesson2.txt
+    - name: Commit files
+      run: |
+        git config --global user.name 'anormalperson8'
+        git config --global user.email 'anormalperson8@users.noreply.github.com'
+        git add *
+        git commit -am "[skip ci] lesson2 PDF complied by GitHub docker"
+        git push
         
         
         
