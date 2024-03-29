@@ -1,0 +1,244 @@
+\documentclass[dvipsnames, svgnames, x11names, handout]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{bold-extra}
+\usepackage{amsfonts, amsthm, amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{ulem}
+\usepackage{bm}
+\usepackage{minted}
+\usemintedstyle{vs}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage{multirow, multicol}
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{arrows.meta, math, calc, quotes, intersections, angles, trees, shapes.geometric}
+\pgfplotsset{compat=1.18}
+\tikzstyle{block} = [rectangle, minimum width=4cm, minimum height=2cm, text centered, draw = black]
+\tikzmath{\x1 = 2.5; \y1 = 3;}
+
+\graphicspath{{../images}}
+
+\title[HKUST Future-Ready Scholars]{HKUST Future-Ready Scholars}
+\subtitle{Introduction to Game Programming using Python}
+\author[Game Programming using Python]{Part 1: Number Guessing Game}
+\date[April 2024]{20 April 2024}
+\titlegraphic{\includegraphics[height=1cm]{ust.png}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}[fragile]{Google Colab}
+    \begin{center}
+        We will use Google Colab for the workshops.
+
+        \href{https://colab.research.google.com/}{https://colab.research.google.com/}
+
+        You must have a Gmail account for it, create one if you do not.
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Files}
+    \begin{center}
+        All materials today are at:
+
+        \href{https://bit.ly/ustidpo}{https://bit.ly/ustidpo}
+
+        \
+
+        \frame{\includegraphics[width=0.75\textwidth]{Download.png}}
+
+        Download all files that belong to \textbf{Workshop 1} today.
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Jupyter Notebook}
+    \begin{center}
+        Now upload your Jupyter Notebook file with \textbf{Files $\rightarrow$ Open Notebook}.
+    
+        \
+
+        \frame{\includegraphics[width=0.5\textwidth]{Upload.png}}
+
+        Upload the file \textbf{Number-Guessing.ipynb}.
+    
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Using Jupyter Notebook}
+    You can type your code in these blocks. We call these blocks code cells.
+
+    \begin{center}
+        \frame{\includegraphics[width=0.5\textwidth]{Use1.png}}
+    \end{center}
+
+    \
+
+    You can run a code cell with the button on the left.
+
+    \begin{center}
+        \frame{\includegraphics[width=0.5\textwidth]{Use2.png}}
+    \end{center}
+\end{frame}
+
+\begin{frame}{World of Game Coding}
+    \tikzstyle{block} = [rectangle, minimum width=4cm, minimum height=2cm, text centered, draw = black]
+    \tikzmath{\x1 = 2.5; \y1 = 3;}
+    
+    \hspace{0.2\textwidth}\scalebox{0.5}{\begin{tikzpicture}
+    \node (root) [block, fill = Cornsilk2] {Game (Software)};
+    \node (program) [block, fill = LightSteelBlue] at ($(root) + (-\x1, -\y1)$) {Program (Codes)};
+    \node (mm) [block, fill = Cornsilk2] at ($(root) + (\x1, -\y1)$) {Multimedia};
+    
+    \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+    
+    \node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+    \node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+    
+    \node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+    \node (var) [block, fill = LightSteelBlue] at ($(loop) + (0, -\y1)$) {Variables};
+    
+    \draw [->] (root.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (program.north);
+    \draw [->] (root.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (mm.north);
+    
+    \draw [->] (program.south) -- (func.north);
+    
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+    
+    \draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+    \draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+    \end{tikzpicture}}
+    
+\end{frame}
+
+\begin{frame}{What is Python?}
+    Did you know? Python was made by someone who was bored.
+    
+    It's a language designed to be almost as understandable as English.
+    
+    You will be using Python 3. Why? Because Python 1 are 2 are too old.
+    \begin{center}
+    \includegraphics[height=1.5cm]{python-logo.png}\\
+    This is the logo of Python.
+    \end{center}
+\end{frame}
+    
+\begin{frame}{Contents} 
+\begin{center}
+    \scalebox{0.5}{\begin{tikzpicture}
+    \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+    
+    \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+    
+    \node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+    \node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+    
+    \node (io) [block, fill = DarkSeaGreen2] at ($(if) + (0, -\y1)$) {Input/Output};
+    \node (var) [block, fill = LightSteelBlue] at ($(loop) + (0, -\y1)$) {Variables};
+    
+    \draw [->] (program.south) -- (func.north);
+    
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+    
+    \draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+    \draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+    \end{tikzpicture}}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{The first thing in Python - \texttt{print()} function}
+
+\begin{minted}[tabsize=4]{python} 
+print("This is the print function.")
+\end{minted}
+\end{frame}
+    
+\begin{frame}[fragile]{The first thing in Python - \texttt{print()} function}
+\texttt{print()} is a function that lets you print something,\\
+also known as text output.
+\begin{minted}[tabsize=4]{python}
+print("Word") # This prints the word "Word".
+\end{minted}
+\vspace{1em}
+Examples:
+\begin{minted}[tabsize=4]{python} 
+>>> print("Hello World")
+Hello World
+>>> print("Haha hehe")
+Haha hehe
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Printing multiple things}
+You can use a comma (\texttt{,}) to separate different things with a space.
+\begin{minted}[tabsize=4]{python} 
+>>> print("Alpha", "Beta", "Gamma")
+Alpha Beta Gamma
+>>> print("Haha", "hehe")
+Haha hehe
+\end{minted}
+\end{frame}
+
+\begin{frame}{Contents}
+
+\begin{center}\scalebox{0.5}{
+\begin{tikzpicture}
+\node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+
+\node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+
+\node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+\node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+
+\node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+\node (var) [block, fill = DarkSeaGreen2] at ($(loop) + (0, -\y1)$) {Variables};
+
+\draw [->] (program.south) -- (func.north);
+
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+
+\draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+\draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+\end{tikzpicture}}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variables}
+\begin{center}
+Imagine you borrow a box from the computer.
+
+\includegraphics[height=3cm]{box}
+
+\pause
+Give it a name and a value, you can now recall this value with the name!
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Variables}
+The code usually goes:\\
+\texttt{variable\char`\_name = data}\\
+This means whatever \texttt{data} is, it is now stored in a variable with name \texttt{variable\char`\_name}.
+\vspace{1em}\\
+Some basic variable types:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5       |\pause|# This is an integer (int) stored in a |\pause|
+b = True    |\pause|# This is a boolean (bool) stored in b |\pause|
+c = 3.2     |\pause|# This is a float (float)  stored in c |\pause|
+d = "abc"   |\pause|# This is a string (str)   stored in d |\pause|
+e = 'abc'   |\pause|# This is also a string    stored in e
+\end{minted}
+\end{frame}
+
+\begin{frame}{ \ }
+	\begin{center}
+		The End\\
+		Made in \LaTeX\\
+		Last updated: 29 Mar 2024
+	\end{center}
+\end{frame}
+
+\end{document}
