@@ -1,13 +1,13 @@
 on:
-    push:
-      branches:
-      - main
-      paths:
-      - 'Notes/workshop1-handout.tex'
-  
+  push:
+    branches:
+    - main
+    paths:
+    - 'Notes/workshop1.tex'
+
 permissions:
   contents: write
-    
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,11 +23,11 @@ jobs:
     - name: Give bash script permission
       working-directory: ./Notes
       run: chmod +x ./compile.sh
-    - name: Compile workshop1-handout.tex
+    - name: Compile workshop1.tex
       working-directory: ./Notes
-      run: ./compile.sh ./workshop1-handout.tex
+      run: ./compile.sh ./workshop1.tex
     - name: Create report file
-      run: mkdir -p reports && date +%s > reports/report-workshop1-handout.txt
+      run: mkdir -p reports && date +%s > reports/report-workshop1.txt
     - name: Commit files
       run: |
         git config --global user.name 'anormalperson8'
@@ -35,3 +35,4 @@ jobs:
         git add *
         git commit -am "[skip ci] workshop1-handout PDF complied by GitHub docker"
         git push
+        
