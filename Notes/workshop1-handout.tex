@@ -233,6 +233,167 @@ e = 'abc'   |\pause|# This is also a string    stored in e
 \end{minted}
 \end{frame}
 
+\begin{frame}[fragile]{Variables - Integers}
+What are integers?\pause\\
+Integers are just like what you've learnt in Maths, numbers without decimal points. Are the following valid?\pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5       |\pause|# Valid|\pause|
+b = 12      |\pause|# Valid|\pause|
+c = 69420   |\pause|# Valid|\pause|
+d = -1984   |\pause|# Valid|\pause|
+e = 32.5    |\pause|# This would become a float instead|\pause|
+f = '5'     |\pause|# This would become a string instead
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
+You can do normal operations on integers:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 1 + 2   |\pause|# a stores the integer 3|\pause|
+b = 80 - 52 |\pause|# b stores the integer 28|\pause|
+c = 69 * -2 |\pause|# c stores the integer -138|\pause|
+d = 6 / 4   |\pause|# d stores the float 1.5|\pause|
+e = 18 / 2  |\pause|# e stores the float 9.0|\pause|
+\end{minted}
+\begin{alertblock}{Division in Python}
+Whether a number can be precisely divided or not, division returns a \texttt{float}.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
+Operations with variables:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 100
+b = 12 |\pause|
+c = a + b   |\pause|# c stores the integer 112|\pause|
+d = b - a   |\pause|# d stores the integer -88|\pause|
+e = a * -b  |\pause|# e stores the integer -1200|\pause|
+f = a / b   |\pause|# f stores the float 8.333333333333334
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
+Then how do we get an integer output?\pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 100
+b = 12 |\pause|
+c = a // b  |\pause|# c stores the integer 8|\pause|
+            # // operator takes the closest and smaller 
+            # integer from the division operation|\pause|
+d = a % b   |\pause|# d stores the integer 4|\pause|
+            # % operator takes the remainder of a 
+            # division operation
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
+Also, the power (exponent) operation:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 2
+b = 5       |\pause|
+c = a ** b  |\pause|# c stores the integer 32
+            # ** operator means power
+\end{minted}
+\end{frame}
+    
+\begin{frame}[fragile]{Variables - Floats}
+What are floats?\pause\\
+Floats are numbers with decimal points.\pause\\
+Arithmetic operators we learnt can be applied as well.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 0.2     # a stores the float 0.2
+b = 3.0     # b stores the float 3.0|\pause|
+c = a + b   |\pause|# c stores the float 3.2|\pause|
+d = b / a   |\pause|# d stores the float 15.0|\pause|
+e = a ** b  |\pause|# e stores the float 0.008000000000000002|\pause|
+\end{minted}
+\begin{alertblock}{Inaccuracies}
+Inaccuracies happen with decimals in Python. Be careful when dealing with floats.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Floats}
+What happens when you combine floats and integers? \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 0.2     # a stores the float 0.2
+b = 3       # b stores the integer 3|\pause|
+c = a + b   # c stores the float 3.2
+d = b / a   # d stores the float 15.0
+e = a ** b  # e stores the float 0.008000000000000002
+\end{minted}
+\pause
+\begin{block}{Arithmetic operations between \texttt{int} and \texttt{float}}
+Arithmetic operations between integers and floats converts the integer into a float first before operating.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Boolean values}
+What are boolean values?\pause\\
+There are only 2 boolean values in existence: \texttt{True} and \texttt{False}.\pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = True
+b = False
+\end{minted}
+
+
+\vspace{1cm}
+\begin{overlayarea}{\textwidth}{3cm}
+We will elaborate more on boolean values later.
+\end{overlayarea}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Strings}
+What are strings?\pause\\
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = "word"  |\pause|# a stores the string "word"|\pause|
+b = 'word2' |\pause|# b stores the string "word2"|\pause|
+c = '5.20'  |\pause|# c stores the string "5.20"|\pause|
+\end{minted}
+\vspace{-0.275em}
+\texttt{d = }{\color{BrickRed}\texttt{\textquotesingle abc"}}\pause \hspace{1.59em}{\color{Green}\texttt{\# error}} \pause
+\begin{block}{Quotes}
+In Python you must use corresponding quotation marks for strings.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Strings}
+How do I put the symbols \texttt{\textquotesingle} and \texttt{"} into a string?\pause\\
+For \texttt{"}:\pause
+	
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = "word\"" # a stores the string "word""|\pause|
+b = 'word"'  # b stores the same string as a|\pause|
+\end{minted}
+\vspace{1em}
+Same goes for single quotes \texttt{\textquotesingle}:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 'word\'' # a stores the string "word'"
+b = "word'"  # b stores the same string as a
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Strings}
+There are additional symbols in strings.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = "word\n" # \n represents the newline character
+b = "word\t" # \t represents the tab character
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Strings}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = "haha"
+b = "hehe"
+c = a + b    |\pause|# c stores the string "hahahehe"
+\end{minted}
+\pause
+\begin{block}{Concatenation of strings}
+You can concatenate (add) strings together with the addition symbol.
+\end{block}
+\end{frame}
+
 \begin{frame}{ \ }
 	\begin{center}
 		The End\\
