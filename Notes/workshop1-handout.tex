@@ -394,12 +394,190 @@ You can concatenate (add) strings together with the addition symbol.
 \end{block}
 \end{frame}
 
+\begin{frame}{Contents}
+\begin{center}\scalebox{0.5}{
+\begin{tikzpicture}
+\node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+
+\node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+
+\node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+\node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+
+\node (io) [block, fill = DarkSeaGreen2] at ($(if) + (0, -\y1)$) {Input/Output};
+\node (var) [block, fill = DarkSeaGreen2] at ($(loop) + (0, -\y1)$) {Variables};
+
+\draw [->] (program.south) -- (func.north);
+
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+
+\draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+\draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+\end{tikzpicture}}
+\end{center}
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{Variables in output - Revisiting the \texttt{print()} function}
+How do we print variables?
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5
+print(a)       |\pause|# 5 |\pause|
+b = "haha"
+print(b)       |\pause|# haha |\pause|
+print(a + 2)   |\pause|# 7 |\pause|
+print(b + "a") |\pause|# hahaa |\pause|
+\end{minted}
+\begin{block}{Calculation}
+We can calculate expressions inside the \texttt{print()} function.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables in output - Revisiting the \texttt{print()} function}
+How do we print variables?
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5
+print(a)       |\pause|# 5 |\pause|
+b = "haha"
+print(a, b)    |\pause|# 5 haha |\pause|
+print(b, b)    |\pause|# haha haha |\pause|
+\end{minted}
+\begin{block}{The comma}
+Using \texttt{,} in \texttt{print()} would add a space in between the 2 items.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables in output - Revisiting the \texttt{print()} function}
+How do we print variables?
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5
+print(a)       # 5
+b = "haha"
+print(b)       # haha|\pause|
+print(a + "5") |\pause|# error |\pause|
+print(b + 2)   |\pause|# error |\pause|
+print(a + b)   |\pause|# error |\pause|
+\end{minted}
+\begin{block}{Addition}
+You cannot use addition to print things of incompatible types.\\
+\texttt{int} and \texttt{float} types are not incompatible because all \texttt{int} are converted to \texttt{float} if needed during operation.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables in output - Revisiting the \texttt{print()} function}
+How do we print variables?
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5
+b = 32
+c = 32.0
+print(a * b)    # 160
+print(a * c)    # 160.0
+\end{minted}
+\pause
+\begin{block}{Takeaway}
+\texttt{print()} function evaluates the expression inside the brackets first before actually printing.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Task 1}
+    \begin{center}
+        Now go to your Number Guessing Game file's task 1.
+
+        \
+            
+        All lines you have to do is marked with ``\texttt{\# TODO:}''.
+
+        Try to finish the \texttt{print()} statements!
+    \end{center}
+\end{frame}
+
 \begin{frame}{ \ }
 	\begin{center}
 		The End\\
 		Made in \LaTeX\\
 		Last updated: 29 Mar 2024
 	\end{center}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}{Additional content}
+	\begin{center}
+		Here are some additional content that we didn't have time to mention in the workshop.
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{More on \texttt{print()} function}
+In Python, the \texttt{print()} function automatically adds a new line after execution. We, however, can stop that.\\
+The \texttt{end=} tag allows us to define the character added when \texttt{print()} is executed.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+print(5, end="")
+print(4)
+print("a", end="abc")
+print("d", end=" ")
+print("e")|\pause|
+# What is the output?|\pause|
+# Output: 54
+#         aabcd e
+\end{minted}
+\begin{block}{End of line}
+Remember to include a new line {\color{BrickRed}\texttt{\textbackslash n}} in the last line of a printed string.\\
+Else it may mess up the future outputs from other lines of the code or the computer terminal.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{More on \texttt{print()} function}
+We mentioned that whenever \texttt{,} is used in \texttt{print()}, the items would be separated by a space.\\
+This can actually be changed using the \texttt{sep=} tag.\pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+>>> print("100", 100, end="\n3\n")|\pause|
+>>> 100 100
+	3|\pause|
+>>> print("100", 100, sep="a", end="\n3\n")|\pause|
+>>> 100a100
+	3
+\end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]{More on \texttt{print()} function}
+Another example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+>>> a = 5
+>>> b = 10
+>>> print(a, b, a + b, end="20\n")|\pause|
+>>> 5 10 1520 |\pause|
+>>> print(a, b, a + b, sep="", end="20\n")|\pause|
+>>> 5101520	
+>>> print(a, b, a + b, end="20\n", sep="")|\pause|
+>>> 5101520	|\pause|
+\end{minted}
+\begin{block}{Command Parameters}
+As long as you mark \texttt{sep} and \texttt{end} clearly \textbf{and} after the things you want to print, the ordering doesn't matter!
+\end{block}
 \end{frame}
 
 \end{document}
