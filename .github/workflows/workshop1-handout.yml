@@ -30,6 +30,7 @@ jobs:
       run: mkdir -p reports && date +%s > reports/report-workshop1-handout.txt
     - name: Commit files
       run: |
+        git pull
         git config --global user.name 'anormalperson8'
         git config --global user.email 'anormalperson8@users.noreply.github.com'
         git add *
