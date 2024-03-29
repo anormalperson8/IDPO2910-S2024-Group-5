@@ -1,0 +1,37 @@
+on:
+    push:
+      branches:
+      - main
+      paths:
+      - 'Notes/workshop1-handout.tex'
+  
+permissions:
+  contents: write
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup
+      run: sudo apt-get update && sudo apt-get install texlive-full
+    - name: Commit files
+      run: |
+        git config --global user.name 'anormalperson8'
+        git config --global user.email 'anormalperson8@users.noreply.github.com'
+        git pull
+    - name: Give bash script permission
+      working-directory: ./Notes
+      run: chmod +x ./compile.sh
+    - name: Compile workshop1-handout.tex
+      working-directory: ./Notes
+      run: ./compile.sh ./workshop1-handout.tex
+    - name: Create report file
+      run: mkdir -p reports && date +%s > reports/report-workshop1-handout.txt
+    - name: Commit files
+      run: |
+        git config --global user.name 'anormalperson8'
+        git config --global user.email 'anormalperson8@users.noreply.github.com'
+        git add *
+        git commit -am "[skip ci] workshop1-handout PDF complied by GitHub docker"
+        git push
