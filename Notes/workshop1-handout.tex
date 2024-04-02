@@ -40,7 +40,7 @@
 
 \begin{frame}[fragile]{Files}
     \begin{center}
-        All materials today are at:
+        All materials are at:
 
         \href{https://bit.ly/ustidpo}{https://bit.ly/ustidpo}
 
@@ -48,7 +48,7 @@
 
         \frame{\includegraphics[width=0.75\textwidth]{Download.png}}
 
-        Download all files that belong to \textbf{Workshop 1} today.
+        Download all files that belong to \textbf{Workshop 1}.
     \end{center}
 \end{frame}
 
@@ -168,6 +168,8 @@ Examples:
 Hello World
 >>> print("Haha hehe")
 Haha hehe
+>>> print(5)
+5
 \end{minted}
 \end{frame}
 
@@ -178,6 +180,8 @@ You can use a comma (\texttt{,}) to separate different things with a space.
 Alpha Beta Gamma
 >>> print("Haha", "hehe")
 Haha hehe
+>>> print(19, 91)
+19 91
 \end{minted}
 \end{frame}
 
@@ -239,7 +243,7 @@ Integers are just like what you've learnt in Maths, numbers without decimal poin
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 a = 5       |\pause|# Valid|\pause|
 b = 12      |\pause|# Valid|\pause|
-c = 69420   |\pause|# Valid|\pause|
+c = 1000000 |\pause|# Valid|\pause|
 d = -1984   |\pause|# Valid|\pause|
 e = 32.5    |\pause|# This would become a float instead|\pause|
 f = '5'     |\pause|# This would become a string instead
@@ -294,6 +298,38 @@ b = 5       |\pause|
 c = a ** b  |\pause|# c stores the integer 32
             # ** operator means power
 \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Task 0}
+    A short summary on operators and integers:
+    \begin{block}{Examples of valid integers}
+        \begin{minted}[autogobble, tabsize=4, escapeinside=||]{python}
+        a = 5       
+        b = 12      
+        c = 1000000   
+        d = -1984
+        \end{minted}
+    \end{block}
+    \begin{block}{Arithmetic Operators}
+        Some basic and commonly-used operators:\\
+        \centering
+        \begin{tabular}{rlrl}
+        \texttt{+}:& add & \texttt{-}:& minus,\\
+        \texttt{*}:& multiply & \texttt{/}:& divide,\\
+        \texttt{//}:& quotient & \texttt{\%}:& remainder,\\
+        \texttt{**}:& power &&
+        \end{tabular}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Task 0}
+    \begin{center}
+        Now go to your Number Guessing Game file's task 0.
+
+        \
+
+        Try replacing \texttt{???} with the right numbers/operators!
+    \end{center}
 \end{frame}
     
 \begin{frame}[fragile]{Variables - Floats}
@@ -606,6 +642,393 @@ This will be useful in the number guessing game.
     \end{center}
 \end{frame}
 
+\begin{frame}[fragile]{Generating a random integer using \texttt{random} library}
+In Python, we can import libraries to help us with tasks. One of them is generating random numbers.
+The library/package \texttt{random} allows us to get a random number.
+
+The \texttt{randint} function provided allows us to generate a random integer given a range.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+import random
+num = random.randint(1, 10) # generates a random number
+                            # We passed 1 and 10 into randint,
+                            # so the number can only be 
+                            # from 1 to 10
+print(num) # prints the number
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Generating a random integer using \texttt{random} library}
+Another example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+import random
+min = 15
+max = 30
+print(random.randint(min, max)) # prints a random number 
+                                # from 15 to 30
+\end{minted}
+\end{frame}
+
+\begin{frame}{Contents}
+
+\begin{center}\scalebox{0.5}{
+\begin{tikzpicture}
+\node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+
+\node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+
+\node (if) [block, fill = DarkSeaGreen2] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+\node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+
+\node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+\node (var) [block, fill = LightSteelBlue] at ($(loop) + (0, -\y1)$) {Variables};
+
+\draw [->] (program.south) -- (func.north);
+
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+
+\draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+\draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+\end{tikzpicture}}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Decision Making}
+\begin{center}
+What is decision making? \pause 
+
+\
+
+We use condition(s) to decide whether some code should be run.
+
+\
+
+\tikzstyle{startstop} = [rectangle, rounded corners, 
+minimum width=3cm, 
+minimum height=1cm,
+text centered, 
+draw=black, 
+fill=red!30]
+
+\tikzstyle{io} = [trapezium, 
+trapezium stretches=true, % A later addition
+trapezium left angle=70, 
+trapezium right angle=110, 
+minimum width=3cm, 
+minimum height=1cm, text centered, 
+draw=black, fill=blue!30]
+
+\tikzstyle{process} = [rectangle, 
+minimum width=3cm, 
+minimum height=1cm, 
+text centered, 
+text width=3cm, 
+draw=black, 
+fill=orange!30]
+
+\tikzstyle{decision} = [diamond, 
+minimum width=3cm, 
+minimum height=1cm, 
+text centered, 
+draw=black, 
+fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\scalebox{0.4}{\begin{tikzpicture}[node distance=2cm]
+
+\node (start) [startstop] {Start};
+\node (in1) [io, right of=start, xshift=2cm] {Input};
+\node (pro1) [process, below of=in1] {Process 1};
+\node (dec1) [decision, below of=pro1, yshift=-0.5cm] {Decision 1};
+
+\node (pro2a) [process, left of=dec1, xshift=-2cm] {Process 2a};
+
+\node (pro2b) [process, right of=dec1, xshift=2cm] {Process 2b};
+\node (out1) [io, below of=pro2a] {Output};
+\node (stop) [startstop, right of=out1, xshift=2cm] {Stop};
+
+\draw [arrow] (start) -- (in1);
+\draw [arrow] (in1) -- (pro1);
+\draw [arrow] (pro1) -- (dec1);
+\draw [arrow] (dec1) -- node[anchor=south] {False} (pro2a);
+\draw [arrow] (dec1) -- node[anchor=south] {True} (pro2b);
+\draw [arrow] (pro2a) -- (out1);
+\draw [arrow] (out1) -- (stop);
+\draw [arrow] (pro2b) |- (stop);
+
+\end{tikzpicture}}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{if} clause}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5 # a stores the integer 5
+if a == 5:
+    print("a stores 5.") # This line is activated
+    
+b = 10 # b stores the integer 10
+if b == 5:
+    print("b stores 5.") # This line is not activated
+\end{minted}
+\begin{block}{The \texttt{if} clause}
+If the condition is true, then the code under it is run.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{==} operator}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5 # a stores the integer 5
+if a == 5:
+    print("a stores 5.") # This line is activated
+    
+b = 10 # b stores the integer 10
+if b == 5:
+    print("b stores 5.") # This line is not activated
+\end{minted}
+\begin{block}{The \texttt{==} operator}
+The operator \texttt{==} is used to compare 2 values. If the values on the both sides are the same, then it becomes {\color{blue}\texttt{True}}. It becomes {\color{blue}\texttt{False}} otherwise.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{if}-\texttt{else} clause}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5 # a stores the integer 5
+if a == 5:
+    print("a stores 5.") # This line is activated
+else:
+    print("a does not store 5.") 
+    
+b = 10 # b stores the integer 10
+if b == 5:
+    print("b stores 5.")
+else:
+    print("b does not store 5.") # This line is activated
+\end{minted}
+\begin{block}{The \texttt{else} statement}
+Code under the \texttt{else} statement is executed when the condition in \texttt{if} is not true.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{if}-\texttt{else} clause}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5 # a stores the integer 5
+if a == 5:
+|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("a stores 5.") # This line is activated
+else:
+|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("a does not store 5.") 
+    
+b = 10 # b stores the integer 10
+if b == 5
+|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("b stores 5.")
+else:
+|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("b does not store 5.") # This line is activated
+\end{minted}
+\begin{block}{Indentation in Python}
+Indentation decides whether the code is under the \text{if}/\texttt{else} statements.\\
+It does not have to be 4 spaces, but they have to be \textbf{consistent}.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{if}-\texttt{elif}-\texttt{else} clause}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5 # a stores the integer 5
+if a == 5:
+    print("a stores 5.") # This line is activated
+elif a == 10:
+    print("a stores 10.")
+else:
+    print("a does not store 5 or 10.") 
+\end{minted}
+\begin{block}{The \texttt{elif} statement}
+The \texttt{elif} (stands for else-if) statement is a secondary \text{if} statement that is run if the previous \texttt{if}/\texttt{elif} condition(s) are not true.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{The \texttt{if}-\texttt{elif}-\texttt{else} clause}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 15 # a stores the integer 15
+if a == 5:
+    print("a stores 5.") 
+elif a == 10:
+    print("a stores 10.")
+elif a == 15:
+    print("a stores 15") # This line is activated
+else:
+    print("a does not store 5, 10 or 15.") 
+\end{minted}
+\begin{block}{Stacking the \texttt{elif} statement}
+The \texttt{elif} statement can be stacked on top of one another.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Comparison Operators}
+We've learnt that \texttt{==} means ``equal to''. What are some other operators?
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+Operator & Meaning\\\hline
+\texttt{==} & equal to\\\hline
+\texttt{>} & larger than\\\hline
+\texttt{>=} & larger than or equal to\\\hline
+\texttt{<} & smaller than\\\hline
+\texttt{<=} & smaller than or equal to\\\hline
+\texttt{!=} & not equal to\\\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Decision Making and Comparison Operators}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if a > 5:
+    print("a is larger than 5")
+
+if a >= 10:
+    print("a is larger than or equal to 10")
+\end{minted}
+
+\vspace{1em}
+In this example, both \texttt{print()} statements are activated.
+\end{frame}
+
+\begin{frame}[fragile]{Decision Making and Comparison Operators}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if a > 5:
+    print("a is larger than 5")
+elif a >= 10:
+    print("a is larger than or equal to 10") # Not run
+\end{minted}
+
+\pause
+\vspace{1em}
+In this example, only the first \texttt{print()} statements are activated.
+
+\begin{block}{\texttt{if} vs \texttt{elif}}
+If a condition is fulfilled, any \texttt{elif} clauses afterwards will not be considered.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Logic Operators - \texttt{and}}
+The \texttt{and} operator denotes whether the 2 conditions are fulfilled \textbf{at the same time}.
+
+\
+
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if a > 5 and a < 9:
+    print("a is between 5 and 9")
+else:
+    print("a is not between 5 and 9") # This line is run
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Logic Operators - \texttt{or}}
+The \texttt{or} operator denotes whether \textbf{any} of the 2 conditions are fulfilled.
+
+\
+
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if a < 5 or a > 9:
+    print("a is not between 5 and 9") # This line is run
+else:
+    print("a is between 5 and 9")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Logic Operators - \texttt{not}}
+The \texttt{not} operator reverses the condition.
+
+\
+
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if not a == 5: # Same as a != 5
+    print("a is not 5") # This line is run
+else:
+    print("a is 5")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Multiple Logic Operators}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if not a % 2 != 0 or a == 1: # Same as a % 2 == 0 or a == 1
+    print("a is even or equal to 1")
+else:
+    print("a is odd and not equal to 1")
+\end{minted}
+
+\
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+b = 10 # b stores the integer 10
+if b == 5 and not b % 2 != 0: # Impossible condition
+    print("b is 5 and somehow even?")
+else:
+    print("else statement")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Multiple Logic Operator (out of control)}
+We can use multiple logic operators together, but what about the rules?
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if not a == 0 and a == 1 or a == 3 and a % 2 == 1:
+    print("What is going on in the conditions?")
+else:
+    print("Else statement")
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Multiple Logic Operator (out of control)}
+We add brackets () to make our conditions clear.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 10 # a stores the integer 10
+if (not a == 0 and a == 1) or (a == 3 and a % 2 == 1):
+    print("Now the conditions are clearer")
+else:
+    print("Else statement")
+\end{minted}
+\pause
+\begin{block}{Reminder}
+If you ever use > 1 \texttt{and}/\texttt{or} operators, add brackets to keep track of what your conditions are.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Task 3}
+    \begin{center}
+        Now go to your Number Guessing Game file's task 3.
+
+        \
+            
+        All lines you have to do is marked with ``\texttt{\# TODO:}''.
+
+        \
+
+        We have to decide whether a number is larger/smaller\\
+        than the secret number in the number guessing game.
+
+        \
+
+        Try to finish the code that makes the decision.
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Running the game}
+    Go to the code cell that runs the main game:
+
+    \
+
+    \includegraphics[width=\textwidth]{NumGuessMain.png}
+
+    If you did the tasks above correctly, you should be able to run the number guessing game!
+\end{frame}
+
 \begin{frame}{ \ }
 	\begin{center}
 		The End\\
@@ -619,7 +1042,7 @@ This will be useful in the number guessing game.
 
 
 
-
+%%%-------------------------ADDITIONAL CONTENT-------------------------%%%
 
 
 
@@ -857,6 +1280,10 @@ Running the program:\\
 How old are you|$?$| |{\color{ForestGreen}\textit{69}}\pause|
 You are 69 years old.
 \end{minted}
+% VSCode highlighting workaround
+\if 0
+}
+\end{minted}\fi
 \hspace{0pt}\pause
 
 \begin{block}{Invalid input}
@@ -877,6 +1304,10 @@ Running the program with an invalid input:\\
 \begin{minted}[tabsize=4, escapeinside=||]{python} 
 How old are you|$?$| |{\color{ForestGreen}\textit{69.420}}|
 \end{minted} 
+% VSCode highlighting workaround
+\if 0
+}
+\end{minted}\fi
 \pause
 \begin{minted}[tabsize=4, escapeinside=||]{text}
 Traceback (most recent call last):
@@ -890,7 +1321,5 @@ This also applies to data types like boolean values and strings.
 \end{block}
 	
 \end{frame}
-
-\end{document}
 
 \end{document}
