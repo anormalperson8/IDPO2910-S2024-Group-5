@@ -34,6 +34,6 @@ jobs:
         git config --global user.name 'anormalperson8'
         git config --global user.email 'anormalperson8@users.noreply.github.com'
         git add *
-        git commit -am "[skip ci] workshop1-handout PDF complied by GitHub docker"
+        git commit -am "[skip ci] workshop1 PDF complied by GitHub docker"
         git push
         
