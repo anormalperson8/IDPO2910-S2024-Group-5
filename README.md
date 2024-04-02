@@ -15,7 +15,7 @@ Note: All files starting with `lesson` are no longer in use.
 ## [Images](/images/)
 All images used in Jupyter Notebooks files and workshop notes should be in this directory.
 
-## [reports](/reports/)
+## [Reports](/reports/)
 This is a directory that stores text files containing the latest date when the notes were compiled using a GitHub docker.
 
 ## Distribution
