@@ -1,4 +1,4 @@
-\documentclass[dvipsnames, svgnames, x11names]{beamer}
+\documentclass[dvipsnames, svgnames, x11names, handout]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage{bold-extra}
 \usepackage{amsfonts, amsthm, amsmath, amssymb}
@@ -26,7 +26,7 @@
 
 \begin{document}
 
-\setbeamertemplate{page number in head/foot}{\insertframenumber /36}
+\setbeamertemplate{page number in head/foot}{\insertframenumber /41}
 
 \frame{\titlepage}
 
@@ -83,6 +83,82 @@
     \begin{center}
         \frame{\includegraphics[width=0.5\textwidth]{Use2.png}}
     \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Summary from Last Workshop}
+    \begin{center}
+        Let's look at what we learnt last time.
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Summary from Last Workshop}
+\begin{block}{Variable types}
+There are 4 basic variable types: \texttt{int}, \texttt{bool}, \texttt{float} and \texttt{str}.
+\end{block}
+\begin{block}{Arithmetic Operators}
+Some basic and commonly-used operators:\\
+\centering
+\begin{tabular}{rlrl}
+\texttt{+}:& add & \texttt{-}:& minus,\\
+\texttt{*}:& multiply & \texttt{/}:& divide,\\
+\texttt{//}:& quotient & \texttt{\%}:& remainder,\\
+\texttt{**}:& power &&
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Summary from Last Workshop}
+\begin{block}{The \texttt{print()} statement}
+\mint{py}{print(*objects)}
+
+\fbox{\texttt{*objects}} - the things you want to print
+\end{block}
+
+\begin{block}{The \texttt{input()} statement}
+\mint{py}{input(prompt)}
+where \fbox{\texttt{prompt}} is quite literally what it means. It prints the output, then returns the value inputted as a string.
+\end{block}
+\begin{block}{\texttt{random.randint()}}
+\mint{py}{random.randint(a, b)}
+\fbox{\texttt{a}} - the lower bound of your range\\[1pt]
+\fbox{\texttt{b}} - the upper bound of your range\\
+This generates an integer \texttt{n} where \texttt{a} $\leq$ \texttt{n} $\leq$ \texttt{b}.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Summary from Last Workshop}
+\begin{block}{\texttt{if}, \texttt{elif} and \texttt{else}}
+\texttt{if}, \texttt{elif} and \texttt{else} clauses are used to decide whether some code should be executed.
+Whenever one is fulfilled, all others are ignored.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+if condition1: # if condition1 is true
+    # Do something, ignore all elif and else below
+
+elif condition2: # if condition2 is true
+    # Do something, ignore all elif and else below
+
+elif condition3: # if condition3 is true
+    # Do something, ignore all elif and else below
+
+else: # if all the conditions above are false
+    # Do something
+\end{minted}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Summary from Last Workshop}
+\begin{block}{The \texttt{and} logic operator}
+The \texttt{and} operator makes it so that both conditions have to be fulfilled in order for the code it is under to execute.
+\end{block}
+\begin{block}{The \texttt{or} logic operator}
+The \texttt{or} operator makes it so that only 1 of the conditions have to be fulfilled in order for the code it is under to execute.
+\end{block}
+\begin{block}{The \texttt{not} logic operator}
+The \texttt{not} operator reverses the condition is it attached to.
+\end{block}
+\begin{alertblock}{Multiple logic operators}
+One can chain multiple logic operators together, but to be safe add brackets () to make sure the condition works as intended.
+\end{alertblock}
 \end{frame}
     
 \begin{frame}{Contents} 
