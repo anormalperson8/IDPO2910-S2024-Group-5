@@ -1,0 +1,158 @@
+\documentclass[dvipsnames, svgnames, x11names, handout]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{bold-extra}
+\usepackage{amsfonts, amsthm, amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{ulem}
+\usepackage{minted}
+\usemintedstyle{vs}
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\graphicspath{{../images}}
+
+\title[HKUST Future-Ready Scholars]{HKUST Future-Ready Scholars}
+\subtitle{Introduction to Game Programming using Python}
+\author[Game Programming using Python]{}
+\date[May 2024]{4 May 2024}
+\titlegraphic{\includegraphics[height=1cm]{ust.png}}
+
+\begin{document}
+
+
+\frame{\titlepage}
+
+\setbeamertemplate{footline}{}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            a = 1234
+            b = 8888
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            a = 120
+            b = 12
+            c = 1.2
+            d = 112
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            a = "abc"
+            b = 'abc'
+            c = "abcd"
+            d = "abcd'
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            a = '5'
+            b = 5
+            c = "5"
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            a = 5 + 3
+            b = 4 * 2
+            c = -2 + 6
+            d = 7 - (-1)
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            print("I love", "HKUST.")
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4, linenos, xleftmargin=1em]{py}
+            a = 50
+            b = 3
+            print(a + b)
+            print("53")
+            print("5", "3")
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            x = input("Enter a phrase: ")
+            print(x)
+        \end{minted}
+    \end{center}
+    Input: \texttt{Hello!}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            x = input("Enter a phrase: ")
+            print(x, "F")
+        \end{minted}
+    \end{center}
+    Input: \texttt{ABCDE}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            import random
+            a = 5
+            b = 15
+            num = random.randint(a, b + 3)
+            print(num)
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            import random
+            num = random.randint(2, 5)
+            print(num)
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            a = SOME_INTEGER # Any integer
+            if ANSWER:
+                print("TRUE")
+            else:
+                print("FALSE")
+            
+            not (a <= 0 or a > 100)    # (1)
+            not a <= 0 and not a > 100 # (2)
+            not (a <= 0 and a > 100)   # (3)
+            not a <= 0 and a > 100     # (4)
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\end{document}
