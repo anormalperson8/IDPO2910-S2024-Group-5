@@ -8,3 +8,7 @@ Notes/*
 !Notes/*.tex
 !Notes/*.pdf
 !Notes/*.sh
+
+Kahoot-questions/*
+!Kahoot-questions/*.tex
+!Kahoot-questions/*.pdf
