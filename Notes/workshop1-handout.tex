@@ -26,7 +26,7 @@
 
 \begin{document}
 
-\setbeamertemplate{page number in head/foot}{\insertframenumber /46}
+\setbeamertemplate{page number in head/foot}{\insertframenumber /44}
 
 \frame{\titlepage}
 
@@ -372,32 +372,6 @@ Enter something: |{\color{ForestGreen}\textit{I am in HKUST}}|
 \if 0
 }
 \end{minted}\fi
-\end{frame}
-
-\begin{frame}[fragile]{Generating a random integer using \texttt{random} library}
-In Python, we can import libraries to help us with tasks. One of them is generating random numbers.
-The library/package \texttt{random} allows us to get a random number.
-
-The \texttt{randint} function provided allows us to generate a random integer given a range.
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-import random
-num = random.randint(1, 10) # generates a random number
-                            # We passed 1 and 10 into randint,
-                            # so the number can only be 
-                            # from 1 to 10
-print(num) # prints the number
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Generating a random integer using \texttt{random} library}
-Another example:
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-import random
-min = 15
-max = 30
-print(random.randint(min, max)) # prints a random number 
-                                # from 15 to 30
-\end{minted}
 \end{frame}
 
 \begin{frame}{Contents}
@@ -768,12 +742,6 @@ If you ever use > 1 \texttt{and}/\texttt{or} operators, add brackets to keep tra
 \mint{py}{input(prompt)}
 where \fbox{\texttt{prompt}} is quite literally what it means. It prints the output, then returns the value inputted as a string.
 \end{block}
-\begin{block}{\texttt{random.randint()}}
-\mint{py}{random.randint(a, b)}
-\fbox{\texttt{a}} - the lower bound of your range\\[1pt]
-\fbox{\texttt{b}} - the upper bound of your range\\
-This generates an integer \texttt{n} where \texttt{a} $\leq$ \texttt{n} $\leq$ \texttt{b}.
-\end{block}
 \end{frame}
 
 \begin{frame}[fragile]{Summary}
@@ -825,7 +793,7 @@ One can chain multiple logic operators together, but to be safe add brackets () 
 
 %%%-------------------------ADDITIONAL CONTENT-------------------------%%%
 \setcounter{framenumber}{0}
-\setbeamertemplate{page number in head/foot}{S-\insertframenumber /S-33}
+\setbeamertemplate{page number in head/foot}{S-\insertframenumber /S-36}
 
 
 
@@ -1316,6 +1284,32 @@ This also applies to data types like boolean values and strings.
 \end{block}
 \end{frame}
 
+\begin{frame}[fragile]{Generating a random integer using \texttt{random} library}
+In Python, we can import libraries to help us with tasks. One of them is generating random numbers.
+The library/package \texttt{random} allows us to get a random number.
+
+The \texttt{randint} function provided allows us to generate a random integer given a range.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+import random
+num = random.randint(1, 10) # generates a random number
+                            # We passed 1 and 10 into randint,
+                            # so the number can only be 
+                            # from 1 to 10
+print(num) # prints the number
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Generating a random integer using \texttt{random} library}
+Another example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+import random
+min = 15
+max = 30
+print(random.randint(min, max)) # prints a random number 
+                                # from 15 to 30
+\end{minted}
+\end{frame}
+
 \begin{frame}[fragile]{Summary}
 \begin{block}{Variable types}
 There are 4 basic variable types: \texttt{int}, \texttt{bool}, \texttt{float} and \texttt{str}.
@@ -1346,6 +1340,15 @@ The other arguments can be ignored as they are rarely used.
 \begin{block}{Type Conversion}
 To convert between types, you can simply surround the target with brackets, and call the type.\\
 \texttt{int -> int()}; \texttt{bool -> bool()}; \texttt{float -> float()}; \texttt{str -> str()}.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+\begin{block}{\texttt{random.randint()}}
+\mint{py}{random.randint(a, b)}
+\fbox{\texttt{a}} - the lower bound of your range\\[1pt]
+\fbox{\texttt{b}} - the upper bound of your range\\
+This generates an integer \texttt{n} where \texttt{a} $\leq$ \texttt{n} $\leq$ \texttt{b}.
 \end{block}
 \end{frame}
 
