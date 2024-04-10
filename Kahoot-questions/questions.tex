@@ -141,8 +141,144 @@
 \begin{frame}[fragile]{}
     \begin{center}
         \begin{minted}[autogobble, tabsize=4]{py}
+            x = 5
+            if x == 5:
+                print("TRUE")
+            else:
+                print("FALSE")
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            x = 10
+            if x * 2 != 10:
+                print("FALSE")
+            else:
+                print("TRUE")
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            num = 10
+            ans = 0
+            if num > 10:
+                ans = 100
+            elif num == 10:
+                ans = 200
+            else:
+                ans = 300
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            num = 7
+            ans = 0
+            if num >= 7:
+                ans = 100
+            elif num <= 7:
+                ans = 200
+            elif num == 7:
+                ans = 300
+            else:
+                ans = 400
+        \end{minted}
+    \end{center}
+\end{frame}
+
+% \begin{frame}[fragile]{}
+%     \begin{center}
+%         \begin{minted}[autogobble, tabsize=4]{py}
+%             a = "abc"
+%             # len() gives you the length of a string
+%             # Examples:
+%             # len("k") => 1
+%             # len("12") => 2
+%             if len(a) == 3 and a != "abc": 
+%                 print("TRUE")
+%             else:
+%                 print("FALSE")
+%         \end{minted}
+%     \end{center}
+% \end{frame}
+
+% \begin{frame}[fragile]{}
+%     \begin{center}
+%         \begin{minted}[autogobble, tabsize=4]{py}
+%             a = "abc"
+%             # len() gives you the length of a string
+%             # Examples:
+%             # len("k") => 1
+%             # len("12") => 2
+%             if len(a) > 3 or a == "abc": 
+%                 print("TRUE")
+%             else:
+%                 print("FALSE")
+%         \end{minted}
+%     \end{center}
+% \end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            a = "abc"
+            if a == "abc" and a == "abcd": 
+                print("TRUE")
+            else:
+                print("FALSE")
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            a = "abc"
+            if a == "abc" or a == "abcd": 
+                print("TRUE")
+            else:
+                print("FALSE")
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            a = 5
+            if (not a == 3 and a != 9) or a != 5:
+                print(a, a+1)
+            else:
+                print(a+1, a)
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
+            a = 5
+            if not not not not not not not not not not not not not a == 5:
+                print("TRUE")
+            else:
+                print("FALSE")
+        \end{minted}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+    \begin{center}
+        \begin{minted}[autogobble, tabsize=4]{py}
             a = SOME_INTEGER # Any integer
-            if ANSWER:
+            if CONDITION:
                 print("TRUE")
             else:
                 print("FALSE")
