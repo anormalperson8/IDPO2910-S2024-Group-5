@@ -20,13 +20,13 @@
 
 \title[HKUST Future-Ready Scholars]{HKUST Future-Ready Scholars}
 \subtitle{Introduction to Game Programming using Python}
-\author[Game Programming using Python]{Part 2: Hangman}
+\author[Game Programming using Python]{Part 2}
 \date[May 2024]{4 May 2024}
 \titlegraphic{\includegraphics[height=1cm]{ust.png}}
 
 \begin{document}
 
-\setbeamertemplate{page number in head/foot}{\insertframenumber /41}
+\setbeamertemplate{page number in head/foot}{\insertframenumber /33}
 
 \frame{\titlepage}
 
@@ -92,31 +92,40 @@
 \end{frame}
 
 \begin{frame}[fragile]{Summary from Last Workshop}
-\begin{block}{Variable types}
-There are 4 basic variable types: \texttt{int}, \texttt{bool}, \texttt{float} and \texttt{str}.
-\end{block}
-\begin{block}{Arithmetic Operators}
-Some basic and commonly-used operators:\\
-\centering
-\begin{tabular}{rlrl}
-\texttt{+}:& add & \texttt{-}:& minus,\\
-\texttt{*}:& multiply & \texttt{/}:& divide,\\
-\texttt{//}:& quotient & \texttt{\%}:& remainder,\\
-\texttt{**}:& power &&
-\end{tabular}
-\end{block}
+    \begin{block}{Examples of valid integers}
+        \begin{minted}[autogobble, tabsize=4, escapeinside=||]{python}
+        a = 5  
+        b = 1000000   
+        c = -1984
+        \end{minted}
+    \end{block}
+    \begin{block}{Examples of valid strings}
+        \begin{minted}[autogobble, tabsize=4, escapeinside=||]{python}
+        a = "5"
+        b = "haha"   
+        c = 'some words'
+        \end{minted}
+    \end{block}
+    \begin{block}{Arithmetic Operators}
+        Some basic and commonly-used operators:\\
+        \centering
+        \begin{tabular}{rlrl}
+        \texttt{+}:& add & \texttt{-}:& minus,\\
+        \texttt{*}:& multiply & \texttt{/}:& divide
+        \end{tabular}
+    \end{block}
 \end{frame}
 
 \begin{frame}[fragile]{Summary from Last Workshop}
 \begin{block}{The \texttt{print()} statement}
 \mint{py}{print(*objects)}
 
-\fbox{\texttt{*objects}} - the things you want to print
+\fbox{\texttt{*objects}} - the things you want to print (put on the screen)
 \end{block}
 
 \begin{block}{The \texttt{input()} statement}
 \mint{py}{input(prompt)}
-where \fbox{\texttt{prompt}} is quite literally what it means. It prints the output, then returns the value inputted as a string.
+where \fbox{\texttt{prompt}} is quite literally what it means. It prints the prompt, then returns the value inputted as a string.
 \end{block}
 \begin{block}{\texttt{random.randint()}}
 \mint{py}{random.randint(a, b)}
@@ -282,64 +291,6 @@ print(numbers, "length:", len(numbers))
 \end{frame}
 
 \begin{frame}[fragile]{Lists}
-To insert an element to a particular position in a list, we use the \texttt{insert()} list function.
-
-The \texttt{insert(i, value)} inserts the \texttt{value} at index \texttt{i}, and push everything after to the right. \pause
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-numbers = [0, 1, 1, 2, 3, 5]
-print(numbers, "length:", len(numbers)) 
-# Output: [0, 1, 1, 2, 3, 5] length: 6
-numbers.insert(2, 100) # Add 100 to index 2 of the list
-print(numbers, "length:", len(numbers))  
-# Output:|\pause| [0, 1, 100, 1, 2, 3, 5] length: 7
-numbers.insert(7, 200)|\pause| # Same as numbers.append(200)
-print(numbers, "length:", len(numbers))  
-# Output:|\pause| [0, 1, 100, 1, 2, 3, 5, 200] length: 8
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Lists}
-To remove an element from a list, we use the \texttt{remove()} list function.
-
-The \texttt{remove(value)} function removes the \textbf{first} occurence of \texttt{value}. \pause
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-numbers = [0, 1, 1, 2, 3, 5]
-print(numbers, "length:", len(numbers)) 
-# Output: [0, 1, 1, 2, 3, 5] length: 6
-numbers.remove(1) # Remove the first occurence of number 1
-print(numbers, "length:", len(numbers))
-# Output:|\pause| [0, 1, 2, 3, 5] length: 5
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Lists}
-The \texttt{reverse()} list function reverses a list's contents. \pause
-
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-numbers = [0, 1, 1, 2, 3, 5]
-print(numbers, "length:", len(numbers)) 
-# Output: [0, 1, 1, 2, 3, 5] length: 6
-numbers.reverse() # Reverse the list
-print(numbers, "length:", len(numbers)) 
-# Output:|\pause| [5, 3, 2, 1, 1, 0] length: 6
-print(numbers[0])
-# Output:|\pause| 5
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Lists}
-The \texttt{count(item)} list function counts the number of occurence of \texttt{item} in a list. \pause
-
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-numbers = [0, 1, 1, 2, 3, 5]
-print(numbers.count(1)) 
-# Output:|\pause| 2
-print(numbers.count(100)) 
-# Output:|\pause| 0
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Lists}
 We can check if an element is in a list with the \texttt{in} operator.\pause
 
 \begin{minted}[tabsize=4, escapeinside=||]{python}
@@ -352,48 +303,6 @@ if 8 in numbers:
     print("8 is in numbers.")
 else:
     print("8 is not in numbers.") # This line is run
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Lists}
-The \texttt{index(item)} list function finds the index of the first occurence of \texttt{item} in a list. \pause
-
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-numbers = [0, 1, 1, 2, 3, 5]
-print(numbers.index(1)) 
-# Output:|\pause| 1
-print(numbers.index(5)) 
-# Output:|\pause| 5
-print(numbers.index(100))
-# Output:|\pause| No output, error, 100 is not in the list
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Lists}
-Combining \texttt{in} and \texttt{list.index()}: \pause
-
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-numbers = [0, 1, 1, 2, 3, 5]
-if 5 in numbers:
-    print("The index of 5 in the list is", numbers.index(5))
-# Output:|\pause| The index of 5 in the list is 5
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Lists}
-The \texttt{sort()} list function sorts a list's contents. \pause
-
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-numbers = [6, 5, 1, 2, 3]
-print(numbers, "length:", len(numbers)) 
-# Output: [6, 5, 1, 2, 3] length: 5
-print(numbers[0])
-# Output: 6
-numbers.sort() # Sort the list
-print(numbers, "length:", len(numbers)) 
-# Output:|\pause| [1, 2, 3, 5, 6] length: 5
-print(numbers[0])
-# Output:|\pause| 1
 \end{minted}
 \end{frame}
 
@@ -650,16 +559,18 @@ print("Done.") # "Done." is printed
 \end{frame}
 
 \begin{frame}[fragile]{Loops - \texttt{while}}
-We can also apply boolean values to \texttt{while} loops.
+Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-equal_to_5 = False
-count = 0
-while not equal_to_5:
-    if count == 5:
-        equal_to_5 = True
-    count = count + 1
-print("Done.") # "Done." is printed
+i = 10
+while i > 0:
+|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("Count:", i)
+|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|i = i - 1
+print("Done.")
 \end{minted}
+\begin{block}{Indentation}
+Just like \texttt{if}-clauses, the indentation must be consistent for statements in the loop.
+This also applies to \texttt{for} loops, which we will get into very soon.
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile]{Loops - \texttt{for}}
@@ -696,52 +607,44 @@ while i < 10:
 print("Done.")
 \end{minted}
 
-Both loops go from 0 to 10, and give identical output.
+Both loops go from 0 to 9, and give identical output.
 \end{frame}
 
 \begin{frame}[fragile]{Loops - \texttt{for}}
 Another example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-for i in range(5):
-    print(i*i, end=" ") # Print the square, end with a space
-print() # Add new line at the end
-# Output:|\pause| 0 1 4 9 16
+for i in range(3):
+    print(i * i) # Print the square, end with a space
+# Output:|\pause| 0
+#         1
+#         4
 \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]{Loops - \texttt{for}}
 Let's combine lists with a for loop.
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-num = [1, 5, 9, 12, 4, 800]
-for i in range(len(num)):
-    print(num[i], end=" ") # Print num[i], end with a space
-print() # Add new line at the end
-# Output:|\pause| 1 5 9 12 4 800
+words = ["haha", "hehe", "hoho"]
+for i in range(len(words)):
+    print(words[i]) # Print num[i]
+# Output:|\pause| haha
+#         hehe
+#         hoho
 \end{minted}
-\pause This is how we go through a list.
+\pause This is one way we go through a list.
 \end{frame}
 
 \begin{frame}[fragile]{Loops - \texttt{for}}
 Instead of using the index, there is another way to go through a list:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-num = [1, 5, 9, 12, 4, 800]
-for i in num:
-    print(i, end=" ")
-print() # Add new line at the end
-# Output:|\pause| 1 5 9 12 4 800
+words = ["haha", "hehe", "hoho"]
+for i in words:
+    print(i) # Print the element
+# Output:|\pause| haha
+#         hehe
+#         hoho
 \end{minted}
 \pause The output is identical to the previous example.
-\end{frame}
-
-\begin{frame}[fragile]{Loops - \texttt{for}}
-It also works for lists of other types.
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-word = ["h", "k", "u", "s", "t"]
-for w in word:
-    print(w, end="")
-print() # Add new line at the end
-# Output:|\pause| hkust
-\end{minted}
 \end{frame}
 
 \begin{frame}[fragile]{Summary}
@@ -760,18 +663,12 @@ If a list is called \texttt{l}, one can:
 \end{frame}
 
 \begin{frame}[fragile]{Summary}
-\begin{block}{Lists functions}
+\begin{block}{List functions}
 If a list is called \texttt{l}, one can:
 \begin{itemize}
     \item append a value \texttt{v} to \texttt{l} with \texttt{l.append(v)}.
-    \item insert a value \texttt{v} to \texttt{l} at index \texttt{i} with \texttt{l.insert(i, v)}.
-    \item remove the first occurence of a value \texttt{v} with \texttt{l.remove(v)}.
-    \item reverse the list with \texttt{l.reverse()}.
-    \item count the occurence of value \texttt{v} with \texttt{l.count(v)}.
     \item use the \texttt{in} operator to check if a value \texttt{v} is in a list.
     \item[] e.g.: \texttt{if v in l:}
-    \item get the index of the first occurence of a value \texttt{v} with \texttt{l.index(v)}.
-    \item sort the list with \texttt{l.sort()}.
 \end{itemize}
 \end{block}
 \end{frame}
@@ -811,9 +708,6 @@ for i in l:
 	\begin{center}
 		The End\\
 		Thank you!
-
-        Made in \LaTeX\\
-		Last updated: 8 Apr 2024
 	\end{center}
 \end{frame}
 
@@ -823,8 +717,8 @@ for i in l:
 
 
 %%%-------------------------ADDITIONAL CONTENT-------------------------%%%
-% \setcounter{framenumber}{0}
-% \setbeamertemplate{page number in head/foot}{S-\insertframenumber /S-2}
+\setcounter{framenumber}{0}
+\setbeamertemplate{page number in head/foot}{S-\insertframenumber /S-15}
 
 
 
@@ -836,18 +730,230 @@ for i in l:
 
 
 
-% \begin{frame}{Additional content}
-% 	\begin{center}
-% 		Here are some additional content that we didn't think we would have time to mention in the workshop.
-% 	\end{center}
-% \end{frame}
+\begin{frame}{Additional content}
+	\begin{center}
+		Here are some additional content that we didn't have time to mention in the workshop.
+	\end{center}
+\end{frame}
 
-% \begin{frame}{ \ }
-% 	\begin{center}
-% 		End of Additional Contents\\
-% 		Made in \LaTeX\\
-% 		Last updated: 8 Apr 2024
-% 	\end{center}
-% \end{frame}
+\begin{frame}{Contents} 
+\begin{center}
+    \scalebox{0.5}{\begin{tikzpicture}
+    \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+    
+    \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+    
+    \node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+    \node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+    
+    \node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+    \node (var) [block, fill = DarkSeaGreen2] at ($(loop) + (0, -\y1)$) {Variables};
+    
+    \draw [->] (program.south) -- (func.north);
+    
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+    
+    \draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+    \draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+    \end{tikzpicture}}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+To insert an element to a particular position in a list, we use the \texttt{insert()} list function.
+
+The \texttt{insert(i, value)} inserts the \texttt{value} at index \texttt{i}, and push everything after to the right. \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers, "length:", len(numbers)) 
+# Output: [0, 1, 1, 2, 3, 5] length: 6
+numbers.insert(2, 100) # Add 100 to index 2 of the list
+print(numbers, "length:", len(numbers))  
+# Output:|\pause| [0, 1, 100, 1, 2, 3, 5] length: 7
+numbers.insert(7, 200)|\pause| # Same as numbers.append(200)
+print(numbers, "length:", len(numbers))  
+# Output:|\pause| [0, 1, 100, 1, 2, 3, 5, 200] length: 8
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+To remove an element from a list, we use the \texttt{remove()} list function.
+
+The \texttt{remove(value)} function removes the \textbf{first} occurence of \texttt{value}. \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers, "length:", len(numbers)) 
+# Output: [0, 1, 1, 2, 3, 5] length: 6
+numbers.remove(1) # Remove the first occurence of number 1
+print(numbers, "length:", len(numbers))
+# Output:|\pause| [0, 1, 2, 3, 5] length: 5
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+The \texttt{reverse()} list function reverses a list's contents. \pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers, "length:", len(numbers)) 
+# Output: [0, 1, 1, 2, 3, 5] length: 6
+numbers.reverse() # Reverse the list
+print(numbers, "length:", len(numbers)) 
+# Output:|\pause| [5, 3, 2, 1, 1, 0] length: 6
+print(numbers[0])
+# Output:|\pause| 5
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+The \texttt{count(item)} list function counts the number of occurence of \texttt{item} in a list. \pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers.count(1)) 
+# Output:|\pause| 2
+print(numbers.count(100)) 
+# Output:|\pause| 0
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+The \texttt{index(item)} list function finds the index of the first occurence of \texttt{item} in a list. \pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+print(numbers.index(1)) 
+# Output:|\pause| 1
+print(numbers.index(5)) 
+# Output:|\pause| 5
+print(numbers.index(100))
+# Output:|\pause| No output, error, 100 is not in the list
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+Combining \texttt{in} and \texttt{list.index()}: \pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5]
+if 5 in numbers:
+    print("The index of 5 in the list is", numbers.index(5))
+# Output:|\pause| The index of 5 in the list is 5
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+The \texttt{sort()} list function sorts a list's contents. \pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [6, 5, 1, 2, 3]
+print(numbers, "length:", len(numbers)) 
+# Output: [6, 5, 1, 2, 3] length: 5
+print(numbers[0])
+# Output: 6
+numbers.sort() # Sort the list
+print(numbers, "length:", len(numbers)) 
+# Output:|\pause| [1, 2, 3, 5, 6] length: 5
+print(numbers[0])
+# Output:|\pause| 1
+\end{minted}
+\end{frame}
+
+\begin{frame}{Contents} 
+\begin{center}
+    \scalebox{0.5}{\begin{tikzpicture}
+    \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+    
+    \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+    
+    \node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+    \node (loop) [block, fill = DarkSeaGreen2] at ($(func) + (\x1, -\y1)$) {Loops};
+    
+    \node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+    \node (var) [block, fill = LightSteelBlue] at ($(loop) + (0, -\y1)$) {Variables};
+    
+    \draw [->] (program.south) -- (func.north);
+    
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+    
+    \draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+    \draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+    \end{tikzpicture}}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+We can also apply boolean values to \texttt{while} loops.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+equal_to_5 = False
+count = 0
+while not equal_to_5:
+    if count == 5:
+        equal_to_5 = True
+    count = count + 1
+print("Done.") # "Done." is printed
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+The \texttt{range} in Python does not always have to start at 0.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+for i in range(2, 5):
+    print(i)
+# Output:|\pause| 2
+#         3
+#         4
+\end{minted}
+\begin{block}{Custom \texttt{range}}
+Given \texttt{range(a, b)}, a \texttt{for} loop will iterate from \texttt{a} to \texttt{b - 1}.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+\begin{block}{List functions}
+If a list is called \texttt{l}, one can:
+\begin{itemize}
+    \item insert a value \texttt{v} to \texttt{l} at index \texttt{i} with \texttt{l.insert(i, v)}.
+    \item remove the first occurence of a value \texttt{v} with \texttt{l.remove(v)}.
+    \item reverse the list with \texttt{l.reverse()}.
+    \item count the occurence of value \texttt{v} with \texttt{l.count(v)}.
+    \item get the index of the first occurence of a value \texttt{v} with \texttt{l.index(v)}.
+    \item sort the list with \texttt{l.sort()}.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+\begin{block}{Boolean conditions of \texttt{while}}
+You can apply boolean conditions to \texttt{while} loops.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+status = True # Or False, or a condition with variables
+while status: # Can also add "not"
+    # Do something
+\end{minted}
+\end{block}
+
+\begin{block}{Custom \texttt{range}}
+Given \texttt{range(a, b)}, a \texttt{for} loop will iterate from \texttt{a} to \texttt{b - 1}.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+sum = 0
+for i in range(100, 102):
+    sum = sum + i
+print(sum) # Output: 201
+\end{minted}
+\end{block}
+    
+\end{frame}
+
+\begin{frame}{ \ }
+	\begin{center}
+		End of Additional Contents\\
+		Made in \LaTeX\\
+		Last updated: 12 Apr 2024
+	\end{center}
+\end{frame}
 
 \end{document}
