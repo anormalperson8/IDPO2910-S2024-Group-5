@@ -20,13 +20,11 @@
 
 \title[HKUST Future-Ready Scholars]{HKUST Future-Ready Scholars}
 \subtitle{Introduction to Game Programming using Python}
-\author[Game Programming using Python]{Part 1}
+\author[Game Programming using Python]{Additional Content for Workshop 1}
 \date[April 2024]{20 April 2024}
 \titlegraphic{\includegraphics[height=1cm]{ust.png}}
 
 \begin{document}
-
-\setbeamertemplate{page number in head/foot}{\insertframenumber /44}
 
 \frame{\titlepage}
 
@@ -49,20 +47,16 @@
         \
 
         \frame{\includegraphics[width=0.75\textwidth]{Download.png}}
-
-        Download all files that belong to \textbf{Workshop 1}.
     \end{center}
 \end{frame}
 
 \begin{frame}[fragile]{Jupyter Notebook}
     \begin{center}
-        Now upload your Jupyter Notebook file with \textbf{Files $\rightarrow$ Open Notebook}.
+        You can upload your Jupyter Notebook file with \textbf{Files $\rightarrow$ Open Notebook}.
     
         \
 
         \frame{\includegraphics[width=0.5\textwidth]{Upload.png}}
-
-        Upload the file \textbf{Hangman.ipynb}.
     
     \end{center}
 \end{frame}
@@ -81,6 +75,20 @@
     \begin{center}
         \frame{\includegraphics[width=0.5\textwidth]{Use2.png}}
     \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{ \ }
+
+    \begin{center}
+        This set of notes is purely \textbf{supplementary} to workshop 1, for those who want to learn more and get a more complete picture of the Python programming language.
+    
+        \ 
+
+        \includegraphics[width=0.1\textwidth]{Python-logo.png}
+
+        This is the logo of Python.
+    \end{center}
+    
 \end{frame}
 
 \begin{frame}{World of Game Coding}
@@ -111,7 +119,6 @@
     \draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
     \draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
     \end{tikzpicture}}
-    
 \end{frame}
 
 \begin{frame}{Contents}
@@ -169,6 +176,17 @@ box_d = 'Some more' # String
 \end{minted}
 \end{frame}
 
+\begin{frame}[fragile]{Variable Types}
+Some basic variable types:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5       |\pause|# This is an integer (int) stored in a |\pause|
+b = True    |\pause|# This is a boolean (bool) stored in b |\pause|
+c = 3.2     |\pause|# This is a float (float)  stored in c |\pause|
+d = "abc"   |\pause|# This is a string (str)   stored in d |\pause|
+e = 'abc'   |\pause|# This is also a string    stored in e
+\end{minted}
+\end{frame}
+
 \begin{frame}[fragile]{Variables - Integers}
 What are integers?\pause\\
 Integers are just like what you've learnt in Maths, numbers without decimal points. Are the following valid?\pause
@@ -177,8 +195,8 @@ a = 5       |\pause|# Valid|\pause|
 b = 12      |\pause|# Valid|\pause|
 c = 1000000 |\pause|# Valid|\pause|
 d = -1984   |\pause|# Valid|\pause|
-e = 32.5    |\pause|# This is NOT an integer|\pause|
-f = 5.0     |\pause|# This is NOT an integer|\pause|
+e = 32.5    |\pause|# This is NOT an integer (but a float)|\pause|
+f = 5.0     |\pause|# This is NOT an integer (but a float)|\pause|
 g = '5'     |\pause|# This would become a string instead
 \end{minted}
 \end{frame}
@@ -189,12 +207,12 @@ You can do normal operations on integers:
 a = 1 + 2   |\pause|# a stores the integer 3|\pause|
 b = 80 - 52 |\pause|# b stores the integer 28|\pause|
 c = 69 * -2 |\pause|# c stores the integer -138|\pause|
-d = 6 / 4   |\pause|# d stores the number 1.5|\pause|
-e = 18 / 2  |\pause|# e stores the number 9.0|\pause|
+d = 6 / 4   |\pause|# d stores the float 1.5|\pause|
+e = 18 / 2  |\pause|# e stores the float 9.0|\pause|
 \end{minted}
 \begin{alertblock}{Division in Python}
-Whether a number can be precisely divided or not, division does NOT return an integer.
-The way to turn it into an integer is in the additional content section.
+Whether a number can be precisely divided or not, division does NOT return an integer, but a float instead.
+You can apply type conversion to change it, which is introduced later.
 \end{alertblock}
 \end{frame}
 
@@ -206,7 +224,71 @@ b = 12 |\pause|
 c = a + b   |\pause|# c stores the integer 112|\pause|
 d = b - a   |\pause|# d stores the integer -88|\pause|
 e = a * -b  |\pause|# e stores the integer -1200|\pause|
-f = a / b   |\pause|# f stores the number 8.333333333333334
+f = a / b   |\pause|# f stores the float 8.333333333333334
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
+Then how do we get an integer output?\pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 100
+b = 12 |\pause|
+c = a // b  |\pause|# c stores the integer 8|\pause|
+            # // operator takes the closest and smaller 
+            # integer from the division operation|\pause|
+d = a % b   |\pause|# d stores the integer 4|\pause|
+            # % operator takes the remainder of a 
+            # division operation
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
+Also, the power (exponent) operation:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 2
+b = 5       |\pause|
+c = a ** b  |\pause|# c stores the integer 32
+            # ** operator means power
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Floats}
+What are floats?\pause\\
+Floats are numbers with decimal points.\pause\\
+Arithmetic operators we learnt can be applied as well.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 0.2     # a stores the float 0.2
+b = 3.0     # b stores the float 3.0|\pause|
+c = a + b   |\pause|# c stores the float 3.2|\pause|
+d = b / a   |\pause|# d stores the float 15.0|\pause|
+e = a ** b  |\pause|# e stores the float 0.008000000000000002|\pause|
+\end{minted}
+\begin{alertblock}{Inaccuracies}
+Inaccuracies happen with decimals in Python. Be careful when dealing with floats.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Floats}
+What happens when you combine floats and integers? \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 0.2     # a stores the float 0.2
+b = 3       # b stores the integer 3|\pause|
+c = a + b   # c stores the float 3.2
+d = b / a   # d stores the float 15.0
+e = a ** b  # e stores the float 0.008000000000000002
+\end{minted}
+\pause
+\begin{block}{Arithmetic operations between \texttt{int} and \texttt{float}}
+Arithmetic operations between integers and floats converts the integer into a float first before operating.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Boolean values}
+What are boolean values?\pause\\
+There are only 2 boolean values in existence: \texttt{True} and \texttt{False}.\pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = True
+b = False
 \end{minted}
 \end{frame}
 
@@ -223,6 +305,43 @@ c = '5.20'  |\pause|# c stores the string "5.20"|\pause|
 \begin{block}{Quotes}
 In Python you must use corresponding quotation marks for strings.
 \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Strings}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = "haha"
+b = "hehe"
+c = a + b    |\pause|# c stores the string "hahahehe"
+\end{minted}
+\pause
+\begin{block}{Concatenation of strings}
+You can concatenate (add) strings together with the addition symbol.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Strings}
+How do I put the symbols \texttt{\textquotesingle} and \texttt{"} into a string?\pause\\
+For \texttt{"}:\pause
+	
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = "word\"" # a stores the string "word""|\pause|
+b = 'word"'  # b stores the same string as a|\pause|
+\end{minted}
+\vspace{1em}
+Same goes for single quotes \texttt{\textquotesingle}:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 'word\'' # a stores the string "word'"
+b = "word'"  # b stores the same string as a
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Variables - Strings}
+There are additional symbols in strings.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = "word\n" # \n represents the newline character
+b = "word\t" # \t represents the tab character
+\end{minted}
 \end{frame}
 
 \begin{frame}{Contents}
@@ -274,17 +393,17 @@ Haha hehe
 \end{minted}
 \end{frame}
 
-% \begin{frame}[fragile]{Printing multiple things}
-% You can use a comma (\texttt{,}) to separate different things with a space.
-% \begin{minted}[tabsize=4]{python} 
-% >>> print("Alpha", "Beta", "Gamma")
-% Alpha Beta Gamma
-% >>> print("Haha", "hehe")
-% Haha hehe
-% >>> print(19, 91)
-% 19 91
-% \end{minted}
-% \end{frame}
+\begin{frame}[fragile]{Printing multiple things}
+You can use a comma (\texttt{,}) to separate different things with a space.
+\begin{minted}[tabsize=4]{python} 
+>>> print("Alpha", "Beta", "Gamma")
+Alpha Beta Gamma
+>>> print("Haha", "hehe")
+Haha hehe
+>>> print(19, 91)
+19 91
+\end{minted}
+\end{frame}
 
 
 \begin{frame}[fragile]{Variables in output using the \texttt{print()} function}
@@ -313,7 +432,91 @@ print(a, b)    |\pause|# 5 haha |\pause|
 print(b, b)    |\pause|# haha haha |\pause|
 \end{minted}
 \begin{block}{The comma}
-Using \texttt{,} in \texttt{print()} would add a space in between the 2 items.
+\texttt{,} in \texttt{print()} works the same with variables.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables in output using the \texttt{print()} function}
+How do we print variables?
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5
+print(a)       # 5
+b = "haha"
+print(b)       # haha|\pause|
+print(a + "5") |\pause|# error |\pause|
+print(b + 2)   |\pause|# error |\pause|
+print(a + b)   |\pause|# error |\pause|
+\end{minted}
+\begin{block}{Addition}
+You cannot use addition to print things of incompatible types.\\
+\texttt{int} and \texttt{float} types are not incompatible because all \texttt{int} are converted to \texttt{float} if needed during operation, as mentioned before.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Variables in output using the \texttt{print()} function}
+How do we print variables?
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+a = 5
+b = 32
+c = 32.0
+print(a * b)    # 160
+print(a * c)    # 160.0
+\end{minted}
+\pause
+\begin{block}{Takeaway}
+\texttt{print()} function evaluates the expression inside the brackets first before actually printing.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{More on \texttt{print()} function}
+In Python, the \texttt{print()} function automatically adds a new line after execution. We, however, can stop that.\\
+The \texttt{end=} tag allows us to define the character added when \texttt{print()} is executed.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+print(5, end="")
+print(4)
+print("a", end="abc")
+print("d", end=" ")
+print("e")|\pause|
+# What is the output?|\pause|
+# Output: 54
+#         aabcd e
+\end{minted}
+\begin{block}{End of line}
+Remember to include a new line {\color{BrickRed}\texttt{\textbackslash n}} in the last line of a printed string.\\
+Else it may mess up the future outputs from other lines of the code or the computer terminal.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{More on \texttt{print()} function}
+We mentioned that whenever \texttt{,} is used in \texttt{print()}, the items would be separated by a space.\\
+This can actually be changed using the \texttt{sep=} tag.\pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+>>> print("100", 100, end="\n3\n")|\pause|
+>>> 100 100
+	3|\pause|
+>>> print("100", 100, sep="a", end="\n3\n")|\pause|
+>>> 100a100
+	3
+\end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]{More on \texttt{print()} function}
+Another example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+>>> a = 5
+>>> b = 10
+>>> print(a, b, a + b, end="20\n")|\pause|
+>>> 5 10 1520 |\pause|
+>>> print(a, b, a + b, sep="", end="20\n")|\pause|
+>>> 5101520	
+>>> print(a, b, a + b, end="20\n", sep="")|\pause|
+>>> 5101520	|\pause|
+\end{minted}
+\begin{block}{Command Parameters}
+As long as you mark \texttt{sep} and \texttt{end} clearly \textbf{and} after the things you want to print, the ordering doesn't matter!
 \end{block}
 \end{frame}
 
@@ -372,6 +575,309 @@ Enter something: |{\color{ForestGreen}\textit{I am in HKUST}}|
 \if 0
 }
 \end{minted}\fi
+\end{frame}
+
+\begin{frame}[fragile]{Converting the type of an input}
+How do we convert the data type of variables?
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+>>> number = input("Enter your number: ")
+Enter your number: |{\color{ForestGreen}\textit{50}}|
+>>> print(number) |\pause|
+50 |\pause|
+>>> print(number + 1000) |\pause|# Error occurs. Why?
+\end{minted}
+% VSCode highlighting workaround
+\if 0
+}
+\end{minted}\fi
+\pause
+\begin{block}{Explanation}
+\texttt{number} is a string type while 1000 is an integer.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Converting the type of an input}
+How do we convert the data type of variables?
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+>>> number = input("Enter your number: ")
+Enter your number: |{\color{ForestGreen}\textit{50}}|
+>>> print(number) |\pause|
+50 |\pause|
+>>> print(int(number) + 1000) |\pause|# 1050
+\end{minted}
+% VSCode highlighting workaround
+\if 0
+}
+\end{minted}\fi
+\begin{block}{Type conversion}
+\texttt{input()} returns the input as string. We need to convert the input to the suitable type when needed.\\
+We use \texttt{int()} to convert something into an integer.\\
+This will be useful.
+\end{block}
+\end{frame}
+
+\begin{frame}{Converting between types}
+You can convert between types with their type names in Python.
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		Data Type & Command\\\hline
+		Integer & \texttt{int()}\\\hline
+		Float & \texttt{float()}\\\hline
+		String & \texttt{str()}\\\hline
+		Boolean & \texttt{bool()}\\\hline
+	\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{int()}}
+\texttt{int()} tries to convert a variable into an integer.
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+a = 10        # int
+print(int(a)) |\pause|# 10
+			  |\pause|# Nothing occurs |\pause|
+			  
+b = 3.7       # float
+print(int(b)) |\pause|# 3
+              |\pause|# Discards values to the right of 
+              # the decimal point |\pause|
+              
+c = True      # boolean
+print(int(c)) |\pause|# 1 |\pause|
+
+d = False     # boolean
+print(int(d)) |\pause|# 0 |\pause|
+              # For boolean: 0 if False, True otherwise
+              
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{int()}}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = "123abc"  # string
+print(int(i)) |\pause|# Error |\pause|
+
+j = "123"     # string with ONLY numbers
+print(int(j)) |\pause|# 123 |\pause|
+              # Only integers in strings would be 
+              # successfully converted |\pause|
+
+k = "123.123" # string with ONLY numbers, but with 
+              # a number that represents a float
+print(int(k)) |\pause|# Error 
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{float()}}
+The concepts of \texttt{int()} and \texttt{float()} are quite similar. \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+a = 10          # int
+print(float(a)) |\pause|# 10.0
+                |\pause|# From int -> float |\pause|
+
+b = 3.7         # float
+print(float(b)) |\pause|# 3.7
+                |\pause|# Nothing happens |\pause|
+
+c = True        # boolean
+print(float(c)) |\pause|# 1.0 |\pause|
+
+d = False       # boolean
+print(float(d)) |\pause|# 0.0
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{float()}}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = "123abc"    # string
+print(float(i)) |\pause|# Error |\pause|
+ 
+j = "123"       # string with ONLY numbers
+print(float(j)) |\pause|# 123.0 |\pause|
+
+k = "123.123"   # string with ONLY numbers, but with 
+                # a number that represents a float
+print(float(k)) |\pause|# 123.123
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{str()}}
+All of the 3 data types below can be transformed into strings. \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+a = 10        # int
+print(str(a)) |\pause|# 10 |\pause|
+
+b = 3.7       # float
+print(str(b)) |\pause|# 3.7 |\pause|
+
+c = True      # boolean
+print(str(c)) |\pause|# True |\pause|
+
+d = False     # boolean
+print(str(d)) |\pause|# False
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{str()}}
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+e = "abcdef"   # string
+print(str(e))  |\pause|# abcdef |\pause|
+               # Nothing happens
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{bool()}}
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+a = 0          # int
+print(bool(a)) |\pause|# False
+               |\pause|# 0 means False |\pause|
+
+b = 3.7        # float
+print(bool(b)) |\pause|# True |\pause|
+\end{minted}
+
+\begin{block}{True and False values}
+	Any integers or floats, if they are not zero, then \texttt{bool()} returns \texttt{True}, \texttt{False} otherwise.
+\end{block}
+
+\pause
+
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+c = True       # boolean
+print(bool(c)) # True
+
+d = False      # boolean
+print(bool(d)) # False
+               |\pause|# Nothing happens for the 2 above
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{bool()}}
+\texttt{bool()}, when applied to a string, checks whether it has content: \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+e = "abcdefg"  
+print(bool(e)) # True
+f = "False"    
+print(bool(f)) # True
+g = " tRuE "   
+print(bool(g)) # True
+h = "0"        
+print(bool(h)) # True
+i = ""         
+print(bool(i)) # False
+\end{minted}
+
+\begin{block}{Strings}
+If the string has a length $>$ 0, then \texttt{bool()} returns \texttt{True}, \texttt{False} otherwise.
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Example of input and type conversion}
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+age = int(input("How old are you? "))
+print("You are", age, "years old.")
+\end{minted}
+\hspace{0pt}\pause
+
+Running the program:\\
+
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+How old are you|$?$| |{\color{ForestGreen}\textit{69}}\pause|
+You are 69 years old.
+\end{minted}
+% VSCode highlighting workaround
+\if 0
+}
+\end{minted}\fi
+\hspace{0pt}\pause
+
+\begin{block}{Invalid input}
+	If the input does not contain \textit{only} an integer, then the program would throw an error.
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Example of input and type conversion}
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+age = int(input("How old are you? "))
+print("You are", age, "years old.")
+\end{minted}
+\hspace{0pt}
+
+Running the program with an invalid input:\\
+
+\begin{minted}[tabsize=4, escapeinside=||]{python} 
+How old are you|$?$| |{\color{ForestGreen}\textit{69.420}}|
+\end{minted} 
+% VSCode highlighting workaround
+\if 0
+}
+\end{minted}\fi
+\pause
+\begin{minted}[tabsize=4, escapeinside=||]{text}
+Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '69.420'
+\end{minted}
+\hspace{0pt}\pause
+
+\begin{block}{Invalid input}
+This also applies to data types like boolean values and strings.
+\end{block}
+\end{frame}
+
+\begin{frame}{Contents}
+
+\begin{center}\scalebox{0.5}{
+\begin{tikzpicture}
+\node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+
+\node (func) [block, fill = DarkSeaGreen2] at ($(program) + (0, -\y1)$) {Functions};
+
+\node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+\node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+
+\node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+\node (var) [block, fill = LightSteelBlue] at ($(loop) + (0, -\y1)$) {Variables};
+
+\draw [->] (program.south) -- (func.north);
+
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+\draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+
+\draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+\draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+\end{tikzpicture}}
+
+This is a \textit{very} brief peek into functions.
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Generating a random integer using \texttt{random} library}
+In Python, we can import libraries to help us with tasks. One of them is generating random numbers.
+The library/package \texttt{random} allows us to get a random number.
+
+The \texttt{randint} function provided allows us to generate a random integer given a range.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+import random
+num = random.randint(1, 10) # generates a random number
+                            # We passed 1 and 10 into randint,
+                            # so the number can only be 
+                            # from 1 to 10
+print(num) # prints the number
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Generating a random integer using \texttt{random} library}
+Another example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+import random
+min = 15
+max = 30
+print(random.randint(min, max)) # prints a random number 
+                                # from 15 to 30
+\end{minted}
 \end{frame}
 
 \begin{frame}{Contents}
@@ -707,40 +1213,48 @@ If you ever use > 1 \texttt{and}/\texttt{or} operators, add brackets to keep tra
 \end{frame}
 
 \begin{frame}[fragile]{Summary}
-    \begin{block}{Examples of valid integers}
-        \begin{minted}[autogobble, tabsize=4, escapeinside=||]{python}
-        a = 5  
-        b = 1000000   
-        c = -1984
-        \end{minted}
-    \end{block}
-    \begin{block}{Examples of valid strings}
-        \begin{minted}[autogobble, tabsize=4, escapeinside=||]{python}
-        a = "5"
-        b = "haha"   
-        c = 'some words'
-        \end{minted}
-    \end{block}
-    \begin{block}{Arithmetic Operators}
-        Some basic and commonly-used operators:\\
-        \centering
-        \begin{tabular}{rlrl}
-        \texttt{+}:& add & \texttt{-}:& minus,\\
-        \texttt{*}:& multiply & \texttt{/}:& divide
-        \end{tabular}
-    \end{block}
+\begin{block}{Variable types}
+There are 4 basic variable types: \texttt{int}, \texttt{bool}, \texttt{float} and \texttt{str}.
+\end{block}
+\begin{block}{Arithmetic Operators}
+Some basic and commonly-used operators:\\
+\centering
+\begin{tabular}{rlrl}
+\texttt{+}:& add & \texttt{-}:& minus,\\
+\texttt{*}:& multiply & \texttt{/}:& divide,\\
+\texttt{//}:& quotient & \texttt{\%}:& remainder,\\
+\texttt{**}:& power &&
+\end{tabular}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile]{Summary}
 \begin{block}{The \texttt{print()} statement}
-\mint{py}{print(*objects)}
+\mint{py}{print(*objects, sep=' ', end='\n', file=None, flush=False)}
 
-\fbox{\texttt{*objects}} - the things you want to print (put on the screen)
+\
+
+\fbox{\texttt{*objects}} - the things you want to print,\\
+\fbox{\texttt{sep}} - the string that separates \texttt{objects} (when using commas),\\
+\fbox{\texttt{end}} - the string to end the print statement with.\\
+The other arguments can be ignored as they are rarely used.
 \end{block}
-
 \begin{block}{The \texttt{input()} statement}
 \mint{py}{input(prompt)}
 where \fbox{\texttt{prompt}} is quite literally what it means. It prints the prompt, then returns the value inputted as a string.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+\begin{block}{Type Conversion}
+To convert between types, you can simply surround the target with brackets, and call the type.\\
+\texttt{int -> int()}; \texttt{bool -> bool()}; \texttt{float -> float()}; \texttt{str -> str()}.
+\end{block}
+\begin{block}{\texttt{random.randint()}}
+\mint{py}{random.randint(a, b)}
+\fbox{\texttt{a}} - the lower bound of your range\\[1pt]
+\fbox{\texttt{b}} - the upper bound of your range\\
+This generates an integer \texttt{n} where \texttt{a} $\leq$ \texttt{n} $\leq$ \texttt{b}.
 \end{block}
 \end{frame}
 
@@ -798,582 +1312,9 @@ One can chain multiple logic operators together, but to be safe add brackets () 
 
 \begin{frame}{ \ }
 	\begin{center}
-		The End\\
-		Thank you!
-	\end{center}
-\end{frame}
-
-
-
-
-
-
-%%%-------------------------ADDITIONAL CONTENT-------------------------%%%
-\setcounter{framenumber}{0}
-\setbeamertemplate{page number in head/foot}{S-\insertframenumber /S-36}
-
-
-
-
-
-
-
-
-
-
-
-\begin{frame}{Additional content}
-	\begin{center}
-		Here are some additional content that we didn't have time to mention in the workshop.
-	\end{center}
-\end{frame}
-
-\begin{frame}[fragile]{Variable Types}
-There are other variable types other than integers and strings.
-
-Some basic variable types:
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = 5       |\pause|# This is an integer (int) stored in a |\pause|
-b = True    |\pause|# This is a boolean (bool) stored in b |\pause|
-c = 3.2     |\pause|# This is a float (float)  stored in c |\pause|
-d = "abc"   |\pause|# This is a string (str)   stored in d |\pause|
-e = 'abc'   |\pause|# This is also a string    stored in e
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
-You can do normal operations on integers:
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = 1 + 2   |\pause|# a stores the integer 3|\pause|
-b = 80 - 52 |\pause|# b stores the integer 28|\pause|
-c = 69 * -2 |\pause|# c stores the integer -138|\pause|
-d = 6 / 4   |\pause|# d stores the float 1.5|\pause|
-e = 18 / 2  |\pause|# e stores the float 9.0|\pause|
-\end{minted}
-\begin{alertblock}{Division in Python}
-Whether a number can be precisely divided or not, division returns a \texttt{float}.
-\end{alertblock}
-\end{frame}
-
-\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
-Operations with variables:
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = 100
-b = 12 |\pause|
-c = a + b   |\pause|# c stores the integer 112|\pause|
-d = b - a   |\pause|# d stores the integer -88|\pause|
-e = a * -b  |\pause|# e stores the integer -1200|\pause|
-f = a / b   |\pause|# f stores the float 8.333333333333334
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
-Then how do we get an integer output?\pause
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = 100
-b = 12 |\pause|
-c = a // b  |\pause|# c stores the integer 8|\pause|
-            # // operator takes the closest and smaller 
-            # integer from the division operation|\pause|
-d = a % b   |\pause|# d stores the integer 4|\pause|
-            # % operator takes the remainder of a 
-            # division operation
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Variables - Integer Arithmetic Operations}
-Also, the power (exponent) operation:
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = 2
-b = 5       |\pause|
-c = a ** b  |\pause|# c stores the integer 32
-            # ** operator means power
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Variables - Floats}
-What are floats?\pause\\
-Floats are numbers with decimal points.\pause\\
-Arithmetic operators we learnt can be applied as well.
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = 0.2     # a stores the float 0.2
-b = 3.0     # b stores the float 3.0|\pause|
-c = a + b   |\pause|# c stores the float 3.2|\pause|
-d = b / a   |\pause|# d stores the float 15.0|\pause|
-e = a ** b  |\pause|# e stores the float 0.008000000000000002|\pause|
-\end{minted}
-\begin{alertblock}{Inaccuracies}
-Inaccuracies happen with decimals in Python. Be careful when dealing with floats.
-\end{alertblock}
-\end{frame}
-
-\begin{frame}[fragile]{Variables - Floats}
-What happens when you combine floats and integers? \pause
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = 0.2     # a stores the float 0.2
-b = 3       # b stores the integer 3|\pause|
-c = a + b   # c stores the float 3.2
-d = b / a   # d stores the float 15.0
-e = a ** b  # e stores the float 0.008000000000000002
-\end{minted}
-\pause
-\begin{block}{Arithmetic operations between \texttt{int} and \texttt{float}}
-Arithmetic operations between integers and floats converts the integer into a float first before operating.
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Variables - Boolean values}
-What are boolean values?\pause\\
-There are only 2 boolean values in existence: \texttt{True} and \texttt{False}.\pause
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = True
-b = False
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Variables - Strings}
-Example:
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = "haha"
-b = "hehe"
-c = a + b    |\pause|# c stores the string "hahahehe"
-\end{minted}
-\pause
-\begin{block}{Concatenation of strings}
-You can concatenate (add) strings together with the addition symbol.
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Variables - Strings}
-How do I put the symbols \texttt{\textquotesingle} and \texttt{"} into a string?\pause\\
-For \texttt{"}:\pause
-	
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = "word\"" # a stores the string "word""|\pause|
-b = 'word"'  # b stores the same string as a|\pause|
-\end{minted}
-\vspace{1em}
-Same goes for single quotes \texttt{\textquotesingle}:
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = 'word\'' # a stores the string "word'"
-b = "word'"  # b stores the same string as a
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Variables - Strings}
-There are additional symbols in strings.
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = "word\n" # \n represents the newline character
-b = "word\t" # \t represents the tab character
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Variables in output using the \texttt{print()} function}
-How do we print variables?
-
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = 5
-print(a)       # 5
-b = "haha"
-print(b)       # haha|\pause|
-print(a + "5") |\pause|# error |\pause|
-print(b + 2)   |\pause|# error |\pause|
-print(a + b)   |\pause|# error |\pause|
-\end{minted}
-\begin{block}{Addition}
-You cannot use addition to print things of incompatible types.\\
-\texttt{int} and \texttt{float} types are not incompatible because all \texttt{int} are converted to \texttt{float} if needed during operation.
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Variables in output using the \texttt{print()} function}
-How do we print variables?
-
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-a = 5
-b = 32
-c = 32.0
-print(a * b)    # 160
-print(a * c)    # 160.0
-\end{minted}
-\pause
-\begin{block}{Takeaway}
-\texttt{print()} function evaluates the expression inside the brackets first before actually printing.
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{More on \texttt{print()} function}
-In Python, the \texttt{print()} function automatically adds a new line after execution. We, however, can stop that.\\
-The \texttt{end=} tag allows us to define the character added when \texttt{print()} is executed.
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-print(5, end="")
-print(4)
-print("a", end="abc")
-print("d", end=" ")
-print("e")|\pause|
-# What is the output?|\pause|
-# Output: 54
-#         aabcd e
-\end{minted}
-\begin{block}{End of line}
-Remember to include a new line {\color{BrickRed}\texttt{\textbackslash n}} in the last line of a printed string.\\
-Else it may mess up the future outputs from other lines of the code or the computer terminal.
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{More on \texttt{print()} function}
-We mentioned that whenever \texttt{,} is used in \texttt{print()}, the items would be separated by a space.\\
-This can actually be changed using the \texttt{sep=} tag.\pause
-\begin{minted}[tabsize=4, escapeinside=||]{python}
->>> print("100", 100, end="\n3\n")|\pause|
->>> 100 100
-	3|\pause|
->>> print("100", 100, sep="a", end="\n3\n")|\pause|
->>> 100a100
-	3
-\end{minted}
-
-\end{frame}
-
-\begin{frame}[fragile]{More on \texttt{print()} function}
-Another example:
-\begin{minted}[tabsize=4, escapeinside=||]{python}
->>> a = 5
->>> b = 10
->>> print(a, b, a + b, end="20\n")|\pause|
->>> 5 10 1520 |\pause|
->>> print(a, b, a + b, sep="", end="20\n")|\pause|
->>> 5101520	
->>> print(a, b, a + b, end="20\n", sep="")|\pause|
->>> 5101520	|\pause|
-\end{minted}
-\begin{block}{Command Parameters}
-As long as you mark \texttt{sep} and \texttt{end} clearly \textbf{and} after the things you want to print, the ordering doesn't matter!
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Converting the type of an input}
-How do we convert the data type of variables?
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
->>> number = input("Enter your number: ")
-Enter your number: |{\color{ForestGreen}\textit{50}}|
->>> print(number) |\pause|
-50 |\pause|
->>> print(number + 1000) |\pause|# Error occurs. Why?
-\end{minted}
-% VSCode highlighting workaround
-\if 0
-}
-\end{minted}\fi
-\pause
-\begin{block}{Explanation}
-\texttt{number} is a string type while 1000 is an integer.
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Converting the type of an input}
-How do we convert the data type of variables?
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
->>> number = input("Enter your number: ")
-Enter your number: |{\color{ForestGreen}\textit{50}}|
->>> print(number) |\pause|
-50 |\pause|
->>> print(int(number) + 1000) |\pause|# 1050
-\end{minted}
-% VSCode highlighting workaround
-\if 0
-}
-\end{minted}\fi
-\begin{block}{Type conversion}
-\texttt{input()} returns the input as string. We need to convert the input to the suitable type when needed.\\
-We use \texttt{int()} to convert something into an integer.\\
-This will be useful.
-\end{block}
-\end{frame}
-
-\begin{frame}{Converting between types}
-You can convert between types with their type names in Python.
-\begin{center}
-	\begin{tabular}{|c|c|}\hline
-		Data Type & Command\\\hline
-		Integer & \texttt{int()}\\\hline
-		Float & \texttt{float()}\\\hline
-		String & \texttt{str()}\\\hline
-		Boolean & \texttt{bool()}\\\hline
-	\end{tabular}
-\end{center}
-\end{frame}
-
-\begin{frame}[fragile]{\texttt{int()}}
-\texttt{int()} tries to convert a variable into an integer.
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
-a = 10        # int
-print(int(a)) |\pause|# 10
-			  |\pause|# Nothing occurs |\pause|
-			  
-b = 3.7       # float
-print(int(b)) |\pause|# 3
-              |\pause|# Discards values to the right of 
-              # the decimal point |\pause|
-              
-c = True      # boolean
-print(int(c)) |\pause|# 1 |\pause|
-
-d = False     # boolean
-print(int(d)) |\pause|# 0 |\pause|
-              # For boolean: 0 if False, True otherwise
-              
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{\texttt{int()}}
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-i = "123abc"  # string
-print(int(i)) |\pause|# Error |\pause|
-
-j = "123"     # string with ONLY numbers
-print(int(j)) |\pause|# 123 |\pause|
-              # Only integers in strings would be 
-              # successfully converted |\pause|
-
-k = "123.123" # string with ONLY numbers, but with 
-              # a number that represents a float
-print(int(k)) |\pause|# Error 
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{\texttt{float()}}
-The concepts of \texttt{int()} and \texttt{float()} are quite similar. \pause
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
-a = 10          # int
-print(float(a)) |\pause|# 10.0
-                |\pause|# From int -> float |\pause|
-
-b = 3.7         # float
-print(float(b)) |\pause|# 3.7
-                |\pause|# Nothing happens |\pause|
-
-c = True        # boolean
-print(float(c)) |\pause|# 1.0 |\pause|
-
-d = False       # boolean
-print(float(d)) |\pause|# 0.0
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{\texttt{float()}}
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-i = "123abc"    # string
-print(float(i)) |\pause|# Error |\pause|
- 
-j = "123"       # string with ONLY numbers
-print(float(j)) |\pause|# 123.0 |\pause|
-
-k = "123.123"   # string with ONLY numbers, but with 
-                # a number that represents a float
-print(float(k)) |\pause|# 123.123
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{\texttt{str()}}
-All of the 3 data types below can be transformed into strings. \pause
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
-a = 10        # int
-print(str(a)) |\pause|# 10 |\pause|
-
-b = 3.7       # float
-print(str(b)) |\pause|# 3.7 |\pause|
-
-c = True      # boolean
-print(str(c)) |\pause|# True |\pause|
-
-d = False     # boolean
-print(str(d)) |\pause|# False
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{\texttt{str()}}
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
-e = "abcdef"   # string
-print(str(e))  |\pause|# abcdef |\pause|
-               # Nothing happens
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{\texttt{bool()}}
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
-a = 0          # int
-print(bool(a)) |\pause|# False
-               |\pause|# 0 means False |\pause|
-
-b = 3.7        # float
-print(bool(b)) |\pause|# True |\pause|
-\end{minted}
-
-\begin{block}{True and False values}
-	Any integers or floats, if they are not zero, then \texttt{bool()} returns \texttt{True}, \texttt{False} otherwise.
-\end{block}
-
-\pause
-
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
-c = True       # boolean
-print(bool(c)) # True
-
-d = False      # boolean
-print(bool(d)) # False
-               |\pause|# Nothing happens for the 2 above
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{\texttt{bool()}}
-\texttt{bool()}, when applied to a string, checks whether it has content: \pause
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
-e = "abcdefg"  
-print(bool(e)) # True
-f = "False"    
-print(bool(f)) # True
-g = " tRuE "   
-print(bool(g)) # True
-h = "0"        
-print(bool(h)) # True
-i = ""         
-print(bool(i)) # False
-\end{minted}
-
-\begin{block}{Strings}
-If the string has a length $>$ 0, then \texttt{bool()} returns \texttt{True}, \texttt{False} otherwise.
-\end{block}
-
-\end{frame}
-
-\begin{frame}[fragile]{Example of input and type conversion}
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
-age = int(input("How old are you? "))
-print("You are", age, "years old.")
-\end{minted}
-\hspace{0pt}\pause
-
-Running the program:\\
-
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
-How old are you|$?$| |{\color{ForestGreen}\textit{69}}\pause|
-You are 69 years old.
-\end{minted}
-% VSCode highlighting workaround
-\if 0
-}
-\end{minted}\fi
-\hspace{0pt}\pause
-
-\begin{block}{Invalid input}
-	If the input does not contain \textit{only} an integer, then the program would throw an error.
-\end{block}
-
-\end{frame}
-
-\begin{frame}[fragile]{Example of input and type conversion}
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
-age = int(input("How old are you? "))
-print("You are", age, "years old.")
-\end{minted}
-\hspace{0pt}
-
-Running the program with an invalid input:\\
-
-\begin{minted}[tabsize=4, escapeinside=||]{python} 
-How old are you|$?$| |{\color{ForestGreen}\textit{69.420}}|
-\end{minted} 
-% VSCode highlighting workaround
-\if 0
-}
-\end{minted}\fi
-\pause
-\begin{minted}[tabsize=4, escapeinside=||]{text}
-Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
-ValueError: invalid literal for int() with base 10: '69.420'
-\end{minted}
-\hspace{0pt}\pause
-
-\begin{block}{Invalid input}
-This also applies to data types like boolean values and strings.
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Generating a random integer using \texttt{random} library}
-In Python, we can import libraries to help us with tasks. One of them is generating random numbers.
-The library/package \texttt{random} allows us to get a random number.
-
-The \texttt{randint} function provided allows us to generate a random integer given a range.
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-import random
-num = random.randint(1, 10) # generates a random number
-                            # We passed 1 and 10 into randint,
-                            # so the number can only be 
-                            # from 1 to 10
-print(num) # prints the number
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Generating a random integer using \texttt{random} library}
-Another example:
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-import random
-min = 15
-max = 30
-print(random.randint(min, max)) # prints a random number 
-                                # from 15 to 30
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Summary}
-\begin{block}{Variable types}
-There are 4 basic variable types: \texttt{int}, \texttt{bool}, \texttt{float} and \texttt{str}.
-\end{block}
-\begin{block}{Arithmetic Operators}
-Some basic and commonly-used operators:\\
-\centering
-\begin{tabular}{rlrl}
-\texttt{+}:& add & \texttt{-}:& minus,\\
-\texttt{*}:& multiply & \texttt{/}:& divide,\\
-\texttt{//}:& quotient & \texttt{\%}:& remainder,\\
-\texttt{**}:& power &&
-\end{tabular}
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Summary}
-\begin{block}{The \texttt{print()} statement}
-\mint{py}{print(*objects, sep=' ', end='\n', file=None, flush=False)}
-
-\
-
-\fbox{\texttt{*objects}} - the things you want to print,\\
-\fbox{\texttt{sep}} - the string that separates \texttt{objects} (when using commas),\\
-\fbox{\texttt{end}} - the string to end the print statement with.\\
-The other arguments can be ignored as they are rarely used.
-\end{block}
-\begin{block}{Type Conversion}
-To convert between types, you can simply surround the target with brackets, and call the type.\\
-\texttt{int -> int()}; \texttt{bool -> bool()}; \texttt{float -> float()}; \texttt{str -> str()}.
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Summary}
-\begin{block}{\texttt{random.randint()}}
-\mint{py}{random.randint(a, b)}
-\fbox{\texttt{a}} - the lower bound of your range\\[1pt]
-\fbox{\texttt{b}} - the upper bound of your range\\
-This generates an integer \texttt{n} where \texttt{a} $\leq$ \texttt{n} $\leq$ \texttt{b}.
-\end{block}
-\end{frame}
-
-\begin{frame}{ \ }
-	\begin{center}
-		End of Additional Contents\\
+		The end.\\
 		Made in \LaTeX\\
-		Last updated: 12 Apr 2024
+		Last updated: 18 Apr 2024
 	\end{center}
 \end{frame}
 
