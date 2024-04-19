@@ -48,18 +48,6 @@
     \end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Google Colab}
-    \begin{center}
-        Login to your Gmail account.
-
-        \
-
-        Then head to
-
-        \href{https://colab.research.google.com/}{https://colab.research.google.com/}
-    \end{center}
-\end{frame}
-
 \begin{frame}[fragile]{Files}
     \begin{center}
         All materials today are at:
@@ -71,6 +59,18 @@
         \frame{\includegraphics[width=0.75\textwidth]{Download.png}}
 
         Download all files that belong to \textbf{Workshop 2} today.
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Google Colab}
+    \begin{center}
+        Login to your Gmail account.
+
+        \
+
+        Then head to
+
+        \href{https://colab.research.google.com/}{https://colab.research.google.com/}
     \end{center}
 \end{frame}
 
@@ -146,11 +146,22 @@
 \mint{py}{input(prompt)}
 where \fbox{\texttt{prompt}} is quite literally what it means. It prints the prompt, then returns the value inputted as a string.
 \end{block}
-\begin{block}{\texttt{random.randint()}}
-\mint{py}{random.randint(a, b)}
-\fbox{\texttt{a}} - the lower bound of your range\\[1pt]
-\fbox{\texttt{b}} - the upper bound of your range\\
-This generates an integer \texttt{n} where \texttt{a} $\leq$ \texttt{n} $\leq$ \texttt{b}.
+\end{frame}
+
+\begin{frame}[fragile]{Summary from Last Workshop}
+\begin{block}{Comparison Operators}
+There are 6 comparison operators:
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+Operator & Meaning\\\hline
+\texttt{==} & equal to\\\hline
+\texttt{>} & larger than\\\hline
+\texttt{>=} & larger than or equal to\\\hline
+\texttt{<} & smaller than\\\hline
+\texttt{<=} & smaller than or equal to\\\hline
+\texttt{!=} & not equal to\\\hline
+\end{tabular}
+\end{center}
 \end{block}
 \end{frame}
 
@@ -188,11 +199,41 @@ The \texttt{not} operator reverses the condition is it attached to.
 One can chain multiple logic operators together, but to be safe add brackets () to make sure the condition works as intended.
 \end{alertblock}
 \end{frame}
+
+\begin{frame}{World of Game Coding}
+    \tikzstyle{block} = [rectangle, minimum width=4cm, minimum height=2cm, text centered, draw = black]
+    \tikzmath{\x1 = 2.5; \y1 = 3;}
+    
+    \hspace{0.2\textwidth}\scalebox{0.5}{\begin{tikzpicture}
+    \node (root) [block, fill = Cornsilk2] {Game (Software)};
+    \node (program) [block, fill = LightSteelBlue] at ($(root) + (-\x1, -\y1)$) {Program (Code)};
+    \node (mm) [block, fill = Cornsilk2] at ($(root) + (\x1, -\y1)$) {Multimedia};
+    
+    \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+    
+    \node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+    \node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+    
+    \node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+    \node (var) [block, fill = LightSteelBlue] at ($(loop) + (0, -\y1)$) {Variables};
+    
+    \draw [->] (root.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (program.north);
+    \draw [->] (root.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (mm.north);
+    
+    \draw [->] (program.south) -- (func.north);
+    
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+    
+    \draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+    \draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+    \end{tikzpicture}}
+\end{frame}
     
 \begin{frame}{Contents} 
 \begin{center}
     \scalebox{0.5}{\begin{tikzpicture}
-    \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+    \node (program) [block, fill = LightSteelBlue] {Program (Code)};
     
     \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
     
@@ -272,17 +313,29 @@ print(numbers[0], numbers[1], numbers[2],
 print(numbers)
 # Output: [0, 1, 1, 2, 3, 5]
 \end{minted}
+\end{frame}
 
-\begin{block}{Printing the whole list}
-To print the whole list, simply put it in the \texttt{print()} function.
-\end{block}
+\begin{frame}[fragile]{Lists}
+One more example in the context of Hangman:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+# Indices:    0    1    2    3    4    5
+word_list = ["p", "y", "t", "h", "o", "n"]
+print(word_list[0], word_list[1], word_list[2],
+      word_list[3], word_list[4], word_list[5]) 
+# Output: p y t h o n
+
+print(word_list)
+# Output: ['p', 'y', 't', 'h', 'o', 'n']
+\end{minted}
 \end{frame}
 
 \begin{frame}[fragile]{Lists}
 To get the length of a list, we can use the \texttt{len()} function. \pause
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-numbers = [0, 1, 1, 2, 3, 5]
-print(len(numbers)) # 6
+numbers = [0, 1, 1, 2, 3, 5] |\pause|
+print(len(numbers)) # 6 
+word_list = ["p", "y", "t", "h", "o", "n"] |\pause|
+print(len(word_list)) # 6
 \end{minted}
 \end{frame}
 
@@ -298,6 +351,17 @@ print(numbers)
 \end{frame}
 
 \begin{frame}[fragile]{Lists}
+Another example in the context of Hangman:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word_list = ["p", "y", "t", "h", "o", "n"]
+print(word_list) # ['p', 'y', 't', 'h', 'o', 'n']
+word_list[3] = "a" # Edit the fourth element (index 3)
+print(word_list)  
+# Output: |\pause| ['p', 'y', 't', 'a', 'o', 'n']
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
 To add an element to the end to a list, we use the \texttt{append(value)} list function. \pause
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 numbers = [0, 1, 1, 2, 3, 5]
@@ -306,6 +370,18 @@ print(numbers, "length:", len(numbers))
 numbers.append(100) # Add 100 to the end of the list
 print(numbers, "length:", len(numbers))
 # Output:|\pause| [0, 1, 1, 2, 3, 5, 100] length: 7
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+Another example in the context of Hangman:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word_list = ["p", "y", "t", "h", "o", "n"]
+print(word_list, "length:", len(word_list)) 
+# Output: ['p', 'y', 't', 'h', 'o', 'n'] length: 6
+word_list.append("a") # Edit the fourth element (index 3)
+print(word_list, "length:", len(word_list))  
+# Output: |\pause| ['p', 'y', 't', 'h', 'o', 'n', 'a'] length: 7
 \end{minted}
 \end{frame}
 
@@ -325,10 +401,62 @@ else:
 \end{minted}
 \end{frame}
 
+\begin{frame}[fragile]{Lists}
+Another example in the context of Hangman:
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word_list = ["p", "y", "t", "h", "o", "n"]
+if "y" in numbers:
+    print("y is in the word list.")
+else:
+    print("y is not in the word list.")
+if "a" in numbers:
+    print("a is in the word list.")
+else:
+    print("a is not in the word list.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Lists}
+Another example in the context of Hangman:
+    
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word_list = ["p", "y", "t", "h", "o", "n"]
+if "y" in numbers:
+    print("y is in the word list.") # This line is run
+else:
+    print("y is not in the word list.")
+if "a" in numbers:
+    print("a is in the word list.")
+else:
+    print("a is not in the word list.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Lists}
+Another example in the context of Hangman:
+    
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word_list = ["p", "y", "t", "h", "o", "n"]
+if "y" in numbers:
+    print("y is in the word list.") # This line is run
+else:
+    print("y is not in the word list.")
+if "a" in numbers:
+    print("a is in the word list.")
+else:
+    print("a is not in the word list.") # This line is run
+\end{minted}
+\end{frame}
+
 \begin{frame}{Contents}
     \begin{center}\scalebox{0.5}{
         \begin{tikzpicture}
-        \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+        \node (program) [block, fill = LightSteelBlue] {Program (Code)};
         
         \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
         
@@ -758,7 +886,7 @@ for i in l:
 \begin{frame}{Contents} 
 \begin{center}
     \scalebox{0.5}{\begin{tikzpicture}
-    \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+    \node (program) [block, fill = LightSteelBlue] {Program (Code)};
     
     \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
     
@@ -882,7 +1010,7 @@ print(numbers[0])
 \begin{frame}{Contents} 
 \begin{center}
     \scalebox{0.5}{\begin{tikzpicture}
-    \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+    \node (program) [block, fill = LightSteelBlue] {Program (Code)};
     
     \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
     

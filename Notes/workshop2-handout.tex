@@ -127,11 +127,22 @@
 \mint{py}{input(prompt)}
 where \fbox{\texttt{prompt}} is quite literally what it means. It prints the prompt, then returns the value inputted as a string.
 \end{block}
-\begin{block}{\texttt{random.randint()}}
-\mint{py}{random.randint(a, b)}
-\fbox{\texttt{a}} - the lower bound of your range\\[1pt]
-\fbox{\texttt{b}} - the upper bound of your range\\
-This generates an integer \texttt{n} where \texttt{a} $\leq$ \texttt{n} $\leq$ \texttt{b}.
+\end{frame}
+
+\begin{frame}[fragile]{Summary from Last Workshop}
+\begin{block}{Comparison Operators}
+There are 6 comparison operators:
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+Operator & Meaning\\\hline
+\texttt{==} & equal to\\\hline
+\texttt{>} & larger than\\\hline
+\texttt{>=} & larger than or equal to\\\hline
+\texttt{<} & smaller than\\\hline
+\texttt{<=} & smaller than or equal to\\\hline
+\texttt{!=} & not equal to\\\hline
+\end{tabular}
+\end{center}
 \end{block}
 \end{frame}
 
@@ -169,11 +180,41 @@ The \texttt{not} operator reverses the condition is it attached to.
 One can chain multiple logic operators together, but to be safe add brackets () to make sure the condition works as intended.
 \end{alertblock}
 \end{frame}
+
+\begin{frame}{World of Game Coding}
+    \tikzstyle{block} = [rectangle, minimum width=4cm, minimum height=2cm, text centered, draw = black]
+    \tikzmath{\x1 = 2.5; \y1 = 3;}
+    
+    \hspace{0.2\textwidth}\scalebox{0.5}{\begin{tikzpicture}
+    \node (root) [block, fill = Cornsilk2] {Game (Software)};
+    \node (program) [block, fill = LightSteelBlue] at ($(root) + (-\x1, -\y1)$) {Program (Code)};
+    \node (mm) [block, fill = Cornsilk2] at ($(root) + (\x1, -\y1)$) {Multimedia};
+    
+    \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
+    
+    \node (if) [block, fill = LightSteelBlue] at ($(func) + (-\x1, -\y1)$) {Decision Making};
+    \node (loop) [block, fill = LightSteelBlue] at ($(func) + (\x1, -\y1)$) {Loops};
+    
+    \node (io) [block, fill = LightSteelBlue] at ($(if) + (0, -\y1)$) {Input/Output};
+    \node (var) [block, fill = LightSteelBlue] at ($(loop) + (0, -\y1)$) {Variables};
+    
+    \draw [->] (root.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (program.north);
+    \draw [->] (root.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (mm.north);
+    
+    \draw [->] (program.south) -- (func.north);
+    
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(-\x1, 0) -- (if.north);
+    \draw [->] (func.south) -- ++(0, -0.5) -- ++(\x1, 0) -- (loop.north);
+    
+    \draw [->] (loop.south) -- ++(0, -0.5) -- ++(-2*\x1, 0) -- (io.north);
+    \draw [->] (if.south) -- ++(0, -0.5) -- ++(2*\x1, 0) -- (var.north);
+    \end{tikzpicture}}
+\end{frame}
     
 \begin{frame}{Contents} 
 \begin{center}
     \scalebox{0.5}{\begin{tikzpicture}
-    \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+    \node (program) [block, fill = LightSteelBlue] {Program (Code)};
     
     \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
     
@@ -309,7 +350,7 @@ else:
 \begin{frame}{Contents}
     \begin{center}\scalebox{0.5}{
         \begin{tikzpicture}
-        \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+        \node (program) [block, fill = LightSteelBlue] {Program (Code)};
         
         \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
         
@@ -739,7 +780,7 @@ for i in l:
 \begin{frame}{Contents} 
 \begin{center}
     \scalebox{0.5}{\begin{tikzpicture}
-    \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+    \node (program) [block, fill = LightSteelBlue] {Program (Code)};
     
     \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
     
@@ -863,7 +904,7 @@ print(numbers[0])
 \begin{frame}{Contents} 
 \begin{center}
     \scalebox{0.5}{\begin{tikzpicture}
-    \node (program) [block, fill = LightSteelBlue] {Program (Codes)};
+    \node (program) [block, fill = LightSteelBlue] {Program (Code)};
     
     \node (func) [block, fill = LightSteelBlue] at ($(program) + (0, -\y1)$) {Functions};
     
