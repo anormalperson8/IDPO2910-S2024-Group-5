@@ -11,7 +11,7 @@
 \usecolortheme{default}
 \usepackage{multirow, multicol}
 \usepackage{tikz, pgfplots}
-\usetikzlibrary{arrows.meta, math, calc, quotes, intersections, angles, trees, shapes.geometric}
+\usetikzlibrary{arrows.meta, math, calc, quotes, intersections, angles, trees, shapes}
 \pgfplotsset{compat=1.18}
 \tikzstyle{block} = [rectangle, minimum width=4cm, minimum height=2cm, text centered, draw = black]
 \tikzmath{\x1 = 2.5; \y1 = 3;}
@@ -294,17 +294,29 @@ print(numbers[0], numbers[1], numbers[2],
 print(numbers)
 # Output: [0, 1, 1, 2, 3, 5]
 \end{minted}
+\end{frame}
 
-\begin{block}{Printing the whole list}
-To print the whole list, simply put it in the \texttt{print()} function.
-\end{block}
+\begin{frame}[fragile]{Lists}
+One more example in the context of Hangman:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+# Indices:    0    1    2    3    4    5
+word_list = ["p", "y", "t", "h", "o", "n"]
+print(word_list[0], word_list[1], word_list[2],
+      word_list[3], word_list[4], word_list[5]) 
+# Output: p y t h o n
+
+print(word_list)
+# Output: ['p', 'y', 't', 'h', 'o', 'n']
+\end{minted}
 \end{frame}
 
 \begin{frame}[fragile]{Lists}
 To get the length of a list, we can use the \texttt{len()} function. \pause
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-numbers = [0, 1, 1, 2, 3, 5]
-print(len(numbers)) # 6
+numbers = [0, 1, 1, 2, 3, 5] |\pause|
+print(len(numbers)) # 6 
+word_list = ["p", "y", "t", "h", "o", "n"] |\pause|
+print(len(word_list)) # 6
 \end{minted}
 \end{frame}
 
@@ -316,6 +328,17 @@ print(numbers) # [0, 1, 1, 2, 3, 5]
 numbers[1] = 100 # Edit the second element (index 1)
 print(numbers)  
 # Output: |\pause| [0, 100, 1, 2, 3, 5]
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+Another example in the context of Hangman:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word_list = ["p", "y", "t", "h", "o", "n"]
+print(word_list) # ['p', 'y', 't', 'h', 'o', 'n']
+word_list[3] = "a" # Edit the fourth element (index 3)
+print(word_list)  
+# Output: |\pause| ['p', 'y', 't', 'a', 'o', 'n']
 \end{minted}
 \end{frame}
 
@@ -332,6 +355,18 @@ print(numbers, "length:", len(numbers))
 \end{frame}
 
 \begin{frame}[fragile]{Lists}
+Another example in the context of Hangman:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word_list = ["p", "y", "t", "h", "o", "n"]
+print(word_list, "length:", len(word_list)) 
+# Output: ['p', 'y', 't', 'h', 'o', 'n'] length: 6
+word_list.append("a") # Edit the fourth element (index 3)
+print(word_list, "length:", len(word_list))  
+# Output: |\pause| ['p', 'y', 't', 'h', 'o', 'n', 'a'] length: 7
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
 We can check if an element is in a list with the \texttt{in} operator.\pause
 
 \begin{minted}[tabsize=4, escapeinside=||]{python}
@@ -344,6 +379,58 @@ if 8 in numbers:
     print("8 is in numbers.")
 else:
     print("8 is not in numbers.") # This line is run
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+Another example in the context of Hangman:
+
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word_list = ["p", "y", "t", "h", "o", "n"]
+if "y" in numbers:
+    print("y is in the word list.")
+else:
+    print("y is not in the word list.")
+if "a" in numbers:
+    print("a is in the word list.")
+else:
+    print("a is not in the word list.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Lists}
+Another example in the context of Hangman:
+    
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word_list = ["p", "y", "t", "h", "o", "n"]
+if "y" in numbers:
+    print("y is in the word list.") # This line is run
+else:
+    print("y is not in the word list.")
+if "a" in numbers:
+    print("a is in the word list.")
+else:
+    print("a is not in the word list.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Lists}
+Another example in the context of Hangman:
+    
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word_list = ["p", "y", "t", "h", "o", "n"]
+if "y" in numbers:
+    print("y is in the word list.") # This line is run
+else:
+    print("y is not in the word list.")
+if "a" in numbers:
+    print("a is in the word list.")
+else:
+    print("a is not in the word list.") # This line is run
 \end{minted}
 \end{frame}
 
@@ -374,16 +461,16 @@ else:
 \begin{frame}[fragile]{Loops}
 What do you do if you want to do something repeatedly in code? \pause 
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-print("Count:", 10)
-print("Count:", 9)
-print("Count:", 8)
-print("Count:", 7)
-print("Count:", 6)
-print("Count:", 5)
-print("Count:", 4)
-print("Count:", 3)
-print("Count:", 2)
+print("Count:", 0)
 print("Count:", 1)
+print("Count:", 2)
+print("Count:", 3)
+print("Count:", 4)
+print("Count:", 5)
+print("Count:", 6)
+print("Count:", 7)
+print("Count:", 8)
+print("Count:", 9)
 print("Done.")
 \end{minted} 
 \pause 
@@ -393,10 +480,10 @@ Let's turn this into a loop.
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10 # Initialising i as 10
-while i > 0:
+i = 0 # Initialising i as 0
+while i < 10:
     print("Count:", i)
-    i = i - 1
+    i = i + 1
 print("Done.")
 \end{minted}
 Let's run through it together.
@@ -407,9 +494,22 @@ Let's run through it together.
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: # i is 10, which is larger than 0
+i = 0
+while i < 10: # i is 0, which is smaller than 10
     print("Count:", i)
+    i = i + 1
+print("Done.")
+\end{minted}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+i = 0
+while i < 10: 
+    print("Count:", i) # Count: 0
     i = i - 1
 print("Done.")
 \end{minted}
@@ -420,23 +520,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: 
-    print("Count:", i) # Count: 10
-    i = i - 1
-print("Done.")
-\end{minted}
-\end{frame}
-
-\addtocounter{framenumber}{-1}
-
-\begin{frame}[fragile]{Loops - \texttt{while}}
-Example:
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: 
+i = 0
+while i < 10: 
     print("Count:", i)
-    i = i - 1 # i goes from 10 to 9, then we go back up
+    i = i + 1 # i goes from 0 to 1, then we go back up
 print("Done.")
 \end{minted}
 \end{frame}
@@ -446,10 +533,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: # i is 9, which is larger than 0
+i = 0
+while i < 10: # i is 1, which is smaller than 10
     print("Count:", i)
-    i = i - 1
+    i = i + 1
 print("Done.")
 \end{minted}
 \end{frame}
@@ -459,10 +546,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: 
-    print("Count:", i) # Count: 9
-    i = i - 1
+i = 0
+while i < 10: 
+    print("Count:", i) # Count: 1
+    i = i + 1
 print("Done.")
 \end{minted}
 \end{frame}
@@ -472,10 +559,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: 
+i = 0
+while i < 10: 
     print("Count:", i)
-    i = i - 1 # i goes from 9 to 8, then we go back up
+    i = i + 1 # i goes from 1 to 2, then we go back up
 print("Done.")
 \end{minted}
 \end{frame}
@@ -485,10 +572,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: # i is 8, which is larger than 0
+i = 0
+while i < 10: # i is 2, which is smaller than 10
     print("Count:", i)
-    i = i - 1
+    i = i + 1
 print("Done.")
 \end{minted}
 \end{frame}
@@ -498,10 +585,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: 
-    print("Count:", i) # Count: 8
-    i = i - 1
+i = 0
+while i < 10: 
+    print("Count:", i) # Count: 2
+    i = i + 1
 print("Done.")
 \end{minted}
 \end{frame}
@@ -511,10 +598,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: 
+i = 0
+while i < 10: 
     print("Count:", i)
-    i = i - 1 # i goes from 8 to 7, then we go back up
+    i = i + 1 # i goes from 2 to 3, then we go back up
 print("Done.")
 \end{minted}
 \end{frame}
@@ -524,10 +611,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: # i is 7, which is larger than 0
+i = 0
+while i < 10: # i is 3, which is smaller than 10
     print("Count:", i)
-    i = i - 1
+    i = i + 1
 print("Done.")
 \end{minted}
 
@@ -539,10 +626,10 @@ This goes on and on\dots
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: # i is 1, which is larger than 0
+i = 0
+while i < 10: # i is 9, which is smaller than 10
     print("Count:", i)
-    i = i - 1
+    i = i + 1
 print("Done.")
 \end{minted}
 \end{frame}
@@ -552,10 +639,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: 
-    print("Count:", i) # Count: 1
-    i = i - 1
+i = 0
+while i < 10: 
+    print("Count:", i) # Count: 9
+    i = i + 1
 print("Done.")
 \end{minted}
 \end{frame}
@@ -565,10 +652,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: 
+i = 0
+while i < 10: 
     print("Count:", i)
-    i = i - 1 # i goes from 1 to 0, then we go back up
+    i = i + 1 # i goes from 9 to 10, then we go back up
 print("Done.")
 \end{minted}
 \end{frame}
@@ -578,10 +665,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0: # i is 0, which is NOT larger than 0, so we exit
+i = 0
+while i < 10: # i is 10, which is NOT smaller than 10
     print("Count:", i)
-    i = i - 1
+    i = i + 1
 print("Done.")
 \end{minted}
 \end{frame}
@@ -591,10 +678,10 @@ print("Done.")
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0:
+i = 0
+while i < 10:
     print("Count:", i)
-    i = i - 1
+    i = i + 1
 print("Done.") # "Done." is printed
 \end{minted}
 \end{frame}
@@ -602,16 +689,27 @@ print("Done.") # "Done." is printed
 \begin{frame}[fragile]{Loops - \texttt{while}}
 Example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-i = 10
-while i > 0:
+i = 0
+while i < 10:
 |\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|print("Count:", i)
-|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|i = i - 1
+|\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace|i = i + 1
 print("Done.")
 \end{minted}
 \begin{block}{Indentation}
 Just like \texttt{if}-clauses, the indentation must be consistent for statements in the loop.
 This also applies to \texttt{for} loops, which we will get into very soon.
 \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Loops - \texttt{while}}
+Example in the context of Hangman:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+max = 6
+wrong_guess = 0
+while wrong_guess < max:
+    print("You have", max - wrong_guess, "guesses left.")
+    # Some more code to decide if the guess is wrong
+\end{minted}
 \end{frame}
 
 \begin{frame}[fragile]{Loops - \texttt{for}}
@@ -627,7 +725,27 @@ Python \texttt{range} is a thing of mystery. When you do \texttt{range(n)}, wher
 \end{frame}
 
 \begin{frame}[fragile]{Loops - \texttt{for}}
-Not getting the loop?
+Example:
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+for i in range(10):
+    print("Count:", i)
+print("Done.")
+\end{minted}
+
+\ 
+
+\tikzstyle{forArrow} = [single arrow, draw=none, fill=green!50, anchor=base, align=center,text width=1cm]
+\begin{tikzpicture}
+    \node (A) [forArrow] {\texttt{i=0}};
+    \node (B) [forArrow, right of=A, xshift=0.75cm] {\texttt{i=1}};
+    \node (C) [forArrow, right of=B, xshift=0.75cm] {\texttt{i=2}};
+    \node (D) [draw=none, right of=C, xshift=0.25cm] {$\cdots$};
+    \node (E) [forArrow, right of=D, xshift=0.05cm] {\texttt{i=8}};
+    \node (F) [forArrow, right of=E, xshift=0.75cm] {\texttt{i=9}};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Loops - \texttt{for}}
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 for i in range(10):
     print("Count:", i)
@@ -656,8 +774,8 @@ Another example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 for i in range(3):
     print(i * i) # Print the square, end with a space
-# Output:|\pause| 0
-#         1
+# Output:|\pause| 0 |\pause|
+#         1 |\pause|
 #         4
 \end{minted}
 \end{frame}
@@ -665,12 +783,15 @@ for i in range(3):
 \begin{frame}[fragile]{Loops - \texttt{for}}
 Let's combine lists with a for loop.
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-words = ["haha", "hehe", "hoho"]
+word = ["p", "y", "t", "h", "o", "n"]
 for i in range(len(words)):
-    print(words[i]) # Print num[i]
-# Output:|\pause| haha
-#         hehe
-#         hoho
+    print(word[i]) # Print word[i]
+# Output:|\pause| p |\pause|
+#         y |\pause|
+#         t |\pause|
+#         h |\pause|
+#         o |\pause|
+#         n
 \end{minted}
 \pause This is one way we go through a list.
 \end{frame}
@@ -678,12 +799,15 @@ for i in range(len(words)):
 \begin{frame}[fragile]{Loops - \texttt{for}}
 Instead of using the index, there is another way to go through a list:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
-words = ["haha", "hehe", "hoho"]
-for i in words:
+word = ["p", "y", "t", "h", "o", "n"]
+for i in word:
     print(i) # Print the element
-# Output:|\pause| haha
-#         hehe
-#         hoho
+# Output:|\pause| p |\pause|
+#         y |\pause|
+#         t |\pause|
+#         h |\pause|
+#         o |\pause|
+#         n
 \end{minted}
 \pause The output is identical to the previous example.
 \end{frame}
