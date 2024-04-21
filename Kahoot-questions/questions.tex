@@ -254,7 +254,7 @@
     \begin{center}
         \begin{minted}[autogobble, tabsize=4]{py}
             a = 5
-            if (not a == 3 and a != 9) or a != 5:
+            if ((not a == 3) and a != 9) or a != 5:
                 print(a, a+1)
             else:
                 print(a+1, a)
@@ -283,10 +283,10 @@
             else:
                 print("FALSE")
             
-            not (a <= 0 or a > 100)    # (1)
-            not a <= 0 and not a > 100 # (2)
-            not (a <= 0 and a > 100)   # (3)
-            not a <= 0 and a > 100     # (4)
+            not (a <= 0 or a > 100)        # (1)
+            (not a <= 0) and (not a > 100) # (2)
+            not (a <= 0 and a > 100)       # (3)
+            (not a <= 0) and a > 100       # (4)
         \end{minted}
     \end{center}
 \end{frame}
