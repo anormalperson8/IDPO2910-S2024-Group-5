@@ -26,7 +26,7 @@
 
 \begin{document}
 
-\setbeamertemplate{page number in head/foot}{\insertframenumber /44}
+\setbeamertemplate{page number in head/foot}{\insertframenumber /45}
 
 \frame{\titlepage}
 
@@ -60,49 +60,7 @@
 
         Download all files that belong to \textbf{Workshop 2} today.
     \end{center}
-\end{frame}
-
-\begin{frame}[fragile]{Google Colab}
-    \begin{center}
-        Login to your Gmail account.
-
-        \
-
-        Then head to
-
-        \href{https://colab.research.google.com/}{https://colab.research.google.com/}
-    \end{center}
-\end{frame}
-
-\begin{frame}[fragile]{Jupyter Notebook}
-    \begin{center}
-        Now upload your Jupyter Notebook file with \textbf{Files $\rightarrow$ Open Notebook}.
-    
-        \
-
-        \frame{\includegraphics[width=0.5\textwidth]{Upload.png}}
-
-        Upload the file \textbf{Hangman.ipynb}.
-    
-    \end{center}
-\end{frame}
-
-\begin{frame}[fragile]{Using Jupyter Notebook}
-    You can type your code in these blocks. We call these blocks code cells.
-
-    \begin{center}
-        \frame{\includegraphics[width=0.5\textwidth]{Use1.png}}
-    \end{center}
-
-    \
-
-    You can run a code cell with the button on the left.
-
-    \begin{center}
-        \frame{\includegraphics[width=0.5\textwidth]{Use2.png}}
-    \end{center}
-\end{frame}
-    
+\end{frame}    
 
 \begin{frame}[fragile]{Summary from Last Workshop}
     \begin{center}
@@ -454,7 +412,18 @@ else:
 \end{frame}
 
 \begin{frame}[fragile]{More about the \texttt{in} operator}
-TBD
+The \texttt{in} operator works very similarly when applied to strings.
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word = "python"
+if "y" in word:
+    print("y is in the word list.") # This line is run
+else:
+    print("y is not in the word list.")
+if "a" in word:
+    print("a is in the word list.")
+else:
+    print("a is not in the word list.") # This line is run
+\end{minted}
 \end{frame}
 
 \begin{frame}{Contents}
@@ -533,7 +502,7 @@ Example:
 i = 0
 while i < 10: 
     print("Count:", i) # Count: 0
-    i = i - 1
+    i = i + 1
 print("Done.")
 \end{minted}
 \end{frame}
@@ -890,6 +859,58 @@ for i in l:
 \end{minted}
 \texttt{for} loops can be directly applied onto lists.
 \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Summary}
+\begin{block}{\texttt{in} operator for strings}
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+word = "word"
+if "w" in word:
+    print("w is in word")
+\end{minted}
+You can use the \texttt{in} operator to check if a string is part of the target string.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Google Colab}
+    \begin{center}
+        Login to your Gmail account.
+
+        \
+
+        Then head to
+
+        \href{https://colab.research.google.com/}{https://colab.research.google.com/}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Jupyter Notebook}
+    \begin{center}
+        Now upload your Jupyter Notebook file with \textbf{Files $\rightarrow$ Open Notebook}.
+    
+        \
+
+        \frame{\includegraphics[width=0.5\textwidth]{Upload.png}}
+
+        Upload the file \textbf{Hangman.ipynb}.
+    
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Using Jupyter Notebook}
+    You can type your code in these blocks. We call these blocks code cells.
+
+    \begin{center}
+        \frame{\includegraphics[width=0.5\textwidth]{Use1.png}}
+    \end{center}
+
+    \
+
+    You can run a code cell with the button on the left.
+
+    \begin{center}
+        \frame{\includegraphics[width=0.5\textwidth]{Use2.png}}
+    \end{center}
 \end{frame}
 
 \begin{frame}{ \ }
