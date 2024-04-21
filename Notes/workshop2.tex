@@ -26,15 +26,9 @@
 
 \begin{document}
 
-\setbeamertemplate{page number in head/foot}{\insertframenumber /35}
+\setbeamertemplate{page number in head/foot}{\insertframenumber /44}
 
 \frame{\titlepage}
-
-\begin{frame}[fragile]{Hangman}
-    \begin{center}
-        Let's start off with a simple game of Hangman.
-    \end{center}
-\end{frame}
 
 \begin{frame}[fragile]{Revision}
     \begin{center}
@@ -45,6 +39,12 @@
         \
 
         \frame{\includegraphics[width=0.75\textwidth]{Kahoot-Demo.png}}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Hangman}
+    \begin{center}
+        Let's start off with a simple game of Hangman.
     \end{center}
 \end{frame}
 
@@ -424,11 +424,11 @@ Another example in the context of Hangman:
     
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 word_list = ["p", "y", "t", "h", "o", "n"]
-if "y" in numbers:
+if "y" in word_list:
     print("y is in the word list.") # This line is run
 else:
     print("y is not in the word list.")
-if "a" in numbers:
+if "a" in word_list:
     print("a is in the word list.")
 else:
     print("a is not in the word list.")
@@ -442,15 +442,19 @@ Another example in the context of Hangman:
     
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 word_list = ["p", "y", "t", "h", "o", "n"]
-if "y" in numbers:
+if "y" in word_list:
     print("y is in the word list.") # This line is run
 else:
     print("y is not in the word list.")
-if "a" in numbers:
+if "a" in word_list:
     print("a is in the word list.")
 else:
     print("a is not in the word list.") # This line is run
 \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{More about the \texttt{in} operator}
+TBD
 \end{frame}
 
 \begin{frame}{Contents}
