@@ -26,7 +26,7 @@
 
 \begin{document}
 
-\setbeamertemplate{page number in head/foot}{\insertframenumber /46}
+\setbeamertemplate{page number in head/foot}{\insertframenumber /45}
 
 \frame{\titlepage}
 
@@ -388,13 +388,13 @@ The \texttt{in} operator works very similarly when applied to strings.
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 word = "python"
 if "y" in word:
-    print("y is in the word list.") # This line is run
+    print("y is in the word.") # This line is run
 else:
-    print("y is not in the word list.")
+    print("y is not in the word.")
 if "a" in word:
-    print("a is in the word list.")
+    print("a is in the word.")
 else:
-    print("a is not in the word list.") # This line is run
+    print("a is not in the word.") # This line is run
 \end{minted}
 \end{frame}
 
@@ -403,9 +403,9 @@ You can combine the \texttt{not} and \texttt{in} operators.
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 word = "python"
 if "a" not in word:
-    print("a is not in the word list.") # This line is run
+    print("a is not in the word.") # This line is run
 else:
-    print("a is in the word list.")
+    print("a is in the word.")
 word_list = ["U", "S", "T"]
 if "u" not in word_list:
     print("u is not in the list.") # This line is run
@@ -753,7 +753,7 @@ Both loops go from 0 to 9, and give identical output.
 Another example:
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 for i in range(3):
-    print(i * i) # Print the square, end with a space
+    print(i * i) # Print the square
 # Output:|\pause| 0 |\pause|
 #         1 |\pause|
 #         4
@@ -861,17 +861,6 @@ for i in l:
     # Do code with each item in the list
 \end{minted}
 \texttt{for} loops can be directly applied onto lists.
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]{Summary}
-\begin{block}{\texttt{in} operator for strings}
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-word = "word"
-if "w" in word:
-    print("w is in word")
-\end{minted}
-You can use the \texttt{in} operator to check if a string is part of the target string.
 \end{block}
 \end{frame}
 
