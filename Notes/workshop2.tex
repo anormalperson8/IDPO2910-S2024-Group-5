@@ -263,6 +263,23 @@ print(names[0]) # Chris Wong
 
 Lists are declared by surrounding the items with [ ], and separating each item with a comma.
 
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+What we are going to learn with lists:
+
+\begin{itemize}
+    \item Getting elements
+    \item List with \texttt{print()}
+    \item Editing elements
+    \item Length of a list
+    \item Appending an element
+    \item \texttt{in} operator
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+
 We can get the name from a list by getting the corresponding item.
 
 How? With list[index].
@@ -314,16 +331,6 @@ print(word_list)
 \end{frame}
 
 \begin{frame}[fragile]{Lists}
-To get the length of a list, we can use the \texttt{len()} function. \pause
-\begin{minted}[tabsize=4, escapeinside=||]{python}
-numbers = [0, 1, 1, 2, 3, 5] |\pause|
-print(len(numbers)) # 6 
-word_list = ["p", "y", "t", "h", "o", "n"] |\pause|
-print(len(word_list)) # 6
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]{Lists}
 To edit an element of a list, assign the new value to the correct index. \pause
 \begin{minted}[tabsize=4, escapeinside=||]{python}
 numbers = [0, 1, 1, 2, 3, 5]
@@ -342,6 +349,16 @@ print(word_list) # ['p', 'y', 't', 'h', 'o', 'n']
 word_list[3] = "a" # Edit the fourth element (index 3)
 print(word_list)  
 # Output: |\pause| ['p', 'y', 't', 'a', 'o', 'n']
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+To get the length of a list, we can use the \texttt{len()} function. \pause
+\begin{minted}[tabsize=4, escapeinside=||]{python}
+numbers = [0, 1, 1, 2, 3, 5] |\pause|
+print(len(numbers)) # 6 
+word_list = ["p", "y", "t", "h", "o", "n"] |\pause|
+print(len(word_list)) # 6
 \end{minted}
 \end{frame}
 
@@ -1243,7 +1260,7 @@ print(sum) # Output: 201
 	\begin{center}
 		End of Additional Contents\\
 		Made in \LaTeX\\
-		Last updated: 22 Apr 2024
+		Last updated: 24 Apr 2024
 	\end{center}
 \end{frame}
 
